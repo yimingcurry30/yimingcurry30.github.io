@@ -219,6 +219,69 @@
 
 
   
+    <article id="post-常信linux" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/16/%E5%B8%B8%E4%BF%A1linux/">Linux操作系统上课笔记</a>
+    </h1>
+  
+
+        
+        <a href="/2023/02/16/%E5%B8%B8%E4%BF%A1linux/" class="archive-article-date">
+  	<time datetime="2023-02-16T07:45:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Made-by-Code-OneMING"><a href="#Made-by-Code-OneMING" class="headerlink" title="Made by Code-OneMING"></a>Made by Code-OneMING</h1>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/02/16/%E5%B8%B8%E4%BF%A1linux/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
     <article id="post-关于Linux操作系统的学习理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -264,187 +327,6 @@
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2023/02/16/%E5%85%B3%E4%BA%8ELinux%E6%93%8D%E4%BD%9C%E7%B3%BB%E7%BB%9F%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%90%86%E8%A7%A3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-常信linux" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/16/%E5%B8%B8%E4%BF%A1linux/">Linux操作系统上课笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2023/02/16/%E5%B8%B8%E4%BF%A1linux/" class="archive-article-date">
-  	<time datetime="2023-02-16T07:45:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Made-by-Code-OneMING"><a href="#Made-by-Code-OneMING" class="headerlink" title="Made by Code-OneMING"></a>Made by Code-OneMING</h1><h2 id="1-2-x2F-20上课笔记"><a href="#1-2-x2F-20上课笔记" class="headerlink" title="1. 2&#x2F;20上课笔记"></a>1. 2&#x2F;20上课笔记</h2><h3 id="安装ssh"><a href="#安装ssh" class="headerlink" title="安装ssh"></a>安装ssh</h3><p>1.运行安装ssh的代码</p>
-<p>sudo apt install openssh-server</p>
-<p>2.换源测试<br>查看自己的Ubuntu版本<br>lsb_release -c<br>百度搜索阿里源镜像 找到对应版本的源<br>sudo gedit &#x2F;etc&#x2F;apt&#x2F;sources.list<br>使用文本编辑器打开并删除其中的源换上阿里源</p>
-<p>点击save保存<br>更新源<br>sudo apt update</p>
-<p>sudo apt upgrade</p>
-<p>换源测试完成</p>
-<p>3.基础测试<br>这一步是安装ohmyzsh   安装之前需要先安装zsh和git<br>sudo apt install zsh git<br>{ 由于在国内无法通过GitHub下载ohmyzsh 所以选择将代码保存到虚拟机并运行，可以达到相同的效果 ps：ohmyzsh给的官方方法是 sh -c “$(wget -O- <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)%22%E8%AF%A5%E6%9D%A1%E4%BB%85%E4%BD%9C%E8%A1%A5%E5%85%85">https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)&quot;该条仅作补充</a> 不必运行 }  </p>
-<p>在虚拟机的浏览器输入<br><a target="_blank" rel="noopener" href="http://web.tecxz.com:9080/">http://web.tecxz.com:9080</a><br>进入到<br>web.tecxz.com:9080&#x2F;file&#x2F;zsh<br>路径下右击鼠标<br>选择 save link as 并保存<br>输入指令切换到根目录下<br>cd<br>输入指令切换到downloads目录下<br>cd Downloads<br>运行脚本<br>sh install.sh   </p>
-<p>基础测试完成</p>
-<p>4.分区测试<br>先划分磁盘<br>关闭虚拟机 点击 编辑虚拟机 设置左下角点击添加，然后选择nvme，分配5G空间 点击下一步 即添加成功<br>一定要选择nvme<br>分为单个文件<br>磁盘划分完成之后开始分区<br>进入虚拟机后先查看 使用指令<br> lsblk  查看nvme0n1盘是否存在<br>lsblk<br>如果存在使用指令  </p>
-<p>sudo gdisk &#x2F;dev&#x2F;nvme0n1<br>进入磁盘分区设置界面<br>第一分区根据提示依次输入 给500M空间 回车 格式为 ef00<br>第二分区默认设置即可<br>输入c 给一二分区命名  </p>
-<p>p是查看所填写的资料 对照一下是否正确 正确即进入下一步  </p>
-<p>w保存 </p>
-<p>使用lsblk查看分区是否成功</p>
-<p>5.挂载测试<br>使用管理员权限创建目录<br> &#x2F;mnt&#x2F;usb<br>sudo mkdir &#x2F;mnt&#x2F;usb  </p>
-<p>查看p1盘状态  </p>
-<p>sudo mkfs.vfat -F32 &#x2F;dev&#x2F;nvme0n1p1  </p>
-<p>查看p2盘状态  </p>
-<p>sudo mkfs.ext4 &#x2F;dev&#x2F;nvme0n1p2  </p>
-<p>使用管理员权限挂载  </p>
-<p>sudo mount &#x2F;dev&#x2F;nvme0n1p2 &#x2F;mnt&#x2F;usb  </p>
-<p>使用管理员权限创建<br> &#x2F;mnt&#x2F;usb&#x2F;boot&#x2F;efi</p>
-<p>sudo mkdir -p &#x2F;mnt&#x2F;usb&#x2F;boot&#x2F;efi  </p>
-<p>挂载p1盘  </p>
-<p>sudo mount &#x2F;dev&#x2F;nvme0n1p1 &#x2F;mnt&#x2F;usb&#x2F;boot&#x2F;efi  </p>
-<p>使用lsblk查看是是否挂载成功<br>即成功挂载</p>
-<p>6.B系统预装测试<br>安装debootstrap及依赖    </p>
-<p>sudo apt install debootstrap  </p>
-<p>sudo apt search arch-install  </p>
-<p>sudo apt install arch-install-scripts  </p>
-<p>在启动一个终端窗口 输入<br>cat &#x2F;etc&#x2F;apt&#x2F;sources.list<br> 查看源<br>并 复制第一条  </p>
-<p>cat &#x2F;etc&#x2F;apt&#x2F;sources.list  </p>
-<p>将源粘贴至架构代码后面  </p>
-<p>sudo debootstrap –arch&#x3D;amd64 jammy &#x2F;mnt&#x2F;usb <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/ubuntu/">http://mirrors.aliyun.com/ubuntu/</a>  </p>
-<p>创建fstab  </p>
-<p>genfstab &#x2F;mnt&#x2F;usb | sudo tee &#x2F;mnt&#x2F;usb&#x2F;etc&#x2F;fstab  </p>
-<p>检查一下  </p>
-<p>cat &#x2F;mnt&#x2F;usb&#x2F;etc&#x2F;fstab  </p>
-<p>复制文件至mnt&#x2F;usb&#x2F;etc&#x2F;apt   目录下  </p>
-<p>sudo cp &#x2F;etc&#x2F;apt&#x2F;sources.list &#x2F;mnt&#x2F;usb&#x2F;etc&#x2F;apt&#x2F;sources.list  </p>
-<p>检查一下  </p>
-<p>cat &#x2F;mnt&#x2F;usb&#x2F;etc&#x2F;apt&#x2F;sources.list  </p>
-<p>预装测试完成</p>
-<p>6.B系统安装基础测试<br>挂载  </p>
-<p>sudo mount -o bind &#x2F;dev &#x2F;mnt&#x2F;usb&#x2F;dev  </p>
-<p>sudo mount -o bind &#x2F;sys &#x2F;mnt&#x2F;usb&#x2F;sys</p>
-<p>sudo mount -o bind &#x2F;proc &#x2F;mnt&#x2F;usb&#x2F;proc</p>
-<p>进入B系统root界面  </p>
-<p>sudo chroot &#x2F;mnt&#x2F;usb</p>
-<p>安装基础测试完成</p>
-<p>7.B系统必备软件测试  </p>
-<p>进入B系统后 更新源  </p>
-<p>apt update  </p>
-<p>安装内核  </p>
-<p>apt install linux-image-generic  </p>
-<p>设置root密码  </p>
-<p>passwd  </p>
-<p>第一行是新密码<br> 第二行是再次输入密码  </p>
-<p>创建用户 并使用<br>ls &#x2F;home<br> 查看  </p>
-<p>useradd joker -m  </p>
-<p>设置账户密码  </p>
-<p>passwd joker  </p>
-<p>安装文本编辑器nano<br>apt install nano  </p>
-<p>给刚创建的用户越权权限  </p>
-<p>usermod -aG sudo joker  </p>
-<p>安装网络工具软件  </p>
-<p>apt install net-tools network-manager  </p>
-<p>必备软件测试完成</p>
-<p>8.B系统引导测试<br>安装引导并更新<br>apt install efibootmgr grub-efi-amd64</p>
-<p>apt update</p>
-<p>图片1<br>挂载  </p>
-<p>mount -t efivarfs efivarfs &#x2F;sys&#x2F;firmware&#x2F;efi&#x2F;efivars&#x2F;  </p>
-<p>grub-install -v –target&#x3D;x86_64-efi –recheck &#x2F;dev&#x2F;nvme0n1  </p>
-<p>使用nano编辑器编辑  </p>
-<p>nano &#x2F;etc&#x2F;default&#x2F;grub  </p>
-<p>注释掉白字第五行使用快捷键 ctrl+o 和 x 并按y保存  </p>
-<p>更新  </p>
-<p>update-grub  </p>
-<p>下载NetworkManager  </p>
-<p>apt install network-manager  </p>
-<p>引导测试完成</p>
-<p>9.B系统ssh测试  </p>
-<p>重启进入B系统  </p>
-<p>输入对应账户的密码  </p>
-<p>临时使用bash  </p>
-<p>bash<br>进入B系统后  </p>
-<p>使用指令查看  </p>
-<p>systemctl status NetworkManager  </p>
-<p>输入 (可以用tab自动补全)  </p>
-<p>sudo nano &#x2F;usr&#x2F;lib&#x2F;NetworkManager&#x2F;conf.d&#x2F;10-globally-managed-devices.conf  </p>
-<p>输入密码  </p>
-<p>注释掉内容  </p>
-<p>ctrl+o保存 回车  </p>
-<p>ctrl+x退出  </p>
-<p>输入  </p>
-<p>sudo systemctl restart  NetworkManager</p>
-<p>输入  </p>
-<p>ip a  </p>
-<p>查看IP  </p>
-<p>输入  </p>
-<p>sudo apt update  </p>
-<p>更新（稍等一会）  </p>
-<p>安装ssh </p>
-<p>sudo apt install openssh-server </p>
-<p>输入  </p>
-<p>ip a  </p>
-<p>查看b系统ip并写入pyclass  </p>
-<p>运行测试</p>
-<p>10.B系统基础测试  </p>
-<p>安装zsh和git  </p>
-<p>sudo apt install zsh git  </p>
-<p>按Y确认  </p>
-<p>运行  </p>
-<p>wget <a target="_blank" rel="noopener" href="http://web.tecxz.com:9080/file/zsh/install.sh">http://web.tecxz.com:9080/file/zsh/install.sh</a>  </p>
-<p>运行  </p>
-<p>sh install.sh  </p>
-<p>第一个是B系统  </p>
-<p>最后一个是A系统  </p>
-<p>选择SCSI  </p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/02/16/%E5%B8%B8%E4%BF%A1linux/">展开全文 >></a>
         </p>
       
 
@@ -852,15 +734,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">我的第二篇文章</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">我的第三篇博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">我的第一篇文章</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">我的第二篇文章</a>
               </li>
             
             <div class="clearfix"></div>
