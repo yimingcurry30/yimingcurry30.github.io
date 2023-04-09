@@ -16,7 +16,7 @@
 <meta property="og:description" content="Made by Code-OneMING">
 <meta property="og:locale" content="zh_CN">
 <meta property="article:published_time" content="2023-02-16T07:45:32.000Z">
-<meta property="article:modified_time" content="2023-04-09T05:54:45.585Z">
+<meta property="article:modified_time" content="2023-04-09T09:14:19.376Z">
 <meta property="article:author" content="Code-oneMing">
 <meta property="article:tag" content="我的第四篇博客">
 <meta name="twitter:card" content="summary">
@@ -293,15 +293,37 @@
 <p>运行测试</p>
 <p>10.B系统基础测试  </p>
 <p>安装zsh和git  </p>
-<p>sudo apt install zsh git  </p>
+<p>sudo apt install zsh git  curl</p>
 <p>按Y确认  </p>
-<p>运行  </p>
-<p>wget <a target="_blank" rel="noopener" href="http://web.tecxz.com:9080/file/zsh/install.sh">http://web.tecxz.com:9080/file/zsh/install.sh</a>  </p>
-<p>运行  </p>
-<p>sh install.sh  </p>
-<p>第一个是B系统  </p>
-<p>最后一个是A系统  </p>
-<p>选择SCSI  </p>
+<p>运行<br>sh -c “$(curl -fsSL <a target="_blank" rel="noopener" href="http://web.tecxz.com:7080/file/zsh/install.sh">http://web.tecxz.com:7080/file/zsh/install.sh</a>)<br>重启准备进入a系统</p>
+<p>第一个是B系统</p>
+<p>最后一个是A系统 选择SCSI</p>
+<p>13.samba测试<br>sudo apt update</p>
+<p>1.sudo apt install smaba</p>
+<p>2.sudo useradd 用户名</p>
+<p>3.sudo smbpasswd -a 用户名，输入2次密码来创建</p>
+<p>4.sudo mkdir &#x2F;data</p>
+<p>5.sudo chown share:share &#x2F;data</p>
+<p>6.sudo gedit &#x2F;etc&#x2F;samba&#x2F;smb.conf</p>
+<p>将里面内容删除并粘贴如下代码（格式按照如下格式z）</p>
+<p> [smb_share]<br> comment&#x3D;This is the share foler of user share  </p>
+<p>  path&#x3D;&#x2F;data<br> writable&#x3D;yes<br>  valid   users&#x3D;share<br> public&#x3D;no</p>
+<p>7.sudo systemctl restart smbd.service</p>
+<p>8.查看IP(\\ip)<br>打开本地，访问\ip<br>9.将任意文档拖入这个文件夹中，在Linux终端输入ll ll &#x2F;data</p>
+<p>14.安装wps<br>1.在虚拟机的浏览器中搜索wps，下载Linux，选择For x64</p>
+<p>2.sudo dpkg -i wps-office_11.1.0.11664_amd64.deb</p>
+<p>3.安装软件,安装完成后桌面右击软件 允许运行</p>
+<p>4.在路径web.tecxz.com:7080&#x2F;ubuntu下下载wps相关资源</p>
+<p>5.unzip wps-fonts.zip</p>
+<p>6.sudo mv wps-fonts-master&#x2F;wps&#x2F;* &#x2F;usr&#x2F;share&#x2F;fonts&#x2F;wps-office&#x2F;</p>
+<p>7.fc-cache -fv</p>
+<p>8.再次打开wps,即可正常使用</p>
+<p>15.xrdp  </p>
+<p>sudo apt install xrdp</p>
+<p>sudo nano &#x2F;etc&#x2F;x11&#x2F;xweapper.config<br>修改 等于号后面内容 xxx&#x3D;anybody  </p>
+<p>ctrl o 保存 ctrl x退出   </p>
+<p>sudo nano &#x2F;etc&#x2F;xrdp&#x2F;startwn.sh<br>在蓝字下面一行开始添加<br>Unset DBUS_SESSION_ADDRESS<br>Unset XDG_RUNTIME_DIR<br>ctrl o 保存 ctrl x退出  </p>
+<p>至此完成,Linux通关大吉！</p>
 
       
 
@@ -564,11 +586,11 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">我的第一篇文章</a>
+                <a href="javascript:void(0)" class="js-tag color3">我的第四篇博客</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">我的第四篇博客</a>
+                <a href="javascript:void(0)" class="js-tag color3">我的第一篇文章</a>
               </li>
              
               <li class="article-tag-list-item">
