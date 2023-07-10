@@ -6,14 +6,19 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com">
-  <title>Archives: 2023 | Hexo</title>
+  <title>关于实现openstack的搭建 | Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/archives/2023/index.html">
+  <meta name="description" content="Made by Code-OneMING1.1基础运维#基础环境net.ifnames&#x3D;0 biosdevname&#x3D;0 hostnamectl set-hostname controller&#x2F;compute vi &#x2F;etc&#x2F;sysconfig&#x2F;networkspirts&#x2F;ifcfg-eth1 改yes vi &#x2F;etc&amp;">
+<meta property="og:type" content="article">
+<meta property="og:title" content="关于实现openstack的搭建">
+<meta property="og:url" content="http://example.com/2023/01/15/%E5%85%B3%E4%BA%8E%E5%AF%B9openstack%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="Made by Code-OneMING1.1基础运维#基础环境net.ifnames&#x3D;0 biosdevname&#x3D;0 hostnamectl set-hostname controller&#x2F;compute vi &#x2F;etc&#x2F;sysconfig&#x2F;networkspirts&#x2F;ifcfg-eth1 改yes vi &#x2F;etc&amp;">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-01-15T07:36:32.000Z">
+<meta property="article:modified_time" content="2023-05-20T05:01:08.244Z">
 <meta property="article:author" content="Code-oneMing">
+<meta property="article:tag" content="我的文章">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternative" href="/atom.xml" title="Hexo" type="application/atom+xml">
@@ -154,247 +159,92 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-  
+            <article id="post-关于对openstack平台搭建的学习记录" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
     
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/02/16/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2023-02-16T07:49:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-16</time>
-</a>
-        </div>
-    	 
+      <header class="article-header">
+        
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/02/16/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/">数据结构和算法基础</a>
+    <h1 class="article-title" itemprop="name">
+      关于实现openstack的搭建
     </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">我的第三篇博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/02/16/%E5%B8%B8%E4%BF%A1linux/" class="archive-article-date">
-  	<time datetime="2023-02-16T07:45:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/02/16/%E5%B8%B8%E4%BF%A1linux/">Linux操作系统上课笔记</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">我的第四篇博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/02/16/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2023-02-16T07:45:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-16</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/02/16/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/">蓝桥杯算法练习</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">我的第六篇博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/02/15/%E5%AF%B9%E4%BA%8EPython%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%90%86%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2023-02-15T08:36:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/02/15/%E5%AF%B9%E4%BA%8EPython%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%90%86%E8%A7%A3/">对于Python面向对象编程的学习理解</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">我的第一篇文章</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/02/15/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2023-02-15T08:36:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-15</time>
-</a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/02/15/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/">蓝桥杯基础练习技术点</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">我的第五篇博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/02/14/%E5%85%B3%E4%BA%8E%E5%AE%9E%E7%8E%B0%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA/" class="archive-article-date">
-  	<time datetime="2023-02-14T03:50:23.735Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-14</time>
-</a>
-        </div>
-    	 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/01/15/Docker%E5%91%BD%E4%BB%A4%E6%94%B6%E9%9B%86/" class="archive-article-date">
+        
+        <a href="/2023/01/15/%E5%85%B3%E4%BA%8E%E5%AF%B9openstack%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="archive-article-date">
   	<time datetime="2023-01-15T07:36:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-15</time>
 </a>
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/15/Docker%E5%91%BD%E4%BB%A4%E6%94%B6%E9%9B%86/">docker命令的收集</a>
-    </h1>
-  
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Made-by-Code-OneMING"><a href="#Made-by-Code-OneMING" class="headerlink" title="Made by Code-OneMING"></a>Made by Code-OneMING</h1><p>1.1基础运维<br>#基础环境<br>net.ifnames&#x3D;0 biosdevname&#x3D;0</p>
+<p>hostnamectl set-hostname controller&#x2F;compute</p>
+<p>vi &#x2F;etc&#x2F;sysconfig&#x2F;networkspirts&#x2F;ifcfg-eth1 改yes</p>
+<p>vi &#x2F;etc&#x2F;hosts 改映射</p>
+<p>1.2 yum源配置<br>mv &#x2F;etc&#x2F;yum.repo&#x2F;*&#x2F; &#x2F;opt&#x2F;<br>vi &#x2F;etc&#x2F;yum.repo&#x2F;http.repo</p>
+<p>配置内容:<br>[centos]<br>name&#x3D;centos<br>baseurl&#x3D;<a target="_blank" rel="noopener" href="http://10.16.0.0:30808/1-iaas/centos/">http://10.16.0.0:30808/1-iaas/centos/</a><br>gpgcheck&#x3D;0<br>enabled&#x3D;1<br>[iaas]<br>name&#x3D;iaas<br>baseurl&#x3D;<a target="_blank" rel="noopener" href="http://10.16.0.o:30808/1-iaas/iaas/iaas-repo">http://10.16.0.o:30808/1-iaas/iaas/iaas-repo</a><br>gpgcheck&#x3D;0<br>enabled&#x3D;1<br>:wq</p>
+<p>yum repolist</p>
+<p>1.3时间同步配置<br>yum install iaas-xiandian -y  (compute&#x2F;controller)</p>
+<p>vi &#x2F;etc&#x2F;selinux&#x2F;config  改pre</p>
+<p>(controller&#x2F;compute) vi &#x2F;etc&#x2F;xiandian&#x2F;config  (配置文件)</p>
+<p>两个快捷操作:<br>:&#x2F;%s&#x2F;^#&#x2F;&#x2F;<br>:&#x2F;%s&#x2F;SS&#x3D;&#x2F;&amp;000000&#x2F;g<br>:Wq</p>
+<p>（两个节点）iaas-pre-host.sh</p>
+<p>1.4计算节点分区<br>lsblk<br>fdisk &#x2F;dev&#x2F;sdb</p>
+<p>n p 1 +20G<br>n p 2 +20G<br>p w</p>
+<p>2.1基础安装(xiandian已经完成)</p>
+<p>2.2数据库安装</p>
+<p>controller iaas-install-mysql.sh</p>
+<p>compute yum -y install MySQL-python</p>
+<p>vi &#x2F;etc&#x2F;my.cnf<br>改5000<br>max_allowed_packet&#x3D;30M<br>:wq<br>systemctl restart mariadb</p>
+<p>2.3keystone安装<br>iaas-install-keystone.sh</p>
+<p>openstack user create –domain demo –password 000000 chinaskill<br>source &#x2F;etc&#x2F;keystone&#x2F;admin-…<br>2.4glance安装<br>iaas-install-glance.sh controller<br>上传镜像文件<br>glance image-create –name cirros –disk-format qcow2 –container-format bare –min-disk 10 &lt; sdsdsds</p>
+<p>2.5nova两节点安装<br>iaas-install-nova-controller&#x2F;compute.sh<br>vi &#x2F;etc&#x2F;nova&#x2F;nova.conf<br>cpu_allocation_ratio&#x3D;4.0<br>ram_allocation_ratio&#x3D;1.5<br>reserved_host_memory_mb&#x3D;2048<br>reserved_host_disk_mb&#x3D;10240</p>
+<p>2.6neutron<br>改 vi &#x2F;usr&#x2F;local&#x2F;bin&#x2F;iaas-install-neutron<br>iaas-install-neutron.sh</p>
+<p>2.7 doshboard安装 controller<br>访问：<a target="_blank" rel="noopener" href="http://10.16.0.0/dashboard">http://10.16.0.0/dashboard</a></p>
+<p>2.8swift<br>两个节点<br>iaas-install-swift-controller.sh<br>iaas-install-swift-compute.sh<br>source<br>swift post examcontainer<br>openstack container list</p>
+<p>2.9cinder<br>双节点安装<br>iaas-install-cinder-controller.sh<br>iaas-install-cinder-compute.sh<br>cinder create –name blockvolume 2</p>
+<p>2.10 heat<br>iaas-install-heat.sh</p>
+<p>3.1 heat管理<br>vi &#x2F;root&#x2F;heat-image.yaml<br>heat_template_version: 2014-10-16<br>description: create image template<br>resources:<br>  heat-image:<br>    type: OS::Glance::Image<br>    properties:<br>       container_format: bare<br>       disk_format: qcow2<br>       min_disk: 20<br>       min_ram: 2048<br>       location :swift:sssssss<br>       :wq</p>
+<p>openstack stack create -t heat-image.yaml heat-image<br>cat &#x2F;root&#x2F;heat-image.yaml</p>
+<p>3.2 修改glance后端存储<br>两个节点-yum -y install nfs-utils rpcbind<br>mkdir -p &#x2F;mnt&#x2F;test<br>vi &#x2F;etc&#x2F;exports<br>添加:<br>&#x2F;mnt&#x2F;test 10.16.0.0&#x2F;16(rw,sync,no_root_squash)</p>
+<p>chmod -R 777 &#x2F;mnt&#x2F;test<br>systemctl restart rpcbind nfs<br>exportfs -r<br>showmount -e 10.16.93.154<br>mount -t nfs 10.16.93.154:&#x2F;mnt&#x2F;test &#x2F;var&#x2F;lib&#x2F;glance&#x2F;images<br>chown -R glance:glance &#x2F;var&#x2F;lib&#x2F;glance&#x2F;images<br>ls &#x2F;var&#x2F;lib&#x2F;glace&#x2F;images</p>
+<p>3.3openstack参数调优<br>vi &#x2F;etc&#x2F;security&#x2F;limits.conf<br>最后两行添加<br>openstack soft nofile 10240<br>openstack hard nofile 10240</p>
+<p>vi &#x2F;etc&#x2F;sysctl.conf<br>添加:fs-max&#x3D; 10240</p>
+<p>vi &#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;rabb….<br>添加:<br>TimeoutStartSec&#x3D; 3600<br>LimitNOFILE&#x3D; 10240<br>systemctl daemon-reload<br>systemctl restart rabbitmq-server.service<br>cat &#x2F;etc&#x2F;sercurity&#x2F;limits.conf<br>cat &#x2F;etc&#x2F;sysctl.cof<br>cat &#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;rabb….</p>
+<p>5.1 redis主从<br>两平台 yum -y install redis</p>
+<p>controller<br>vi &#x2F;etc&#x2F;redis.conf<br>注释bind 127.0.0.1<br>protected-mode no<br>dasemonize yes<br>requirepass foodbared 改为”123456”<br>masterauth “123456”<br>appendonly yes<br>systemctl restart redis</p>
+<p>compute<br>vi &#x2F;etc&#x2F;redis.conf<br>注释bind 127.0.0.1<br>protected-mode no<br>dasemonize yes<br>requirepass foodbared 改为”123456”<br>slaveof 10.16.93.154 6379<br>masterauth “123456”<br>appendonly yes<br>systemctl restart redis</p>
 
-        <div class="article-info info-on-right">
-          
+      
+
+      
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢老板<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
 	<div class="article-tag tagcloud">
 		<i class="icon-price-tags icon"></i>
 		<ul class="article-tag-list">
@@ -406,95 +256,128 @@
 		</ul>
 	</div>
 
-          
+      
 
+      
+
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/01/15/%E5%85%B3%E4%BA%8E%E5%AF%B9openstack%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+      
+      <div class="clearfix"></div>
+    </div>
   </div>
 </article>
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/01/15/%E5%85%B3%E4%BA%8E%E5%AF%B9openstack%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="archive-article-date">
-  	<time datetime="2023-01-15T07:36:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-15</time>
-</a>
+<nav id="article-nav">
+  
+    <a href="/2023/01/15/Docker%E5%91%BD%E4%BB%A4%E6%94%B6%E9%9B%86/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          docker命令的收集
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/01/06/%E5%85%B3%E4%BA%8E%E5%AF%B9python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%90%86%E8%A7%A3/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">关于对python数据结构与算法的学习理解</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/15/%E5%85%B3%E4%BA%8E%E5%AF%B9openstack%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">关于实现openstack的搭建</a>
-    </h1>
-  
-
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">我的文章</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
+        
+        
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Made-by-Code-OneMING"><span class="toc-number">1.</span> <span class="toc-text">Made by Code-OneMING</span></a></li></ol>
+                    </div>
+                </span>
+            </div>
         </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
+        
+    </div>
+</aside>
+
+
+
   
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	<a href="/2023/01/06/%E5%85%B3%E4%BA%8E%E5%AF%B9python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%90%86%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2023-01-06T13:36:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
-</a>
-        </div>
-    	 
   
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/2023/01/06/%E5%85%B3%E4%BA%8E%E5%AF%B9python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%90%86%E8%A7%A3/">关于对python数据结构与算法的学习理解</a>
-    </h1>
   
 
-        <div class="article-info info-on-right">
-          
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">我的第三篇博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
   
 
-    
+  
+
+  
 
 
           </div>
@@ -517,8 +400,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: false,
