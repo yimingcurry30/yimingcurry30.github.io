@@ -8,11 +8,15 @@
   <link rel="dns-prefetch" href="http://example.com">
   <title>Hexo</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
+  <meta name="description" content="给大家分享《三体》中的一句话，很有感触：弱小和无知不是生存的障碍，傲慢才是。 Docker概述Docker安装Docker命令镜像命令容器命令操作命令…Docker镜像！容器数据卷！DockerFile·Docker网络原理IDEA整合DockerDocker ComposeDocker SwarmCI\CDJenkins一、Docker概述  Docker为什么出现一款产品：开发—上线 两套环境">
+<meta property="og:type" content="article">
 <meta property="og:title" content="Hexo">
-<meta property="og:url" content="http://example.com/index.html">
+<meta property="og:url" content="http://example.com/2023/07/15/practise/index.html">
 <meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="给大家分享《三体》中的一句话，很有感触：弱小和无知不是生存的障碍，傲慢才是。 Docker概述Docker安装Docker命令镜像命令容器命令操作命令…Docker镜像！容器数据卷！DockerFile·Docker网络原理IDEA整合DockerDocker ComposeDocker SwarmCI\CDJenkins一、Docker概述  Docker为什么出现一款产品：开发—上线 两套环境">
 <meta property="og:locale" content="zh_CN">
+<meta property="article:published_time" content="2023-07-15T06:07:59.855Z">
+<meta property="article:modified_time" content="2023-07-15T06:29:01.053Z">
 <meta property="article:author" content="Code-oneMing">
 <meta name="twitter:card" content="summary">
   
@@ -154,326 +158,7 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-python二级笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/02/python%E4%BA%8C%E7%BA%A7%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Kubernetes入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Kubernetes入门"><a href="#Kubernetes入门" class="headerlink" title="Kubernetes入门"></a>Kubernetes入门</h1><h2 id="第一部分–核心组件"><a href="#第一部分–核心组件" class="headerlink" title="第一部分–核心组件"></a>第一部分–核心组件</h2><h3 id="1-认识Kubernetes"><a href="#1-认识Kubernetes" class="headerlink" title="1.认识Kubernetes"></a>1.认识Kubernetes</h3><h3 id="2-集群架构与组件"><a href="#2-集群架构与组件" class="headerlink" title="2.集群架构与组件"></a>2.集群架构与组件</h3><h2 id="第二部分–核心概念"><a href="#第二部分–核心概念" class="headerlink" title="第二部分–核心概念"></a>第二部分–核心概念</h2><h3 id="1-服务的分类"><a href="#1-服务的分类" class="headerlink" title="1.服务的分类"></a>1.服务的分类</h3><p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719132535360.png" alt="image-20230719132535360"></p>
-<h4 id="无状态应用"><a href="#无状态应用" class="headerlink" title="无状态应用"></a>无状态应用</h4><p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719133223856.png" alt="image-20230719133223856"></p>
-<h4 id="有状态应用"><a href="#有状态应用" class="headerlink" title="有状态应用"></a>有状态应用</h4><p>需要维护数据存储</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719133246883.png" alt="image-20230719133246883"></p>
-<h3 id="2-资源对象"><a href="#2-资源对象" class="headerlink" title="2.资源对象"></a>2.资源对象</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">k8s中所有的内容都被抽象为“资源”，如pod,service,node等都是资源,“对象”就是&quot;资源&quot;的实例,是持久化的实体。如某个具体的pod,node,k8s使用这些实体来表示整个集群的状态。</span><br><span class="line">对象的创建,删除,修改都是通过k8s api 也就是api service 组件提供的api接口,这些是restful风格的api,与k8s万物皆对象的理念相符,命令行工具&quot;kubectl&quot;,实际上调用的也是kubernetes api,k8s中的资源类别有很多种,kubectl可以通过配置文件来创建这些对象,配置文件更像是描述对象&quot;属性&quot;的文件,配置文件格式可以是&quot;JSON&quot;或&quot;YAML&quot;。</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>对象的规约和状态</p>
-<p>规约:”spec”是规格的意思,spec是必须的,它描述了对象的期望状态——希望对象所具有的特征,当创建k8s对象时，必须提供对象的规约,用来描述对象的期望状态,以及关于对象的一些基本信息。</p>
-<p>状态：表示对象的实际状态，该属性由k8s自己维护,k8s会通过一系列控制器对对应的对象进行管理，让对象尽可能让实际状态与期望状态重合</p>
-</blockquote>
-<h4 id="2-1资源的分类——元数据级-集群级-命名空间级"><a href="#2-1资源的分类——元数据级-集群级-命名空间级" class="headerlink" title="2.1资源的分类——元数据级,集群级,命名空间级"></a>2.1资源的分类——元数据级,集群级,命名空间级</h4><p>资源在做分类的时候,就是为了让管理员更加清晰的区分资源能否跨集群使用,能否跨命名空间,将集群进行逻辑上拆分成小集群使用.</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719141831339.png" alt="image-20230719141831339"></p>
-<h5 id="元数据级-元空间"><a href="#元数据级-元空间" class="headerlink" title="元数据级(元空间)"></a>元数据级(元空间)</h5><p>HPA实际场景:<img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719142532492.png" alt="image-20230719142532492"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719142226681.png" alt="image-20230719142226681"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719142258773.png" alt="image-20230719142258773"></p>
-<p>PodTemplate</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719142641756.png" alt="image-20230719142641756"></p>
-<p>LimitRange</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719142944107.png" alt="image-20230719142944107"></p>
-<h5 id="集群级"><a href="#集群级" class="headerlink" title="集群级"></a>集群级</h5><p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719143257119.png" alt="image-20230719143257119"></p>
-<p>Namespace–命名空间</p>
-<blockquote>
-<p>也属于k8s集群内部空间</p>
-</blockquote>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719143528518.png" alt="image-20230719143528518"></p>
-<p>node—服务器资源</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719143552039.png" alt="image-20230719143552039"></p>
-<p>ClusterRole</p>
-<blockquote>
-<p>用于对集群权限的管理，声明权限组</p>
-</blockquote>
-<p>ClusterRoleBinding –集群级别绑定</p>
-<blockquote>
-<p>绑定创建角色与资源的绑定，从而赋予相应权限</p>
-</blockquote>
-<h5 id="命名空间级"><a href="#命名空间级" class="headerlink" title="命名空间级"></a>命名空间级</h5><p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719144255317.png" alt="image-20230719144255317"></p>
-<h6 id="重要—工作负载型Pod"><a href="#重要—工作负载型Pod" class="headerlink" title="重要—工作负载型Pod"></a>重要—工作负载型Pod</h6><p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719145358019.png" alt="image-20230719145358019"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719145539133.png" alt="image-20230719145539133"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719145055714.png" alt="image-20230719145055714"></p>
-<p>容器间在pod内部实现文件共享, pause：提供网络,文件系统等,pod相当于一个容器组，基于pod这样一个容器组来管理容器</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719145158822.png" alt="image-20230719145158822"></p>
-<p>Pod—控制器</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719150107173.png" alt="image-20230719150107173">.</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719150311013.png" alt="image-20230719150311013"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719150553070.png" alt="image-20230719150553070"></p>
-<p>Deloyment</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719151053523.png" alt="image-20230719151053523"></p>
-<p>Statefulset:专门针对于有状态服务进行部署的一个控制器</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720093926193.png" alt="image-20230720093926193"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720093957920.png" alt="image-20230720093957920"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720094321668.png" alt="image-20230720094321668"></p>
-<p>Daemonset:为每一个匹配的Node都部署一个守护进程.</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720094638743.png" alt="image-20230720094638743"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720095224563.png" alt="image-20230720095224563"></p>
-<h6 id="服务发现"><a href="#服务发现" class="headerlink" title="服务发现"></a>服务发现</h6><p>Service:</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720095559263.png" alt="image-20230720095559263"></p>
-<p>流量小知识补充:</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720100103813.png" alt="image-20230720100103813"></p>
-<p>集群内用service实现k8s内部网络调用,负载均衡,四层负载(东西流量，横向流量)</p>
-<p>ingress:实现将k8s内部服务暴露给外网访问的服务ingress-nginx方向代理，七层负载(南北流量,纵向流量)</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720101033733.png" alt="image-20230720101033733"></p>
-<h6 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h6><p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720101306642.png" alt="image-20230720101306642"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720101409771.png" alt="image-20230720101409771"></p>
-<h6 id="特殊型配置"><a href="#特殊型配置" class="headerlink" title="特殊型配置"></a>特殊型配置</h6><p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720101726152.png" alt="image-20230720101726152"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720101926370.png" alt="image-20230720101926370"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720101940222.png" alt="image-20230720101940222"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720102042027.png" alt="image-20230720102042027"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720102255858.png" alt="image-20230720102255858"></p>
-<h2 id="第三部分-K8s简单集群搭建及实验"><a href="#第三部分-K8s简单集群搭建及实验" class="headerlink" title="第三部分-K8s简单集群搭建及实验"></a>第三部分-K8s简单集群搭建及实验</h2><h2 id="1-基础实验环境集群搭建和部署"><a href="#1-基础实验环境集群搭建和部署" class="headerlink" title="1.基础实验环境集群搭建和部署"></a>1.基础实验环境集群搭建和部署</h2><p>1.本次采用三台虚拟机,master,node1,node2,基本环境搭建(虚拟机网络设置,本地yum源,外部yum源,ip映射,防火墙设置)</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722095544740.png" alt="image-20230722095544740"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722095616851.png" alt="image-20230722095616851"></p>
-<p>2.初始化设置</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720140618435.png" alt="image-20230720140618435"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230721161139316.png" alt="image-20230721161139316"></p>
-<p>3.初始化完成后,开始准备加入节点操作</p>
-<p>1.手动获取token命令</p>
-<p>kubeadm token create</p>
-<p>如果没过期(23h)，用以下命令获取&#x3D;kubeadm token list</p>
-<p>2.手动获取hash值参数命令</p>
-<p>openssl x509 -pubkey -in &#x2F;etc&#x2F;kubernetes&#x2F;pki&#x2F;ca.crt | opensslrsa -pubin -outform der 2&gt;&#x2F;dev&#x2F;null | openssl dgst -sha256 -hex | sed ‘s&#x2F;^.* &#x2F;&#x2F;‘</p>
-<p>获取到的值要加上sha256:的前缀</p>
-<p>3.加入节点命令</p>
-<p>kubeadm join master-ip:6433 –token xxxx –discovery-token-ca-cert-hash master控制台的hash值</p>
-<p>初始化报错解决—-</p>
-<p>systemctl status kubelet</p>
-<p>1.修改docker目录下vi &#x2F;etc&#x2F;docker&#x2F;daemon.jason</p>
-<p>添加 ”exec-opts“:[“native.cgroupdriver&#x3D;systemd”]</p>
-<p>常用命令小总结</p>
-<p>1.kubectl get nodes&#x2F;no					查看节点加入状态</p>
-<p>2.重启docker</p>
-<p>systemctl daemon-reload</p>
-<p>systemctl restart docker</p>
-<p>3.kubectl get componentsatus						查看节点状态</p>
-<p>4.kubectl get pods								查看pod</p>
-<p>5.kubectl get pods -n kube-system				查看特定命名空间里的pod</p>
-<p>6.kubectl describle po <pod_name> -n kube-system			查看pod详细描述</p>
-<p>7.kubectl get po 				查看pod</p>
-<p>8.kubectl get ns					查看命名空间</p>
-<p>部署CNI插件</p>
-<p>cd &#x2F;opt</p>
-<p>mkdir k8s</p>
-<p>cd &#x2F;k8s</p>
-<p>下载    curl <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/projectcalico/calico/v3.26.0/manifests/calico.yaml">https://raw.githubusercontent.com/projectcalico/calico/v3.26.0/manifests/calico.yaml</a> -O</p>
-<p>编辑calico.yaml</p>
-<p>搜索CALICO_IPV4POOL_CIDR修改value：10.244.0.0&#x2F;16</p>
-<p>修改成功后执行:mkdir -p $HOME&#x2F;.kube</p>
-<p>优化镜像仓库地址</p>
-<p>grep image calico.yaml			查看yaml镜像</p>
-<p>修改:sed -i ‘s#docker.io&#x2F;##g’ calico.yaml</p>
-<p>docker pull 镜像</p>
-<p>kubectl apply -f calico.yaml 	构建镜像应用</p>
-<p>简单测试—创建部署</p>
-<p>1.kubectl create deployment nginx –image&#x3D;nginx</p>
-<p>2.暴露端口  kubectl expose deployment nginx –port&#x3D;80 –type&#x3D;NodePort</p>
-<p>3.暴露容器内端口  kubectl get pod,svc</p>
-<p>4.访问ip:80后面映射的端口,三个ip均能访问即部署成功</p>
-<p>配置部署从节点kubectl get nodes&#x2F;no,实现在任意节点使用kubectl</p>
-<p>1.将master 节点中 &#x2F;etc&#x2F;kubernetes&#x2F;admin.conf  拷贝到需要运行的服务器对应目录 &#x2F;etc&#x2F;kubernetes</p>
-<p>master节点执行:scp &#x2F;etc&#x2F;kubernetes&#x2F;admin.conf root@k8s_node1:&#x2F;etc&#x2F;kubernetes</p>
-<p>2.在对应服务器上配置环境变量  从节点执行</p>
-<p>echo “export KUBECONFIG&#x3D;&#x2F;etc&#x2F;kubernetes&#x2F;admin.conf” &gt;&gt;  ~&#x2F;.bash_profile</p>
-<p>配置文件生效     source ~&#x2F;.bash_profile</p>
-<h2 id="2-命令行工具kubectl学习"><a href="#2-命令行工具kubectl学习" class="headerlink" title="2.命令行工具kubectl学习"></a>2.命令行工具kubectl学习</h2><p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722104050061.png" alt="image-20230722104050061"></p>
-<p>1.创建对象</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722104115672.png" alt="image-20230722104115672"></p>
-<p>2.创建资源</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722104520842.png" alt="image-20230722104520842"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722104559617.png" alt="image-20230722104559617"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722104631272.png" alt="image-20230722104631272"></p>
-<p>kubectl get po -o wide 				查看详细信息</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722104659260.png" alt="image-20230722104659260"></p>
-<p>3.命令行格式化输出操作</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722104804730.png" alt="image-20230722104804730"></p>
-<p>kubectl get deploy nginx -o yaml 	将nginx输出为一个yaml文件</p>
-<h2 id="3-深入Pod操作"><a href="#3-深入Pod操作" class="headerlink" title="3.深入Pod操作"></a>3.深入Pod操作</h2><h3 id="1-pod配置文件"><a href="#1-pod配置文件" class="headerlink" title="1.pod配置文件"></a>1.pod配置文件</h3><p>1.删除deploy</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722125954786.png" alt="image-20230722125954786"></p>
-<blockquote>
-<p>kubectl delete deploy nginx</p>
-</blockquote>
-<p>2.删除services</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722130109609.png" alt="image-20230722130109609"></p>
-<p>pod和deploy相互关联,删除deploy,pod也会相应删除</p>
-<p>创建pod目录</p>
-<p>1.将calico文件移动到新的目录cni中</p>
-<p>mkdir cni&#x2F;</p>
-<p>mv calico.yaml cni&#x2F;</p>
-<p>2.新建pods目录</p>
-<p>mkdir pods</p>
-<p>ls pods&#x2F;</p>
-<blockquote>
-<p>创建nginx.demo yaml文件</p>
-<p>yaml文件参数清单</p>
-</blockquote>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722130812610.png" alt="image-20230722130812610"></p>
-<p> <img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722134111214.png" alt="image-20230722134111214"></p>
-<h3 id="2-pod三种探针"><a href="#2-pod三种探针" class="headerlink" title="2.pod三种探针"></a>2.pod三种探针</h3><p>容器内应用的监控机制,根据不同探针来判断容器应用当前的状态</p>
-<p> 探针三种类型</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722141252732.png" alt="image-20230722141252732"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722141534173.png" alt="image-20230722141534173"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722141916160.png" alt="image-20230722141916160"></p>
-<p>探针三种方式</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722142143793.png" alt="image-20230722142143793"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722142130638.png" alt="image-20230722142130638"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722142153459.png" alt="image-20230722142153459"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722142228872.png" alt="image-20230722142228872"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722142239434.png" alt="image-20230722142239434"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722142328281.png" alt="image-20230722142328281"></p>
-<h3 id="3-使用探针"><a href="#3-使用探针" class="headerlink" title="3.使用探针"></a>3.使用探针</h3><p>p<a href="">29开始</a></p>
-<h3 id="4-Pod生命周期"><a href="#4-Pod生命周期" class="headerlink" title="4.Pod生命周期"></a>4.Pod生命周期</h3><p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230723103429832.png" alt="image-20230723103429832"></p>
-<h3 id="5-Prestop的应用"><a href="#5-Prestop的应用" class="headerlink" title="5.Prestop的应用"></a>5.Prestop的应用</h3><p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230723103940289.png" alt="image-20230723103940289"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230723104139579.png" alt="image-20230723104139579"></p>
-<h2 id="4-资源调度"><a href="#4-资源调度" class="headerlink" title="4.资源调度"></a>4.资源调度</h2><p> <img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230723105647532.png" alt="image-20230723105647532"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230723105628653.png" alt="image-20230723105628653"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/07/24/Kubernetes%E5%85%A5%E9%97%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于Kubernetes学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/07/15/%E5%85%B3%E4%BA%8EKubernetes%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-practise" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-practise" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
     <div class="article-entry" itemprop="articleBody">
@@ -771,6 +456,27 @@ https://hub.docker.com/ 注册自己的账号
       
 
       
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢老板<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
+      
     </div>
     <div class="article-info article-info-index">
       
@@ -778,16 +484,84 @@ https://hub.docker.com/ 注册自己的账号
       
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/07/15/practise/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="//pan.baidu.com/share/qrcode?url=http://example.com/2023/07/15/practise/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
+
+  
+<nav id="article-nav">
+  
+    <a href="/2023/07/15/%E5%85%B3%E4%BA%8EKubernetes%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/" id="article-nav-newer" class="article-nav-link-wrap">
+      <i class="icon-circle-left"></i>
+      <div class="article-nav-title">
+        
+          (no title)
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2023/07/10/%E5%85%B3%E4%BA%8E%E5%AF%B9-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E8%87%AA%E4%B8%8A%E5%90%91%E4%B8%8B)%E4%B8%80%E4%B9%A6%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E7%AC%94%E8%AE%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title"></div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
 
 <aside class="wrap-side-operation">
     <div class="mod-side-operation">
@@ -802,434 +576,32 @@ https://hub.docker.com/ 注册自己的账号
         </div>
         
         
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于对-计算机网络(自上向下)一书的理解和笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/07/10/%E5%85%B3%E4%BA%8E%E5%AF%B9-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E8%87%AA%E4%B8%8A%E5%90%91%E4%B8%8B)%E4%B8%80%E4%B9%A6%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
+        <div class="toc-container tooltip-left">
+            <i class="icon-font icon-category"></i>
+            <div class="tooltip tooltip-east">
+                <span class="tooltip-item">
+                </span>
+                <span class="tooltip-content">
+                    <div class="toc-article">
+                    <ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%B3%BB%E7%BB%9F%E5%86%85%E6%A0%B8%E6%98%AF-3-10-%E4%BB%A5%E4%B8%8A%E7%9A%84"><span class="toc-number">1.</span> <span class="toc-text">系统内核是 3.10 以上的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E7%B3%BB%E7%BB%9F%E7%89%88%E6%9C%AC"><span class="toc-number">2.</span> <span class="toc-text">查看系统版本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%8D%B8%E8%BD%BD%E6%97%A7%E7%9A%84%E7%89%88%E6%9C%AC"><span class="toc-number">3.</span> <span class="toc-text">1.卸载旧的版本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E9%9C%80%E8%A6%81%E7%9A%84%E5%AE%89%E8%A3%85%E5%8C%85"><span class="toc-number">4.</span> <span class="toc-text">2.需要的安装包</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E8%AE%BE%E7%BD%AE%E9%95%9C%E5%83%8F%E7%9A%84%E4%BB%93%E5%BA%93"><span class="toc-number">5.</span> <span class="toc-text">3.设置镜像的仓库</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%89%E8%A3%85%E5%AE%B9%E5%99%A8%E4%B9%8B%E5%89%8D%EF%BC%8C%E6%9B%B4%E6%96%B0yum%E8%BD%AF%E4%BB%B6%E5%8C%85%E7%B4%A2%E5%BC%95%E3%80%82"><span class="toc-number">6.</span> <span class="toc-text">安装容器之前，更新yum软件包索引。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E5%AE%89%E8%A3%85%E5%AE%B9%E5%99%A8%E7%9B%B8%E5%85%B3%E7%9A%84%E3%80%82docker-ce%EF%BC%88%E7%A4%BE%E5%8C%BA%E7%89%88%EF%BC%89docker-ee%EF%BC%88%E4%BC%81%E4%B8%9A%E7%89%88%EF%BC%89"><span class="toc-number">7.</span> <span class="toc-text">4.安装容器相关的。docker-ce（社区版）docker-ee（企业版）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#5-%E5%90%AF%E5%8A%A8docker"><span class="toc-number">8.</span> <span class="toc-text">5.启动docker</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#6-%E4%BD%BF%E7%94%A8docker-version%E6%9F%A5%E7%9C%8B%E6%98%AF%E5%90%A6%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F"><span class="toc-number">9.</span> <span class="toc-text">6.使用docker version查看是否安装成功</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#7-%E6%B5%8B%E8%AF%95hello-world"><span class="toc-number">10.</span> <span class="toc-text">7.测试hello-world</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#8-%E6%9F%A5%E7%9C%8B%E4%B8%80%E4%B8%8B%E4%B8%8B%E8%BD%BD%E7%9A%84%E8%BF%99%E4%B8%AAhello-world%E9%95%9C%E5%83%8F"><span class="toc-number">11.</span> <span class="toc-text">8.查看一下下载的这个hello-world镜像</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%8D%B8%E8%BD%BD%E4%BE%9D%E8%B5%96"><span class="toc-number">12.</span> <span class="toc-text">1.卸载依赖</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%88%A0%E9%99%A4%E8%B5%84%E6%BA%90"><span class="toc-number">13.</span> <span class="toc-text">2.删除资源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#x2F-var-x2F-lib-x2F-docker-docker%E7%9A%84%E9%BB%98%E8%AE%A4%E5%B7%A5%E4%BD%9C%E8%B7%AF%E5%BE%84"><span class="toc-number">14.</span> <span class="toc-text">&#x2F;var&#x2F;lib&#x2F;docker  docker的默认工作路径</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A"><span class="toc-number">15.</span> <span class="toc-text">解释</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E5%8F%82%E6%95%B0%E5%8F%AF%E9%80%89%E9%A1%B9"><span class="toc-number">16.</span> <span class="toc-text">命令参数可选项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E9%87%8A-1"><span class="toc-number">17.</span> <span class="toc-text">解释</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E5%8F%82%E6%95%B0%E5%8F%AF%E9%80%89%E9%A1%B9-%E9%80%9A%E8%BF%87%E6%90%9C%E7%B4%A2%E6%9D%A5%E8%BF%87%E6%BB%A4"><span class="toc-number">18.</span> <span class="toc-text">命令参数可选项 (通过搜索来过滤)</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E9%95%9C%E5%83%8F%EF%BC%9Adocker-pull-%E9%95%9C%E5%83%8F%E5%90%8D-tag"><span class="toc-number">19.</span> <span class="toc-text">下载镜像：docker pull 镜像名[:tag]</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%A4%E4%B8%AA%E5%91%BD%E4%BB%A4%E6%98%AF%E7%AD%89%E4%BB%B7%E7%9A%84"><span class="toc-number">20.</span> <span class="toc-text">两个命令是等价的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8C%87%E5%AE%9A%E7%89%88%E6%9C%AC%E4%B8%8B%E8%BD%BD"><span class="toc-number">21.</span> <span class="toc-text">指定版本下载</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%82%E6%95%B0%E8%AF%B4%E6%98%8E"><span class="toc-number">22.</span> <span class="toc-text">参数说明</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%EF%BC%9A%E5%90%AF%E5%8A%A8%E5%B9%B6%E8%BF%9B%E5%85%A5%E5%AE%B9%E5%99%A8"><span class="toc-number">23.</span> <span class="toc-text">测试：启动并进入容器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%BB%8E%E5%AE%B9%E5%99%A8%E4%B8%AD%E9%80%80%E5%9B%9E%E5%88%B0%E4%B8%BB%E6%9C%BA"><span class="toc-number">24.</span> <span class="toc-text">从容器中退回到主机</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E5%8F%82%E6%95%B0%E5%8F%AF%E9%80%89%E9%A1%B9-1"><span class="toc-number">25.</span> <span class="toc-text">命令参数可选项</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4docker-run-d-%E9%95%9C%E5%83%8F%E5%90%8D"><span class="toc-number">26.</span> <span class="toc-text">命令docker run -d 镜像名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%EF%BC%9Adocker-ps%E5%8F%91%E7%8E%B0centos%E5%81%9C%E6%AD%A2%E4%BA%86"><span class="toc-number">27.</span> <span class="toc-text">问题：docker ps发现centos停止了</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B8%B8%E8%A7%81%E7%9A%84%E5%9D%91%EF%BC%9Adocker%E5%AE%B9%E5%99%A8%E4%BD%BF%E7%94%A8%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C%EF%BC%8C%E5%B0%B1%E5%BF%85%E9%A1%BB%E8%A6%81%E6%9C%89%E8%A6%81%E4%B8%80%E4%B8%AA%E5%89%8D%E5%8F%B0%E8%BF%9B%E7%A8%8B%EF%BC%8Cdocker%E5%8F%91%E7%8E%B0%E6%B2%A1%E6%9C%89%E5%BA%94%E7%94%A8%EF%BC%8C%E5%B0%B1%E4%BC%9A%E8%87%AA%E5%8A%A8%E5%81%9C%E6%AD%A2%E3%80%82"><span class="toc-number">28.</span> <span class="toc-text">常见的坑：docker容器使用后台运行，就必须要有要一个前台进程，docker发现没有应用，就会自动停止。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AF%94%E5%A6%82%EF%BC%9Anginx%EF%BC%8C%E5%AE%B9%E5%99%A8%E5%90%AF%E5%8A%A8%E5%90%8E%EF%BC%8C%E5%8F%91%E7%8E%B0%E8%87%AA%E5%B7%B1%E6%B2%A1%E6%9C%89%E6%8F%90%E4%BE%9B%E6%9C%8D%E5%8A%A1%EF%BC%8C%E5%B0%B1%E4%BC%9A%E7%AB%8B%E5%88%BB%E5%81%9C%E6%AD%A2%EF%BC%8C%E5%B0%B1%E6%98%AF%E6%B2%A1%E6%9C%89%E7%A8%8B%E5%BA%8F%E4%BA%86"><span class="toc-number">29.</span> <span class="toc-text">比如：nginx，容器启动后，发现自己没有提供服务，就会立刻停止，就是没有程序了</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%87%AA%E5%B7%B1%E7%BC%96%E5%86%99%E4%B8%80%E6%AE%B5shell%E8%84%9A%E6%9C%AC"><span class="toc-number">30.</span> <span class="toc-text">自己编写一段shell脚本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%98%BE%E7%A4%BA%E6%97%A5%E5%BF%97"><span class="toc-number">31.</span> <span class="toc-text">显示日志</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4-docker-top-%E5%AE%B9%E5%99%A8id"><span class="toc-number">32.</span> <span class="toc-text">命令 docker top 容器id</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4docker-inspect-%E5%AE%B9%E5%99%A8id"><span class="toc-number">33.</span> <span class="toc-text">命令docker inspect 容器id</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E4%BB%AC%E9%80%9A%E5%B8%B8%E5%AE%B9%E5%99%A8%E9%83%BD%E6%98%AF%E4%BD%BF%E7%94%A8%E5%90%8E%E5%8F%B0%E6%96%B9%E5%BC%8F%E8%BF%90%E8%A1%8C%E7%9A%84%EF%BC%8C%E9%9C%80%E8%A6%81%E8%BF%9B%E5%85%A5%E5%AE%B9%E5%99%A8%EF%BC%8C%E4%BF%AE%E6%94%B9%E4%B8%80%E4%BA%9B%E9%85%8D%E7%BD%AE"><span class="toc-number">34.</span> <span class="toc-text">我们通常容器都是使用后台方式运行的，需要进入容器，修改一些配置</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4"><span class="toc-number">35.</span> <span class="toc-text">命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95"><span class="toc-number">36.</span> <span class="toc-text">测试</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%B9%E5%BC%8F%E4%BA%8C"><span class="toc-number">37.</span> <span class="toc-text">方式二</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95-1"><span class="toc-number">38.</span> <span class="toc-text">测试</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#docker-exec-%E8%BF%9B%E5%85%A5%E5%AE%B9%E5%99%A8%E5%90%8E%E5%BC%80%E5%90%AF%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E7%BB%88%E7%AB%AF%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%86%8D%E9%87%8C%E9%9D%A2%E6%93%8D%E4%BD%9C%EF%BC%88%E5%B8%B8%E7%94%A8%EF%BC%89"><span class="toc-number">39.</span> <span class="toc-text">docker exec        # 进入容器后开启一个新的终端，可以再里面操作（常用）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#docker-attach-%E8%BF%9B%E5%85%A5%E5%AE%B9%E5%99%A8%E6%AD%A3%E5%9C%A8%E6%89%A7%E8%A1%8C%E7%9A%84%E7%BB%88%E7%AB%AF%EF%BC%8C%E4%B8%8D%E4%BC%9A%E5%90%AF%E5%8A%A8%E6%96%B0%E7%9A%84%E8%BF%9B%E7%A8%8B%E3%80%82"><span class="toc-number">40.</span> <span class="toc-text">docker attach        # 进入容器正在执行的终端，不会启动新的进程。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5%E5%88%B0%E5%AE%B9%E5%99%A8%E5%86%85%E9%83%A8"><span class="toc-number">41.</span> <span class="toc-text">进入到容器内部</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8%E5%AE%B9%E5%99%A8%E7%9A%84-x2F-home%E8%B7%AF%E5%BE%84%E4%B8%8B%E5%88%9B%E5%BB%BAtest-java%E6%96%87%E4%BB%B6"><span class="toc-number">42.</span> <span class="toc-text">在容器的&#x2F;home路径下创建test.java文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%B0%86%E6%96%87%E4%BB%B6%E6%8B%B7%E8%B4%9D%E5%87%BA%E6%9D%A5%E5%88%B0%E4%B8%BB%E6%9C%BA%E4%B8%8A%EF%BC%88%E5%9C%A8%E4%B8%BB%E6%9C%BA%E4%B8%8A%E6%89%A7%E8%A1%8C%E8%AF%A5%E5%91%BD%E4%BB%A4%EF%BC%89"><span class="toc-number">43.</span> <span class="toc-text">将文件拷贝出来到主机上（在主机上执行该命令）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8B%B7%E8%B4%9D%E6%98%AF%E4%B8%80%E4%B8%AA%E6%89%8B%E5%8A%A8%E8%BF%87%E7%A8%8B%EF%BC%8C%E6%9C%AA%E6%9D%A5%E6%88%91%E4%BB%AC%E4%BD%BF%E7%94%A8-v-%E5%8D%B7%E7%9A%84%E6%8A%80%E6%9C%AF%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%AE%9E%E7%8E%B0%EF%BC%8C%E8%87%AA%E5%8A%A8%E5%90%8C%E6%AD%A5%EF%BC%88%E5%AE%B9%E5%99%A8%E5%86%85%E7%9A%84-x2F-home%E8%B7%AF%E5%BE%84%E5%92%8C%E4%B8%BB%E6%9C%BA%E4%B8%8A%E7%9A%84-x2F-home%E8%B7%AF%E5%BE%84%E6%89%93%E9%80%9A%EF%BC%89"><span class="toc-number">44.</span> <span class="toc-text">拷贝是一个手动过程，未来我们使用 -v 卷的技术，可以实现，自动同步（容器内的&#x2F;home路径和主机上的&#x2F;home路径打通）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#d-%E5%90%8E%E5%8F%B0%E8%BF%90%E8%A1%8C"><span class="toc-number">45.</span> <span class="toc-text">-d 后台运行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E2%80%93name-x3D-%E2%80%9Dnginx01%E2%80%9D-%E7%BB%99%E5%AE%B9%E5%99%A8%E5%91%BD%E5%90%8D"><span class="toc-number">46.</span> <span class="toc-text">–name&#x3D;”nginx01”    给容器命名</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#p-%E5%AE%BF%E4%B8%BB%E6%9C%BA%E7%AB%AF%E5%8F%A3-%E5%AE%B9%E5%99%A8%E5%86%85%E9%83%A8%E7%AB%AF%E5%8F%A3"><span class="toc-number">47.</span> <span class="toc-text">-p 宿主机端口:容器内部端口</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5%E5%AE%B9%E5%99%A8"><span class="toc-number">48.</span> <span class="toc-text">进入容器</span></a></li><li class="toc-item toc-level-1"><a class="toc-link"><span class="toc-number">49.</span> <span class="toc-text">Welcome to nginx!</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%98%E6%96%B9%E7%9A%84%E4%BD%BF%E7%94%A8"><span class="toc-number">50.</span> <span class="toc-text">官方的使用</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E4%BB%AC%E4%B9%8B%E5%89%8D%E7%9A%84%E5%90%AF%E5%8A%A8%E9%83%BD%E6%98%AF%E5%90%8E%E5%8F%B0%EF%BC%8C%E5%81%9C%E6%AD%A2%E4%BA%86%E5%AE%B9%E5%99%A8%E4%B9%8B%E5%90%8E%EF%BC%8C%E5%AE%B9%E5%99%A8%E8%BF%98%E6%98%AF%E5%8F%AF%E4%BB%A5%E6%9F%A5%E5%88%B0docker-run-it-%E2%80%93rm%EF%BC%8C%E4%B8%80%E8%88%AC%E7%94%A8%E6%9D%A5%E6%B5%8B%E8%AF%95%EF%BC%8C%E7%94%A8%E5%AE%8C%E5%B0%B1%E5%88%A0%E9%99%A4%E3%80%82"><span class="toc-number">51.</span> <span class="toc-text">我们之前的启动都是后台，停止了容器之后，容器还是可以查到docker run -it –rm，一般用来测试，用完就删除。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD"><span class="toc-number">52.</span> <span class="toc-text">下载</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E8%BF%90%E8%A1%8C"><span class="toc-number">53.</span> <span class="toc-text">启动运行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E8%AE%BF%E9%97%AE%E6%B2%A1%E6%9C%89%E9%97%AE%E9%A2%98%EF%BC%8C%E4%BD%86%E6%98%AF%E6%89%BE%E4%B8%8D%E5%88%B0%E8%B5%84%E6%BA%90"><span class="toc-number">54.</span> <span class="toc-text">测试访问没有问题，但是找不到资源</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9B%E5%85%A5%E5%AE%B9%E5%99%A8%EF%BC%8C%E6%9C%89%E4%B8%80%E4%B8%AAwebapps%E6%96%87%E4%BB%B6%E5%A4%B9%E5%92%8Cwebapps-dist%E6%96%87%E4%BB%B6%E5%A4%B9"><span class="toc-number">55.</span> <span class="toc-text">进入容器，有一个webapps文件夹和webapps.dist文件夹</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#webapps%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E6%B2%A1%E6%9C%89%E8%B5%84%E6%BA%90%EF%BC%8C%E8%B5%84%E6%BA%90%E9%83%BD%E5%9C%A8webapp-dist%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B"><span class="toc-number">56.</span> <span class="toc-text">webapps文件夹下没有资源，资源都在webapp.dist文件夹下</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%91%E7%8E%B0%E9%97%AE%E9%A2%98%EF%BC%9A%EF%BC%88%E9%98%BF%E9%87%8C%E4%BA%91%E9%95%9C%E5%83%8F%E7%9A%84%E5%8E%9F%E5%9B%A0%EF%BC%9A%E9%BB%98%E8%AE%A4%E6%98%AF%E6%9C%80%E5%B0%8F%E7%9A%84%E9%95%9C%E5%83%8F%EF%BC%8C%E6%89%80%E6%9C%89%E4%B8%8D%E5%BF%85%E8%A6%81%E7%9A%84%E9%83%BD%E5%89%94%E9%99%A4%E6%8E%89%EF%BC%89%E4%BF%9D%E8%AF%81%E6%9C%80%E5%B0%8F%E5%8F%AF%E8%BF%90%E8%A1%8C%E7%9A%84%E7%8E%AF%E5%A2%83"><span class="toc-number">57.</span> <span class="toc-text">发现问题：（阿里云镜像的原因：默认是最小的镜像，所有不必要的都剔除掉）保证最小可运行的环境</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1%E3%80%81Linux%E5%91%BD%E4%BB%A4%E5%B0%91%E4%BA%86%E3%80%82"><span class="toc-number">58.</span> <span class="toc-text">1、Linux命令少了。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2%E3%80%81%E6%B2%A1%E6%9C%89webapps%E6%96%87%E4%BB%B6%E5%A4%B9%E3%80%82"><span class="toc-number">59.</span> <span class="toc-text">2、没有webapps文件夹。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B2%A1%E6%9C%89webapps%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%8C%E5%8F%91%E7%8E%B0%E6%9C%89%E4%B8%80%E4%B8%AAwebapps-dist%E6%96%87%E4%BB%B6%E5%A4%B9%EF%BC%8C%E8%B5%84%E6%BA%90%E5%9C%A8webapps-dist%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%EF%BC%9B"><span class="toc-number">60.</span> <span class="toc-text">没有webapps文件夹，发现有一个webapps.dist文件夹，资源在webapps.dist文件夹下；</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8A%8Awebapps-dist%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%E7%9A%84%E6%96%87%E4%BB%B6%E5%A4%8D%E5%88%B6%E5%88%B0webapps%E6%96%87%E4%BB%B6%E5%A4%B9%E4%B8%8B%EF%BC%8C%E5%B0%B1%E5%8F%AF%E4%BB%A5%E8%AE%BF%E9%97%AE%E6%88%90%E5%8A%9F%E3%80%82"><span class="toc-number">61.</span> <span class="toc-text">把webapps.dist文件夹下的文件复制到webapps文件夹下，就可以访问成功。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#es%E6%9A%B4%E9%9C%B2%E7%9A%84%E7%AB%AF%E5%8F%A3%E5%BE%88%E5%A4%9A%EF%BC%81"><span class="toc-number">62.</span> <span class="toc-text">es暴露的端口很多！</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#es%E5%8D%81%E5%88%86%E7%9A%84%E8%80%97%E5%86%85%E5%AD%98%EF%BC%81"><span class="toc-number">63.</span> <span class="toc-text">es十分的耗内存！</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#es%E7%9A%84%E6%95%B0%E6%8D%AE%E4%B8%80%E8%88%AC%E9%9C%80%E8%A6%81%E6%94%BE%E7%BD%AE%E5%88%B0%E5%AE%89%E5%85%A8%E7%9B%AE%E5%BD%95%EF%BC%81%E6%8C%82%E8%BD%BD"><span class="toc-number">64.</span> <span class="toc-text">es的数据一般需要放置到安全目录！挂载</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8B%E8%BD%BD%E5%90%AF%E5%8A%A8elasticsearch"><span class="toc-number">65.</span> <span class="toc-text">下载启动elasticsearch</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E4%BA%86linux%E5%B0%B1%E5%8D%A1%E4%BD%8F%E4%BA%86%EF%BC%8Ces%E6%98%AF%E5%8D%81%E5%88%86%E8%80%97%E5%86%85%E5%AD%98%E7%9A%84%EF%BC%881%E6%A0%B82G%EF%BC%89"><span class="toc-number">66.</span> <span class="toc-text">启动了linux就卡住了，es是十分耗内存的（1核2G）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8Bcpu%E7%9A%84%E7%8A%B6%E6%80%81"><span class="toc-number">67.</span> <span class="toc-text">查看cpu的状态</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E4%B8%80%E4%B8%8Bes%E6%98%AF%E6%88%90%E5%8A%9F%E7%9A%84"><span class="toc-number">68.</span> <span class="toc-text">测试一下es是成功的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%B5%B6%E7%B4%A7%E5%85%B3%E9%97%AD%EF%BC%8C%E5%A2%9E%E5%8A%A0%E5%86%85%E5%AD%98%E7%9A%84%E9%99%90%E5%88%B6%EF%BC%8C%E4%BF%AE%E6%94%B9%E9%85%8D%E7%BD%AE%E6%96%87%E4%BB%B6-e%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%E4%BF%AE%E6%94%B9"><span class="toc-number">69.</span> <span class="toc-text">赶紧关闭，增加内存的限制，修改配置文件-e环境配置修改</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%AF%E4%BB%A5%E8%AE%BF%E9%97%AE%E6%88%90%E5%8A%9F%EF%BC%9B%E6%9F%A5%E7%9C%8Bcpu%E7%8A%B6%E6%80%81"><span class="toc-number">70.</span> <span class="toc-text">可以访问成功；查看cpu状态</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E8%BF%90%E8%A1%8C-1"><span class="toc-number">71.</span> <span class="toc-text">启动运行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%8F%90%E4%BA%A4%E5%AE%B9%E5%99%A8%E6%88%90%E4%B8%BA%E4%B8%80%E4%B8%AA%E6%96%B0%E7%9A%84%E5%89%AF%E6%9C%AC"><span class="toc-number">72.</span> <span class="toc-text">提交容器成为一个新的副本</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%E5%92%8Cgit%E5%8E%9F%E7%90%86%E7%B1%BB%E4%BC%BC"><span class="toc-number">73.</span> <span class="toc-text">命令和git原理类似</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E5%90%AF%E5%8A%A8%E4%B8%80%E4%B8%AA%E9%BB%98%E8%AE%A4%E7%9A%84tomcat%E3%80%82"><span class="toc-number">74.</span> <span class="toc-text">1.启动一个默认的tomcat。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E5%8F%91%E7%8E%B0%E8%BF%99%E4%B8%AA%E9%BB%98%E8%AE%A4%E7%9A%84tomcat%E6%98%AF%E6%B2%A1%E6%9C%89webapps%E5%BA%94%E7%94%A8%EF%BC%8C%E9%95%9C%E5%83%8F%E7%9A%84%E5%8E%9F%E5%9B%A0%EF%BC%8C%E5%AE%98%E6%96%B9%E7%9A%84%E9%95%9C%E5%83%8F%E9%BB%98%E8%AE%A4webapps%E4%B8%8B%E9%9D%A2%E6%98%AF%E6%B2%A1%E6%9C%89%E6%96%87%E4%BB%B6%E7%9A%84%E3%80%82"><span class="toc-number">75.</span> <span class="toc-text">2.发现这个默认的tomcat是没有webapps应用，镜像的原因，官方的镜像默认webapps下面是没有文件的。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E6%88%91%E8%87%AA%E5%B7%B1%E6%8B%B7%E8%B4%9D%E8%BF%9B%E5%8E%BB%E4%BA%86%E5%9F%BA%E6%9C%AC%E7%9A%84%E6%96%87%E4%BB%B6%E3%80%82"><span class="toc-number">76.</span> <span class="toc-text">3.我自己拷贝进去了基本的文件。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E5%B0%86%E6%88%91%E4%BB%AC%E6%93%8D%E4%BD%9C%E8%BF%87%E7%9A%84%E5%AE%B9%E5%99%A8%E9%80%9A%E8%BF%87commit%E6%8F%90%E4%BA%A4%E4%B8%BA%E4%B8%80%E4%B8%AA%E9%95%9C%E5%83%8F%EF%BC%81%E6%88%91%E4%BB%AC%E4%BB%A5%E5%90%8E%E5%B0%B1%E4%BD%BF%E7%94%A8%E6%88%91%E4%BB%AC%E4%BF%AE%E6%94%B9%E8%BF%87%E7%9A%84%E9%95%9C%E5%83%8F%E5%8D%B3%E5%8F%AF%EF%BC%8C%E8%BF%99%E5%B0%B1%E6%98%AF%E6%88%91%E4%BB%AC%E8%87%AA%E5%B7%B1%E7%9A%84%E4%B8%80%E4%B8%AA%E4%BF%AE%E6%94%B9%E7%9A%84%E9%95%9C%E5%83%8F%E3%80%82"><span class="toc-number">77.</span> <span class="toc-text">4.将我们操作过的容器通过commit提交为一个镜像！我们以后就使用我们修改过的镜像即可，这就是我们自己的一个修改的镜像。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%EF%BC%8C%E6%9F%A5%E7%9C%8B%E5%AE%B9%E5%99%A8%E4%BF%A1%E6%81%AF"><span class="toc-number">78.</span> <span class="toc-text">测试，查看容器信息</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%8E%B7%E5%8F%96%E9%95%9C%E5%83%8F"><span class="toc-number">79.</span> <span class="toc-text">获取镜像</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%90%E8%A1%8C%E5%AE%B9%E5%99%A8%EF%BC%8C%E9%9C%80%E8%A6%81%E5%81%9A%E6%95%B0%E6%8D%AE%E7%9B%AE%E5%BD%95%E6%8C%82%E8%BD%BD%E3%80%82%EF%BC%88%E5%AE%89%E8%A3%85%E5%90%AF%E5%8A%A8mysql%EF%BC%8C%E6%B3%A8%E6%84%8F%EF%BC%9A%E9%9C%80%E8%A6%81%E9%85%8D%E7%BD%AE%E5%AF%86%E7%A0%81%EF%BC%89"><span class="toc-number">80.</span> <span class="toc-text">运行容器，需要做数据目录挂载。（安装启动mysql，注意：需要配置密码）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%AE%98%E6%96%B9%E5%90%AF%E5%8A%A8mysql"><span class="toc-number">81.</span> <span class="toc-text">官方启动mysql</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E4%BB%AC%E5%90%AF%E5%8A%A8mysql%EF%BC%88-e%E6%98%AF%E7%8E%AF%E5%A2%83%E9%85%8D%E7%BD%AE%EF%BC%89"><span class="toc-number">82.</span> <span class="toc-text">我们启动mysql（-e是环境配置）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%AF%E5%8A%A8%E6%88%90%E5%8A%9F%E4%B9%8B%E5%90%8E%EF%BC%8C%E6%88%91%E4%BB%AC%E5%9C%A8%E6%9C%AC%E5%9C%B0%E4%BD%BF%E7%94%A8navicat%E6%9D%A5%E6%8E%A5%E6%B5%8B%E8%AF%95%E4%B8%80%E4%B8%8B%E3%80%82"><span class="toc-number">83.</span> <span class="toc-text">启动成功之后，我们在本地使用navicat来接测试一下。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#navicat%E8%BF%9E%E6%8E%A5%E5%88%B0%E6%9C%8D%E5%8A%A1%E5%99%A8%E7%9A%847777%E7%AB%AF%E5%8F%A3%E5%92%8C%E5%AE%B9%E5%99%A8%E5%86%85%E7%9A%843306%E6%98%A0%E5%B0%84%EF%BC%8C%E8%BF%99%E4%B8%AA%E6%97%B6%E5%80%99%E6%88%91%E4%BB%AC%E5%B0%B1%E5%8F%AF%E4%BB%A5%E8%BF%9E%E6%8E%A5%E4%B8%8A%E4%BA%86%EF%BC%81"><span class="toc-number">84.</span> <span class="toc-text">navicat连接到服务器的7777端口和容器内的3306映射，这个时候我们就可以连接上了！</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%9C%A8%E6%9C%AC%E5%9C%B0%E6%B5%8B%E8%AF%95%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AA%E6%95%B0%E6%8D%AE%E5%BA%93%EF%BC%8C%E6%9F%A5%E7%9C%8B%E4%B8%80%E4%B8%8B%E6%88%91%E4%BB%AC%E6%98%A0%E5%B0%84%E7%9A%84%E8%B7%AF%E5%BE%84%E6%98%AF%E5%90%A6ok%EF%BC%81%EF%BC%88OK%E7%9A%84%EF%BC%89"><span class="toc-number">85.</span> <span class="toc-text">在本地测试创建一个数据库，查看一下我们映射的路径是否ok！（OK的）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8C%BF%E5%90%8D%E6%8C%82%E8%BD%BD"><span class="toc-number">86.</span> <span class="toc-text">匿名挂载</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E6%89%80%E6%9C%89%E7%9A%84volume%E7%9A%84%E6%83%85%E5%86%B5"><span class="toc-number">87.</span> <span class="toc-text">查看所有的volume的情况</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%99%E7%A7%8D%E5%B0%B1%E6%98%AF%E5%8C%BF%E5%90%8D%E6%8C%82%E8%BD%BD%EF%BC%9A%E6%88%91%E4%BB%AC%E5%9C%A8-v%E6%8C%82%E8%BD%BD%E7%9B%AE%E5%BD%95%E6%97%B6%EF%BC%8C%E5%8F%AA%E5%86%99%E4%BA%86%E5%AE%B9%E5%99%A8%E5%86%85%E7%9A%84%E8%B7%AF%E5%BE%84%EF%BC%8C%E6%B2%A1%E6%9C%89%E5%86%99%E5%AE%B9%E5%99%A8%E5%A4%96%E7%9A%84%E8%B7%AF%E5%BE%84%E3%80%82"><span class="toc-number">88.</span> <span class="toc-text">这种就是匿名挂载：我们在-v挂载目录时，只写了容器内的路径，没有写容器外的路径。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%85%B7%E5%90%8D%E6%8C%82%E8%BD%BD"><span class="toc-number">89.</span> <span class="toc-text">具名挂载</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E8%BF%87-v-%E5%8D%B7%E5%90%8D-%E5%AE%B9%E5%99%A8%E5%86%85%E7%9A%84%E8%B7%AF%E5%BE%84%EF%BC%88%E5%85%B7%E5%90%8D%E6%8C%82%E8%BD%BD%EF%BC%89"><span class="toc-number">90.</span> <span class="toc-text">通过 -v 卷名:容器内的路径（具名挂载）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E4%B8%80%E4%B8%8B%E8%BF%99%E4%B8%AA%E5%8D%B7"><span class="toc-number">91.</span> <span class="toc-text">查看一下这个卷</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%A1%AE%E5%AE%9A%E6%98%AF%E5%85%B7%E5%90%8D%E6%8C%82%E8%BD%BD%EF%BC%8C%E8%BF%98%E6%98%AF%E5%8C%BF%E5%90%8D%E6%8C%82%E8%BD%BD%EF%BC%8C%E8%BF%98%E6%98%AF%E6%8C%87%E5%AE%9A%E8%B7%AF%E5%BE%84%E6%8C%82%E8%BD%BD"><span class="toc-number">92.</span> <span class="toc-text">如何确定是具名挂载，还是匿名挂载，还是指定路径挂载</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E8%BF%87-v-%E5%AE%B9%E5%99%A8%E5%86%85%E7%9A%84%E8%B7%AF%E5%BE%84-ro-rw-%E6%94%B9%E5%8F%98%E8%AF%BB%E5%86%99%E6%9D%83%E9%99%90"><span class="toc-number">93.</span> <span class="toc-text">通过 -v 容器内的路径:ro    rw    改变读写权限</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E6%97%A6%E8%AE%BE%E7%BD%AE%E4%BA%86%E5%AE%B9%E5%99%A8%E6%9D%83%E9%99%90%EF%BC%8C%E5%AE%B9%E5%99%A8%E5%AF%B9%E6%88%91%E4%BB%AC%E6%8C%82%E8%BD%BD%E5%87%BA%E6%9D%A5%E7%9A%84%E5%86%85%E5%AE%B9%E5%B0%B1%E6%9C%89%E4%BA%86%E9%99%90%E5%AE%9A%E3%80%82"><span class="toc-number">94.</span> <span class="toc-text">一旦设置了容器权限，容器对我们挂载出来的内容就有了限定。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%AA%E8%A6%81%E7%9C%8B%E5%88%B0ro%E5%B0%B1%E8%AF%B4%E6%98%8E%E8%BF%99%E4%B8%AA%E8%B7%AF%E5%BE%84%E5%8F%AA%E8%83%BD%E9%80%9A%E8%BF%87%E5%AE%BF%E4%B8%BB%E6%9C%BA%E6%9D%A5%E6%93%8D%E4%BD%9C%EF%BC%8C%E5%AE%B9%E5%99%A8%E5%86%85%E9%83%A8%E6%98%AF%E6%97%A0%E6%B3%95%E6%93%8D%E4%BD%9C%EF%BC%81"><span class="toc-number">95.</span> <span class="toc-text">只要看到ro就说明这个路径只能通过宿主机来操作，容器内部是无法操作！</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%88%9B%E5%BB%BA%E4%B8%80%E4%B8%AAdockerfile%E6%96%87%E4%BB%B6%EF%BC%8C%E5%90%8D%E5%AD%97%E5%8F%AF%E4%BB%A5%E9%9A%8F%E6%9C%BA%EF%BC%8C%E5%BB%BA%E8%AE%AEdockerfile"><span class="toc-number">96.</span> <span class="toc-text">创建一个dockerfile文件，名字可以随机，建议dockerfile</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%96%87%E4%BB%B6%E4%B8%AD%E7%9A%84%E5%86%85%E5%AE%B9%EF%BC%9A%E6%8C%87%E4%BB%A4%E9%83%BD%E6%98%AF%E5%A4%A7%E5%86%99"><span class="toc-number">97.</span> <span class="toc-text">文件中的内容：指令都是大写</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%99%E9%87%8C%E7%9A%84%E6%AF%8F%E4%B8%AA%E5%91%BD%E4%BB%A4%EF%BC%8C%E5%B0%B1%E6%98%AF%E9%95%9C%E5%83%8F%E7%9A%84%E4%B8%80%E5%B1%82%E3%80%82"><span class="toc-number">98.</span> <span class="toc-text">这里的每个命令，就是镜像的一层。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%90%AF%E5%8A%A83%E4%B8%AA%E5%AE%B9%E5%99%A8%EF%BC%8C%E9%80%9A%E8%BF%87%E6%88%91%E4%BB%AC%E5%88%9A%E6%89%8D%E8%87%AA%E5%B7%B1%E7%9A%84%E5%86%99%E9%95%9C%E5%83%8F%E5%90%AF%E5%8A%A8%E3%80%82"><span class="toc-number">99.</span> <span class="toc-text">启动3个容器，通过我们刚才自己的写镜像启动。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%EF%BC%9A%E5%8F%AF%E4%BB%A5%E5%88%A0%E9%99%A4docker01%EF%BC%8C%E6%9F%A5%E7%9C%8B%E4%B8%80%E4%B8%8Bdocker02%E5%92%8Cdocker03%E6%98%AF%E5%90%A6%E8%BF%98%E5%8F%AF%E4%BB%A5%E8%AE%BF%E9%97%AE%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6"><span class="toc-number">100.</span> <span class="toc-text">测试：可以删除docker01，查看一下docker02和docker03是否还可以访问这个文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%E4%BE%9D%E6%97%A7%E5%8F%AF%E4%BB%A5%E8%AE%BF%E9%97%AE"><span class="toc-number">101.</span> <span class="toc-text">测试依旧可以访问</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%99%E4%B8%AA%E6%97%B6%E5%80%99%EF%BC%8C%E5%8F%AF%E4%BB%A5%E5%AE%9E%E7%8E%B0%E4%B8%A4%E4%B8%AA%E5%AE%B9%E5%99%A8%E6%95%B0%E6%8D%AE%E5%90%8C%E6%AD%A5%EF%BC%81"><span class="toc-number">102.</span> <span class="toc-text">这个时候，可以实现两个容器数据同步！</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E7%BC%96%E5%86%99dockerfile%E7%9A%84%E6%96%87%E4%BB%B6"><span class="toc-number">103.</span> <span class="toc-text">1. 编写dockerfile的文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E9%80%9A%E8%BF%87%E8%BF%99%E4%B8%AA%E6%96%87%E4%BB%B6%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F"><span class="toc-number">104.</span> <span class="toc-text">2. 通过这个文件构建镜像</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%91%BD%E4%BB%A4%EF%BC%9Adocker-build-f-dockerfile%E6%96%87%E4%BB%B6%E8%B7%AF%E5%BE%84-t-%E9%95%9C%E5%83%8F%E5%90%8D-tag"><span class="toc-number">105.</span> <span class="toc-text">命令：docker build -f dockerfile文件路径 -t 镜像名:[tag]</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-%E6%B5%8B%E8%AF%95%E8%BF%90%E8%A1%8C"><span class="toc-number">106.</span> <span class="toc-text">3. 测试运行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E7%BC%96%E5%86%99dockerfile%E6%96%87%E4%BB%B6"><span class="toc-number">107.</span> <span class="toc-text">1. 编写dockerfile文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F"><span class="toc-number">108.</span> <span class="toc-text">2. 构建镜像</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-run%E8%BF%90%E8%A1%8C%EF%BC%8C%E5%8F%91%E7%8E%B0%E6%88%91%E4%BB%AC%E7%9A%84%E2%80%9Dls-a%E2%80%9D%E5%91%BD%E4%BB%A4%E7%94%9F%E6%95%88%E3%80%81%E6%89%A7%E8%A1%8C"><span class="toc-number">109.</span> <span class="toc-text">3. run运行，发现我们的”ls -a”命令生效、执行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E6%88%91%E4%BB%AC%E5%85%88%E8%BF%BD%E5%8A%A0%E4%B8%80%E4%B8%AA%E5%91%BD%E4%BB%A4%E2%80%9Dl%E2%80%9D-%E6%9E%84%E6%88%90%E2%80%9Dls-al%E2%80%9D%E5%91%BD%E4%BB%A4%EF%BC%8C%E5%8F%91%E7%8E%B0%E6%8A%A5%E9%94%99"><span class="toc-number">110.</span> <span class="toc-text">4. 我们先追加一个命令”l”,构成”ls -al”命令，发现报错</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E5%9B%A0%EF%BC%9ACMD%E5%91%BD%E4%BB%A4%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%EF%BC%8C%E2%80%9D-l%E2%80%9D%E6%9B%BF%E6%8D%A2%E4%BA%86CMD-%E2%80%9C1s%E2%80%9D%EF%BC%8C%E2%80%9D-a%E2%80%9D-%E5%91%BD%E4%BB%A4%EF%BC%8C%E5%9B%A0%E4%B8%BA%E2%80%9D-l%E2%80%9D%E4%B8%8D%E6%98%AF%E5%91%BD%E4%BB%A4%EF%BC%8C%E6%89%80%E4%BB%A5%E6%8A%A5%E9%94%99%EF%BC%81"><span class="toc-number">111.</span> <span class="toc-text">原因：CMD命令的情况下，”-l”替换了CMD[“1s”，”-a”]命令，因为”-l”不是命令，所以报错！</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#1-%E7%BC%96%E5%86%99dockerfile%E6%96%87%E4%BB%B6-1"><span class="toc-number">112.</span> <span class="toc-text">1. 编写dockerfile文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#2-%E6%9E%84%E5%BB%BA%E9%95%9C%E5%83%8F-1"><span class="toc-number">113.</span> <span class="toc-text">2. 构建镜像</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#3-run%E8%BF%90%E8%A1%8C%EF%BC%8C%E5%8F%91%E7%8E%B0%E6%88%91%E4%BB%AC%E7%9A%84%E2%80%9Dls-a%E2%80%9D%E5%91%BD%E4%BB%A4%E7%94%9F%E6%95%88%E3%80%81%E6%89%A7%E8%A1%8C-1"><span class="toc-number">114.</span> <span class="toc-text">3. run运行，发现我们的”ls -a”命令生效、执行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#4-%E6%88%91%E4%BB%AC%E5%85%88%E8%BF%BD%E5%8A%A0%E4%B8%80%E4%B8%AA%E5%91%BD%E4%BB%A4%E2%80%9Dl%E2%80%9D-%E6%9E%84%E6%88%90%E2%80%9Dls-al%E2%80%9D%E5%91%BD%E4%BB%A4%EF%BC%8C%E5%8F%91%E7%8E%B0%E5%91%BD%E4%BB%A4%E7%94%9F%E6%95%88%E3%80%81%E6%89%A7%E8%A1%8C"><span class="toc-number">115.</span> <span class="toc-text">4. 我们先追加一个命令”l”,构成”ls -al”命令，发现命令生效、执行</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8E%9F%E5%9B%A0%EF%BC%9AENTRYPOINT%E5%91%BD%E4%BB%A4%E7%9A%84%E6%83%85%E5%86%B5%E4%B8%8B%EF%BC%8C%E2%80%9D-l%E2%80%9D%E8%BF%BD%E5%8A%A0%E5%9C%A8ENTRYPOINT-%E2%80%9C1s%E2%80%9D%EF%BC%8C%E2%80%9D-a%E2%80%9D-%E5%91%BD%E4%BB%A4%E5%90%8E%E9%9D%A2%EF%BC%8C%E5%BE%97%E5%88%B0%E2%80%9Dls-al%E2%80%9D%E7%9A%84%E5%91%BD%E4%BB%A4%EF%BC%8C%E6%89%80%E4%BB%A5%E5%91%BD%E4%BB%A4%E6%AD%A3%E5%B8%B8%E6%89%A7%E8%A1%8C%EF%BC%81"><span class="toc-number">116.</span> <span class="toc-text">原因：ENTRYPOINT命令的情况下，”-l”追加在ENTRYPOINT [“1s”，”-a”]命令后面，得到”ls -al”的命令，所以命令正常执行！</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%EF%BC%88%E6%88%91%E4%BB%AC%E7%9A%84%E8%BF%BD%E5%8A%A0%E5%91%BD%E4%BB%A4%EF%BC%8C%E6%98%AF%E7%9B%B4%E6%8E%A5%E6%8B%BC%E6%8E%A5%E5%9C%A8%E6%88%91%E4%BB%AC%E7%9A%84ENTRYPOINT%E5%91%BD%E4%BB%A4%E7%9A%84%E5%90%8E%E9%9D%A2%EF%BC%89"><span class="toc-number">117.</span> <span class="toc-text">（我们的追加命令，是直接拼接在我们的ENTRYPOINT命令的后面）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#x2F-home-x2F-sywl-x2F-build-x2F-tomcat-x2F-test-x2F-WEB-INF-x2F-web-xml%E6%96%87%E4%BB%B6"><span class="toc-number">118.</span> <span class="toc-text">&#x2F;home&#x2F;sywl&#x2F;build&#x2F;tomcat&#x2F;test&#x2F;WEB-INF&#x2F;web.xml文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#x2F-home-x2F-sywl-x2F-build-x2F-tomcat-x2F-test-x2F-index-jsp%E6%96%87%E4%BB%B6"><span class="toc-number">119.</span> <span class="toc-text">&#x2F;home&#x2F;sywl&#x2F;build&#x2F;tomcat&#x2F;test&#x2F;index.jsp文件</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%99%BB%E5%BD%95%E5%91%BD%E4%BB%A4"><span class="toc-number">120.</span> <span class="toc-text">登录命令</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#push%E9%95%9C%E5%83%8F%E5%87%BA%E7%8E%B0%E7%9A%84%E9%97%AE%E9%A2%98%EF%BC%9F"><span class="toc-number">121.</span> <span class="toc-text">push镜像出现的问题？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%A7%A3%E5%86%B3%EF%BC%8C%E5%A2%9E%E5%8A%A0%E4%B8%80%E4%B8%AAtag"><span class="toc-number">122.</span> <span class="toc-text">解决，增加一个tag</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#docker-push%E5%8D%B3%E5%8F%AF%EF%BC%9B%E8%87%AA%E5%B7%B1%E5%8F%91%E5%B8%83%E7%9A%84%E9%95%9C%E5%83%8F%E5%B0%BD%E9%87%8F%E5%B8%A6%E4%B8%8A%E7%89%88%E6%9C%AC%E5%8F%B7"><span class="toc-number">123.</span> <span class="toc-text">docker push即可；自己发布的镜像尽量带上版本号</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%97%AE%E9%A2%98%EF%BC%9Adocker%E6%98%AF%E5%A6%82%E4%BD%95%E5%A4%84%E7%90%86%E5%AE%B9%E5%99%A8%E7%BD%91%E7%BB%9C%E8%AE%BF%E9%97%AE%E7%9A%84%EF%BC%9F"><span class="toc-number">124.</span> <span class="toc-text">问题：docker是如何处理容器网络访问的？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B%E5%AE%B9%E5%99%A8%E7%9A%84%E5%86%85%E9%83%A8%E7%BD%91%E7%BB%9C%E5%9C%B0%E5%9D%80ip-addr%EF%BC%8C%E5%8F%91%E7%8E%B0%E5%AE%B9%E5%99%A8%E5%90%AF%E5%8A%A8%E7%9A%84%E6%97%B6%E5%80%99%E4%BC%9A%E5%BE%97%E5%88%B0%E4%B8%80%E4%B8%AAeth0-if119%E7%9A%84ip%E5%9C%B0%E5%9D%80%EF%BC%88docker%E5%88%86%E9%85%8D%E7%9A%84%EF%BC%89"><span class="toc-number">125.</span> <span class="toc-text">查看容器的内部网络地址ip addr，发现容器启动的时候会得到一个eth0@if119的ip地址（docker分配的）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%80%9D%E8%80%83%EF%BC%9Aliunx%E8%83%BD%E4%B8%8D%E8%83%BDping%E9%80%9A%E5%AE%B9%E5%99%A8%E5%86%85%E9%83%A8%EF%BC%9F%EF%BC%88linux%E5%8F%AF%E4%BB%A5ping%E9%80%9A%E5%AE%B9%E5%99%A8%E5%86%85%E9%83%A8%EF%BC%89"><span class="toc-number">126.</span> <span class="toc-text">思考：liunx能不能ping通容器内部？（linux可以ping通容器内部）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E4%BB%AC%E5%8F%91%E7%8E%B0%E8%BF%99%E4%B8%AA%E5%AE%B9%E5%99%A8%E5%B8%A6%E6%9D%A5%E7%BD%91%E5%8D%A1%EF%BC%8C%E9%83%BD%E6%98%AF%E4%B8%80%E5%AF%B9%E5%AF%B9%E7%9A%84%E3%80%82"><span class="toc-number">127.</span> <span class="toc-text">我们发现这个容器带来网卡，都是一对对的。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#veth-pair-%E5%B0%B1%E6%98%AF%E4%B8%80%E5%AF%B9%E7%9A%84%E8%99%9A%E6%8B%9F%E8%AE%BE%E5%A4%87%E6%8E%A5%E5%8F%A3%EF%BC%8C%E4%BB%96%E4%BB%AC%E9%83%BD%E6%98%AF%E6%88%90%E5%AF%B9%E5%87%BA%E7%8E%B0%E7%9A%84%EF%BC%8C%E4%B8%80%E7%AB%AF%E8%BF%9E%E7%9D%80%E5%8D%8F%E8%AE%AE%EF%BC%8C%E4%B8%80%E7%AB%AF%E5%BD%BC%E6%AD%A4%E7%9B%B8%E8%BF%9E%E3%80%82"><span class="toc-number">128.</span> <span class="toc-text">veth-pair 就是一对的虚拟设备接口，他们都是成对出现的，一端连着协议，一端彼此相连。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%AD%A3%E5%9B%A0%E4%B8%BA%E6%9C%89%E8%BF%99%E4%B8%AA%E7%89%B9%E6%80%A7%EF%BC%8Cevth-pair%E5%85%85%E5%BD%93%E4%B8%80%E4%B8%AA%E6%A1%A5%E6%A2%81%EF%BC%8C%E8%BF%9E%E6%8E%A5%E5%90%84%E7%A7%8D%E8%99%9A%E6%8B%9F%E7%BD%91%E7%BB%9C%E8%AE%BE%E5%A4%87%E7%9A%84%E3%80%82"><span class="toc-number">129.</span> <span class="toc-text">正因为有这个特性，evth-pair充当一个桥梁，连接各种虚拟网络设备的。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#openstack%EF%BC%8CDocker%E5%AE%B9%E5%99%A8%E4%B9%8B%E9%97%B4%E7%9A%84%E8%BF%9E%E6%8E%A5%EF%BC%8COVS%E7%9A%84%E8%BF%9E%E6%8E%A5%EF%BC%8C%E9%83%BD%E6%98%AF%E4%BD%BF%E7%94%A8veth-pair%E6%8A%80%E6%9C%AF%E3%80%82"><span class="toc-number">130.</span> <span class="toc-text">openstack，Docker容器之间的连接，OVS的连接，都是使用veth-pair技术。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E7%BB%93%E8%AE%BA%EF%BC%9A%E5%AE%B9%E5%99%A8%E5%92%8C%E5%AE%B9%E5%99%A8%E4%B9%8B%E9%97%B4%E6%98%AF%E5%8F%AF%E4%BB%A5%E4%BA%92%E7%9B%B8ping%E9%80%9A%E7%9A%84%EF%BC%81"><span class="toc-number">131.</span> <span class="toc-text">结论：容器和容器之间是可以互相ping通的！</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E6%9C%8D%E5%8A%A1%E5%90%8Dping%E4%B8%8D%E9%80%9A%EF%BC%9B%E5%A6%82%E4%BD%95%E8%A7%A3%E5%86%B3%EF%BC%9F"><span class="toc-number">132.</span> <span class="toc-text">通过服务名ping不通；如何解决？</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%80%9A%E8%BF%87%E2%80%93link%E5%8F%AF%E4%BB%A5%E8%A7%A3%E5%86%B3%E7%BD%91%E7%BB%9C%E8%BF%9E%E6%8E%A5%E9%97%AE%E9%A2%98%E3%80%82"><span class="toc-number">133.</span> <span class="toc-text">通过–link可以解决网络连接问题。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E5%8F%8D%E5%90%91%E5%8F%AF%E4%BB%A5ping%E9%80%9A%E5%90%97%EF%BC%9F%EF%BC%88%E4%B8%8D%E5%8F%AF%E4%BB%A5%EF%BC%89"><span class="toc-number">134.</span> <span class="toc-text">反向可以ping通吗？（不可以）</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%9F%A5%E7%9C%8B"><span class="toc-number">135.</span> <span class="toc-text">查看</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E4%BB%AC%E7%9B%B4%E6%8E%A5%E5%90%AF%E5%8A%A8%E7%9A%84%E5%91%BD%E4%BB%A4%E2%80%93net-bridge%EF%BC%88%E8%BF%99%E4%B8%AA%E5%B0%B1%E6%98%AF%E6%88%91%E4%BB%AC%E7%9A%84docker0%EF%BC%89%EF%BC%9B%E9%BB%98%E8%AE%A4%E5%B8%A6%E4%B8%8A%E8%BF%99%E4%B8%AA%E5%8F%82%E6%95%B0%E7%9A%84%EF%BC%8C%E4%BB%A5%E4%B8%8B%E4%B8%A4%E7%A7%8D%E5%90%AF%E5%8A%A8%E6%96%B9%E5%BC%8F%E6%95%88%E6%9E%9C%E4%B8%80%E8%87%B4%E3%80%82"><span class="toc-number">136.</span> <span class="toc-text">我们直接启动的命令–net bridge（这个就是我们的docker0）；默认带上这个参数的，以下两种启动方式效果一致。</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#docker0%E7%89%B9%E7%82%B9%EF%BC%9A%E9%BB%98%E8%AE%A4%EF%BC%8C%E5%9F%9F%E5%90%8D%E4%B8%8D%E8%83%BD%E8%AE%BF%E9%97%AE%EF%BC%8C%E2%80%931ink%E5%8F%AF%E4%BB%A5%E6%89%93%E9%80%9A%E8%BF%9E%E6%8E%A5%EF%BC%81"><span class="toc-number">137.</span> <span class="toc-text">docker0特点：默认，域名不能访问，–1ink可以打通连接！</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%88%91%E4%BB%AC%E5%8F%AF%E4%BB%A5%E8%87%AA%E5%AE%9A%E4%B9%89%E4%B8%80%E4%B8%AA%E7%BD%91%E7%BB%9C%EF%BC%81"><span class="toc-number">138.</span> <span class="toc-text">我们可以自定义一个网络！</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8D%E4%BD%BF%E7%94%A8%E2%80%93link%EF%BC%8Cping%E5%90%8D%E5%AD%97%E4%B9%9F%E5%8F%AF%E4%BB%A5ping%E9%80%9A%E3%80%82tomcat-net-01-ping-tomcat-net-02%E5%8F%AF%E4%BB%A5ping%E9%80%9A"><span class="toc-number">139.</span> <span class="toc-text">不使用–link，ping名字也可以ping通。tomcat-net-01 ping tomcat-net-02可以ping通</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%8D%E4%BD%BF%E7%94%A8%E2%80%93link%EF%BC%8Cping%E5%90%8D%E5%AD%97%E4%B9%9F%E5%8F%AF%E4%BB%A5ping%E9%80%9A%E3%80%82tomcat-net-02-ping-tomcat-net-01%E5%8F%AF%E4%BB%A5ping%E9%80%9A"><span class="toc-number">140.</span> <span class="toc-text">不使用–link，ping名字也可以ping通。tomcat-net-02 ping tomcat-net-01可以ping通</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tomcat01%E5%9C%A8docker0%E7%BD%91%E7%BB%9C%E4%B8%8B%EF%BC%8Ctomcat-net-01%E5%9C%A8mynet%E7%BD%91%E7%BB%9C%E4%B8%8B%EF%BC%9B"><span class="toc-number">141.</span> <span class="toc-text">tomcat01在docker0网络下，tomcat-net-01在mynet网络下；</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#tomcat01-ping-tomcat-net-01%E6%98%AFping%E4%B8%8D%E9%80%9A%E7%9A%84"><span class="toc-number">142.</span> <span class="toc-text">tomcat01 ping tomcat-net-01是ping不通的</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E6%B5%8B%E8%AF%95%EF%BC%9A%E6%89%93%E9%80%9Atomcat01%E8%BF%9E%E6%8E%A5mynet"><span class="toc-number">143.</span> <span class="toc-text">测试：打通tomcat01连接mynet</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9E%E9%80%9A%E4%B9%8B%E5%90%8E%E5%B0%B1%E6%98%AF%E5%B0%86tomcat01%E6%94%BE%E5%88%B0%E4%BA%86mynet%E7%BD%91%E7%BB%9C%E4%B8%8B"><span class="toc-number">144.</span> <span class="toc-text">连通之后就是将tomcat01放到了mynet网络下</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E4%B8%80%E4%B8%AA%E5%AE%B9%E5%99%A8%E4%B8%A4%E4%B8%AAip%E5%9C%B0%E5%9D%80%EF%BC%81I"><span class="toc-number">145.</span> <span class="toc-text">一个容器两个ip地址！I</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E9%98%BF%E9%87%8C%E4%BA%91%E6%9C%8D%E5%8A%A1%EF%BC%9A%E5%85%AC%E7%BD%91ip%E5%92%8C%E7%A7%81%E7%BD%91ip"><span class="toc-number">146.</span> <span class="toc-text">阿里云服务：公网ip和私网ip</span></a></li><li class="toc-item toc-level-1"><a class="toc-link" href="#%E8%BF%9E%E6%8E%A5ok"><span class="toc-number">147.</span> <span class="toc-text">连接ok</span></a></li></ol>
+                    </div>
+                </span>
             </div>
         </div>
         
-        
     </div>
 </aside>
 
 
 
-
-  
-    <article id="post-数据结构和算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/16/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/">数据结构和算法基础</a>
-    </h1>
-  
-
-        
-        <a href="/2023/02/16/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/" class="archive-article-date">
-  	<time datetime="2023-02-16T07:49:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="一、数据结构和算法基础–学习材料"><a href="#一、数据结构和算法基础–学习材料" class="headerlink" title="一、数据结构和算法基础–学习材料"></a>一、数据结构和算法基础–学习材料</h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">我的第三篇博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/02/16/%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E5%92%8C%E7%AE%97%E6%B3%95/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-蓝桥杯算法练习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/16/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/">蓝桥杯算法练习</a>
-    </h1>
-  
-
-        
-        <a href="/2023/02/16/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2023-02-16T07:45:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Made-by-Code-OneMING"><a href="#Made-by-Code-OneMING" class="headerlink" title="Made by Code-OneMING"></a>Made by Code-OneMING</h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">我的第六篇博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/02/16/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-常信linux" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/16/%E5%B8%B8%E4%BF%A1linux/">Linux操作系统上课笔记</a>
-    </h1>
-  
-
-        
-        <a href="/2023/02/16/%E5%B8%B8%E4%BF%A1linux/" class="archive-article-date">
-  	<time datetime="2023-02-16T07:45:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Made-by-Code-OneMING"><a href="#Made-by-Code-OneMING" class="headerlink" title="Made by Code-OneMING"></a>Made by Code-OneMING</h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">我的第四篇博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/02/16/%E5%B8%B8%E4%BF%A1linux/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-对于Python面向对象编程的学习理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/15/%E5%AF%B9%E4%BA%8EPython%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%90%86%E8%A7%A3/">对于Python面向对象编程的学习理解</a>
-    </h1>
-  
-
-        
-        <a href="/2023/02/15/%E5%AF%B9%E4%BA%8EPython%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%90%86%E8%A7%A3/" class="archive-article-date">
-  	<time datetime="2023-02-15T08:36:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Made-by-Code-OneMING"><a href="#Made-by-Code-OneMING" class="headerlink" title="Made by Code-OneMING"></a>Made by Code-OneMING</h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">我的第一篇文章</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/02/15/%E5%AF%B9%E4%BA%8EPython%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E7%BC%96%E7%A8%8B%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%90%86%E8%A7%A3/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-蓝桥杯基础练习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/15/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/">蓝桥杯基础练习技术点</a>
-    </h1>
-  
-
-        
-        <a href="/2023/02/15/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2023-02-15T08:36:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-15</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Made-by-Code-OneMING"><a href="#Made-by-Code-OneMING" class="headerlink" title="Made by Code-OneMING"></a>Made by Code-OneMING</h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">我的第五篇博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/02/15/%E8%93%9D%E6%A1%A5%E6%9D%AF%E5%9F%BA%E7%A1%80%E7%BB%83%E4%B9%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
   
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
+  
+
+  
+
+  
+
   
 
 
@@ -1252,8 +624,8 @@ https://hub.docker.com/ 注册自己的账号
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
