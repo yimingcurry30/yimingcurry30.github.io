@@ -156,706 +156,6 @@
           <div id="js-content" class="content-ll">
             
   
-    <article id="post-python二级笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/08/02/python%E4%BA%8C%E7%BA%A7%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-Kubernetes入门" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Kubernetes入门"><a href="#Kubernetes入门" class="headerlink" title="Kubernetes入门"></a>Kubernetes入门</h1><h2 id="第一部分–核心组件"><a href="#第一部分–核心组件" class="headerlink" title="第一部分–核心组件"></a>第一部分–核心组件</h2><h3 id="1-认识Kubernetes"><a href="#1-认识Kubernetes" class="headerlink" title="1.认识Kubernetes"></a>1.认识Kubernetes</h3><h3 id="2-集群架构与组件"><a href="#2-集群架构与组件" class="headerlink" title="2.集群架构与组件"></a>2.集群架构与组件</h3><h2 id="第二部分–核心概念"><a href="#第二部分–核心概念" class="headerlink" title="第二部分–核心概念"></a>第二部分–核心概念</h2><h3 id="1-服务的分类"><a href="#1-服务的分类" class="headerlink" title="1.服务的分类"></a>1.服务的分类</h3><p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719132535360.png" alt="image-20230719132535360"></p>
-<h4 id="无状态应用"><a href="#无状态应用" class="headerlink" title="无状态应用"></a>无状态应用</h4><p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719133223856.png" alt="image-20230719133223856"></p>
-<h4 id="有状态应用"><a href="#有状态应用" class="headerlink" title="有状态应用"></a>有状态应用</h4><p>需要维护数据存储</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719133246883.png" alt="image-20230719133246883"></p>
-<h3 id="2-资源对象"><a href="#2-资源对象" class="headerlink" title="2.资源对象"></a>2.资源对象</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">k8s中所有的内容都被抽象为“资源”，如pod,service,node等都是资源,“对象”就是&quot;资源&quot;的实例,是持久化的实体。如某个具体的pod,node,k8s使用这些实体来表示整个集群的状态。</span><br><span class="line">对象的创建,删除,修改都是通过k8s api 也就是api service 组件提供的api接口,这些是restful风格的api,与k8s万物皆对象的理念相符,命令行工具&quot;kubectl&quot;,实际上调用的也是kubernetes api,k8s中的资源类别有很多种,kubectl可以通过配置文件来创建这些对象,配置文件更像是描述对象&quot;属性&quot;的文件,配置文件格式可以是&quot;JSON&quot;或&quot;YAML&quot;。</span><br></pre></td></tr></table></figure>
-
-
-
-<blockquote>
-<p>对象的规约和状态</p>
-<p>规约:”spec”是规格的意思,spec是必须的,它描述了对象的期望状态——希望对象所具有的特征,当创建k8s对象时，必须提供对象的规约,用来描述对象的期望状态,以及关于对象的一些基本信息。</p>
-<p>状态：表示对象的实际状态，该属性由k8s自己维护,k8s会通过一系列控制器对对应的对象进行管理，让对象尽可能让实际状态与期望状态重合</p>
-</blockquote>
-<h4 id="2-1资源的分类——元数据级-集群级-命名空间级"><a href="#2-1资源的分类——元数据级-集群级-命名空间级" class="headerlink" title="2.1资源的分类——元数据级,集群级,命名空间级"></a>2.1资源的分类——元数据级,集群级,命名空间级</h4><p>资源在做分类的时候,就是为了让管理员更加清晰的区分资源能否跨集群使用,能否跨命名空间,将集群进行逻辑上拆分成小集群使用.</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719141831339.png" alt="image-20230719141831339"></p>
-<h5 id="元数据级-元空间"><a href="#元数据级-元空间" class="headerlink" title="元数据级(元空间)"></a>元数据级(元空间)</h5><p>HPA实际场景:<img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719142532492.png" alt="image-20230719142532492"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719142226681.png" alt="image-20230719142226681"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719142258773.png" alt="image-20230719142258773"></p>
-<p>PodTemplate</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719142641756.png" alt="image-20230719142641756"></p>
-<p>LimitRange</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719142944107.png" alt="image-20230719142944107"></p>
-<h5 id="集群级"><a href="#集群级" class="headerlink" title="集群级"></a>集群级</h5><p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719143257119.png" alt="image-20230719143257119"></p>
-<p>Namespace–命名空间</p>
-<blockquote>
-<p>也属于k8s集群内部空间</p>
-</blockquote>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719143528518.png" alt="image-20230719143528518"></p>
-<p>node—服务器资源</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719143552039.png" alt="image-20230719143552039"></p>
-<p>ClusterRole</p>
-<blockquote>
-<p>用于对集群权限的管理，声明权限组</p>
-</blockquote>
-<p>ClusterRoleBinding –集群级别绑定</p>
-<blockquote>
-<p>绑定创建角色与资源的绑定，从而赋予相应权限</p>
-</blockquote>
-<h5 id="命名空间级"><a href="#命名空间级" class="headerlink" title="命名空间级"></a>命名空间级</h5><p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719144255317.png" alt="image-20230719144255317"></p>
-<h6 id="重要—工作负载型Pod"><a href="#重要—工作负载型Pod" class="headerlink" title="重要—工作负载型Pod"></a>重要—工作负载型Pod</h6><p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719145358019.png" alt="image-20230719145358019"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719145539133.png" alt="image-20230719145539133"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719145055714.png" alt="image-20230719145055714"></p>
-<p>容器间在pod内部实现文件共享, pause：提供网络,文件系统等,pod相当于一个容器组，基于pod这样一个容器组来管理容器</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719145158822.png" alt="image-20230719145158822"></p>
-<p>Pod—控制器</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719150107173.png" alt="image-20230719150107173">.</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719150311013.png" alt="image-20230719150311013"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719150553070.png" alt="image-20230719150553070"></p>
-<p>Deloyment</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230719151053523.png" alt="image-20230719151053523"></p>
-<p>Statefulset:专门针对于有状态服务进行部署的一个控制器</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720093926193.png" alt="image-20230720093926193"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720093957920.png" alt="image-20230720093957920"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720094321668.png" alt="image-20230720094321668"></p>
-<p>Daemonset:为每一个匹配的Node都部署一个守护进程.</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720094638743.png" alt="image-20230720094638743"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720095224563.png" alt="image-20230720095224563"></p>
-<h6 id="服务发现"><a href="#服务发现" class="headerlink" title="服务发现"></a>服务发现</h6><p>Service:</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720095559263.png" alt="image-20230720095559263"></p>
-<p>流量小知识补充:</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720100103813.png" alt="image-20230720100103813"></p>
-<p>集群内用service实现k8s内部网络调用,负载均衡,四层负载(东西流量，横向流量)</p>
-<p>ingress:实现将k8s内部服务暴露给外网访问的服务ingress-nginx方向代理，七层负载(南北流量,纵向流量)</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720101033733.png" alt="image-20230720101033733"></p>
-<h6 id="存储"><a href="#存储" class="headerlink" title="存储"></a>存储</h6><p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720101306642.png" alt="image-20230720101306642"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720101409771.png" alt="image-20230720101409771"></p>
-<h6 id="特殊型配置"><a href="#特殊型配置" class="headerlink" title="特殊型配置"></a>特殊型配置</h6><p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720101726152.png" alt="image-20230720101726152"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720101926370.png" alt="image-20230720101926370"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720101940222.png" alt="image-20230720101940222"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720102042027.png" alt="image-20230720102042027"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720102255858.png" alt="image-20230720102255858"></p>
-<h2 id="第三部分-K8s简单集群搭建及实验"><a href="#第三部分-K8s简单集群搭建及实验" class="headerlink" title="第三部分-K8s简单集群搭建及实验"></a>第三部分-K8s简单集群搭建及实验</h2><h2 id="1-基础实验环境集群搭建和部署"><a href="#1-基础实验环境集群搭建和部署" class="headerlink" title="1.基础实验环境集群搭建和部署"></a>1.基础实验环境集群搭建和部署</h2><p>1.本次采用三台虚拟机,master,node1,node2,基本环境搭建(虚拟机网络设置,本地yum源,外部yum源,ip映射,防火墙设置)</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722095544740.png" alt="image-20230722095544740"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722095616851.png" alt="image-20230722095616851"></p>
-<p>2.初始化设置</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230720140618435.png" alt="image-20230720140618435"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230721161139316.png" alt="image-20230721161139316"></p>
-<p>3.初始化完成后,开始准备加入节点操作</p>
-<p>1.手动获取token命令</p>
-<p>kubeadm token create</p>
-<p>如果没过期(23h)，用以下命令获取&#x3D;kubeadm token list</p>
-<p>2.手动获取hash值参数命令</p>
-<p>openssl x509 -pubkey -in &#x2F;etc&#x2F;kubernetes&#x2F;pki&#x2F;ca.crt | opensslrsa -pubin -outform der 2&gt;&#x2F;dev&#x2F;null | openssl dgst -sha256 -hex | sed ‘s&#x2F;^.* &#x2F;&#x2F;‘</p>
-<p>获取到的值要加上sha256:的前缀</p>
-<p>3.加入节点命令</p>
-<p>kubeadm join master-ip:6433 –token xxxx –discovery-token-ca-cert-hash master控制台的hash值</p>
-<p>初始化报错解决—-</p>
-<p>systemctl status kubelet</p>
-<p>1.修改docker目录下vi &#x2F;etc&#x2F;docker&#x2F;daemon.jason</p>
-<p>添加 ”exec-opts“:[“native.cgroupdriver&#x3D;systemd”]</p>
-<p>常用命令小总结</p>
-<p>1.kubectl get nodes&#x2F;no					查看节点加入状态</p>
-<p>2.重启docker</p>
-<p>systemctl daemon-reload</p>
-<p>systemctl restart docker</p>
-<p>3.kubectl get componentsatus						查看节点状态</p>
-<p>4.kubectl get pods								查看pod</p>
-<p>5.kubectl get pods -n kube-system				查看特定命名空间里的pod</p>
-<p>6.kubectl describle po <pod_name> -n kube-system			查看pod详细描述</p>
-<p>7.kubectl get po 				查看pod</p>
-<p>8.kubectl get ns					查看命名空间</p>
-<p>部署CNI插件</p>
-<p>cd &#x2F;opt</p>
-<p>mkdir k8s</p>
-<p>cd &#x2F;k8s</p>
-<p>下载    curl <a target="_blank" rel="noopener" href="https://raw.githubusercontent.com/projectcalico/calico/v3.26.0/manifests/calico.yaml">https://raw.githubusercontent.com/projectcalico/calico/v3.26.0/manifests/calico.yaml</a> -O</p>
-<p>编辑calico.yaml</p>
-<p>搜索CALICO_IPV4POOL_CIDR修改value：10.244.0.0&#x2F;16</p>
-<p>修改成功后执行:mkdir -p $HOME&#x2F;.kube</p>
-<p>优化镜像仓库地址</p>
-<p>grep image calico.yaml			查看yaml镜像</p>
-<p>修改:sed -i ‘s#docker.io&#x2F;##g’ calico.yaml</p>
-<p>docker pull 镜像</p>
-<p>kubectl apply -f calico.yaml 	构建镜像应用</p>
-<p>简单测试—创建部署</p>
-<p>1.kubectl create deployment nginx –image&#x3D;nginx</p>
-<p>2.暴露端口  kubectl expose deployment nginx –port&#x3D;80 –type&#x3D;NodePort</p>
-<p>3.暴露容器内端口  kubectl get pod,svc</p>
-<p>4.访问ip:80后面映射的端口,三个ip均能访问即部署成功</p>
-<p>配置部署从节点kubectl get nodes&#x2F;no,实现在任意节点使用kubectl</p>
-<p>1.将master 节点中 &#x2F;etc&#x2F;kubernetes&#x2F;admin.conf  拷贝到需要运行的服务器对应目录 &#x2F;etc&#x2F;kubernetes</p>
-<p>master节点执行:scp &#x2F;etc&#x2F;kubernetes&#x2F;admin.conf root@k8s_node1:&#x2F;etc&#x2F;kubernetes</p>
-<p>2.在对应服务器上配置环境变量  从节点执行</p>
-<p>echo “export KUBECONFIG&#x3D;&#x2F;etc&#x2F;kubernetes&#x2F;admin.conf” &gt;&gt;  ~&#x2F;.bash_profile</p>
-<p>配置文件生效     source ~&#x2F;.bash_profile</p>
-<h2 id="2-命令行工具kubectl学习"><a href="#2-命令行工具kubectl学习" class="headerlink" title="2.命令行工具kubectl学习"></a>2.命令行工具kubectl学习</h2><p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722104050061.png" alt="image-20230722104050061"></p>
-<p>1.创建对象</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722104115672.png" alt="image-20230722104115672"></p>
-<p>2.创建资源</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722104520842.png" alt="image-20230722104520842"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722104559617.png" alt="image-20230722104559617"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722104631272.png" alt="image-20230722104631272"></p>
-<p>kubectl get po -o wide 				查看详细信息</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722104659260.png" alt="image-20230722104659260"></p>
-<p>3.命令行格式化输出操作</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722104804730.png" alt="image-20230722104804730"></p>
-<p>kubectl get deploy nginx -o yaml 	将nginx输出为一个yaml文件</p>
-<h2 id="3-深入Pod操作"><a href="#3-深入Pod操作" class="headerlink" title="3.深入Pod操作"></a>3.深入Pod操作</h2><h3 id="1-pod配置文件"><a href="#1-pod配置文件" class="headerlink" title="1.pod配置文件"></a>1.pod配置文件</h3><p>1.删除deploy</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722125954786.png" alt="image-20230722125954786"></p>
-<blockquote>
-<p>kubectl delete deploy nginx</p>
-</blockquote>
-<p>2.删除services</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722130109609.png" alt="image-20230722130109609"></p>
-<p>pod和deploy相互关联,删除deploy,pod也会相应删除</p>
-<p>创建pod目录</p>
-<p>1.将calico文件移动到新的目录cni中</p>
-<p>mkdir cni&#x2F;</p>
-<p>mv calico.yaml cni&#x2F;</p>
-<p>2.新建pods目录</p>
-<p>mkdir pods</p>
-<p>ls pods&#x2F;</p>
-<blockquote>
-<p>创建nginx.demo yaml文件</p>
-<p>yaml文件参数清单</p>
-</blockquote>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722130812610.png" alt="image-20230722130812610"></p>
-<p> <img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722134111214.png" alt="image-20230722134111214"></p>
-<h3 id="2-pod三种探针"><a href="#2-pod三种探针" class="headerlink" title="2.pod三种探针"></a>2.pod三种探针</h3><p>容器内应用的监控机制,根据不同探针来判断容器应用当前的状态</p>
-<p> 探针三种类型</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722141252732.png" alt="image-20230722141252732"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722141534173.png" alt="image-20230722141534173"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722141916160.png" alt="image-20230722141916160"></p>
-<p>探针三种方式</p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722142143793.png" alt="image-20230722142143793"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722142130638.png" alt="image-20230722142130638"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722142153459.png" alt="image-20230722142153459"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722142228872.png" alt="image-20230722142228872"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722142239434.png" alt="image-20230722142239434"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230722142328281.png" alt="image-20230722142328281"></p>
-<h3 id="3-使用探针"><a href="#3-使用探针" class="headerlink" title="3.使用探针"></a>3.使用探针</h3><p>p<a href="">29开始</a></p>
-<h3 id="4-Pod生命周期"><a href="#4-Pod生命周期" class="headerlink" title="4.Pod生命周期"></a>4.Pod生命周期</h3><p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230723103429832.png" alt="image-20230723103429832"></p>
-<h3 id="5-Prestop的应用"><a href="#5-Prestop的应用" class="headerlink" title="5.Prestop的应用"></a>5.Prestop的应用</h3><p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230723103940289.png" alt="image-20230723103940289"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230723104139579.png" alt="image-20230723104139579"></p>
-<h2 id="4-资源调度"><a href="#4-资源调度" class="headerlink" title="4.资源调度"></a>4.资源调度</h2><p> <img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230723105647532.png" alt="image-20230723105647532"></p>
-<p><img src="C:\Users\dingyiming\AppData\Roaming\Typora\typora-user-images\image-20230723105628653.png" alt="image-20230723105628653"></p>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/07/24/Kubernetes%E5%85%A5%E9%97%A8/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于Kubernetes学习笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/07/15/%E5%85%B3%E4%BA%8EKubernetes%E5%AD%A6%E4%B9%A0%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-practise" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>给大家分享《三体》中的一句话，很有感触：弱小和无知不是生存的障碍，傲慢才是。</p>
-<p>Docker概述<br>Docker安装<br>Docker命令<br>镜像命令<br>容器命令<br>操作命令<br>…<br>Docker镜像！<br>容器数据卷！<br>DockerFile·Docker网络原理<br>IDEA整合Docker<br>Docker Compose<br>Docker Swarm<br>CI\CDJenkins<br>一、Docker概述</p>
-<ol>
-<li>Docker为什么出现<br>一款产品：开发—上线 两套环境（应用环境，应用配置）<br>开发—-运维。问题：我在我的电脑上可以运行！版本更新，导致服务不可用！对于运维来说，考验就十分大？<br>环境配置是十分的麻烦，每一个机器都要部署环境（集群Redis、ES、Hadoop…）费时费力。<br>发布一个项目（jar +（Redis MySQL jdk ES）），项目能不能都带上环境安装打包！<br>之前在服务器配置一个应用的环境Redis MySQL jdk ES Hadoop，配置超麻烦了，不能够跨平台。<br>Windows开发，最后发布到Linux:</li>
-</ol>
-<p>传统：开发jar，运维来做！<br>现在：开发打包部署上线，一套流程做完！<br>java —- apk — 发布（应用商店）—-张三使用apk—-安装即可用！<br>java —- jar（环境）—- 打包项目带上环境（镜像）—-（Docker仓库：商店）—-下载我们发布的镜像—直接运行即可！</p>
-<p>Docker给以上的问题，提出了解决方案！</p>
-<p>Docker的思想就来自于集装箱！<br>隔离：Docker核心思想！打包装箱！每个箱子是互相隔离的。</p>
-<p>本质：所有的技术都是因为出现了一些问题，我们需要去解决，才去学习。</p>
-<ol start="2">
-<li>Docker的历史<br>2010年，几个搞IT的年轻人，就在美国成立了一家公司dotcloud做一些pass的云计算服务！<br>LXC有关的容器技术！他们将自己的技术（容器化技术）命名就是Docker！<br>Docker刚刚诞生的时候，没有引起行业的注意！（dotCloud就活不下去）<br>开源（开放源代码）<br>2013年，Docker开源！<br>Docker越来越多的人发现了docker的优点！就火了，Docker每个月都会更新一个版本！<br>2014年4月9日，Docker1.0发布！<br>Docker为什么这么火？十分的轻巧<br>在容器技术出来之前，我们都是使用虚拟机技术！<br>虚拟机：在window中装一个Vmware，通过这个软件我们可以虚拟出来一台或者多台电脑！（很笨重）<br>虚拟机也是属于虚拟化技术，Docker容器技术，也是一种虚拟化技术！</li>
-</ol>
-<p>vm：隔离，需要开启多个虚拟机！linux centos原生镜像（一个电脑！）需要几个G内存空间，开启需要几分钟！<br>docker：隔离，镜像（最核心的环境4m内存）十分的小巧，运行镜像就可以了！小巧！几个M或KB的内存空间，秒级启动！<br>聊聊Doker</p>
-<p>Docker是基于Go语言开发的！开源项目！<br>官网：<a target="_blank" rel="noopener" href="https://www.docker.com/">https://www.docker.com/</a><br>文档地址：<a target="_blank" rel="noopener" href="https://docs.docker.com/">https://docs.docker.com/</a><br>Doker镜像仓库地址：<a target="_blank" rel="noopener" href="https://hub.docker.com/">https://hub.docker.com/</a></p>
-<ol start="3">
-<li>Docker能做什么<br>之前的虚拟机技术</li>
-</ol>
-<p>虚拟机技术缺点：<br>1、资源占用十分多<br>2、冗余步骤多<br>3、启动很慢！</p>
-<p>容器化技术</p>
-<p>容器化技术不是模拟的一个完整的操作系统</p>
-<p>比较Docker和虚拟机技术的不同：</p>
-<p>传统虚拟机，虚拟出一条硬件，运行一个完整的操作系统，然后在这个系统上安装和运行软件。<br>容器内的应用直接运行在宿主机的内核中，容器是没有自己的内核的，也没有虚拟我们的硬件，所以就轻便了。<br>每个容器间是互相隔离，每个容器内都有一个属于自己的文件系统，互不影响。<br>Devops（开发、运维）</p>
-<p>应用更快速的交付和部署</p>
-<p>传统：一堆帮助文档，安装程序!<br>Docker：打包镜像发布测试，一键运行!</p>
-<p>更便捷的升级和扩缩容</p>
-<p>使用了Docker之后，我们部署应用就和搭积木一样！<br>项目打包为一个镜像，扩展服务器A！服务器B!</p>
-<p>更简单的系统运维</p>
-<p>在容器化之后，我们的开发，测试环境都是高度一致的。</p>
-<p>更高效的计算资源利用</p>
-<p>Docker是内核级别的虚拟化，可以在一个物理机上可以运行很多的容器实例！服务器的性能可以被压榨到极致。<br>只要学不死，就往死里学！</p>
-<p>二、Docker安装</p>
-<ol>
-<li>Docker的基本组成</li>
-</ol>
-<p>镜像（image）：<br>docker镜像就好比是一个模板，可以通过这个模板来创建容器服务，tomcat镜像&#x3D;&#x3D;&#x3D;&gt;run&#x3D;&#x3D;&gt;tomcat01容器（提供服务器），通过这个镜像可以创建多个容器（最终服务运行或者项目运行就是在容器中的）。</p>
-<p>容器（container）：<br>Docker利用容器技术，独立运行一个或者一个组应用，通过镜像来创建的。<br>启动，停止，删除，基本命令！<br>目前就可以把这个容器理解为就是一个简易的linux系统</p>
-<p>仓库（repository）：<br>仓库就是存放镜像的地方！<br>仓库分为公有仓库和私有仓库！<br>Docker Hub（默认是国外的）阿里云.…都有容器服务器（配置镜像加速！）</p>
-<ol start="2">
-<li>安装Docker<br>环境准备</li>
-</ol>
-<p>需要会一点点的Linux的基础<br>CentOS7<br>我们使用Xshell连接远程服务器进行操作<br>环境查看</p>
-<h1 id="系统内核是-3-10-以上的"><a href="#系统内核是-3-10-以上的" class="headerlink" title="系统内核是 3.10 以上的"></a>系统内核是 3.10 以上的</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# uname -r<br>3.10.0-1160.66.1.el7.x86_64</p>
-<h1 id="查看系统版本"><a href="#查看系统版本" class="headerlink" title="查看系统版本"></a>查看系统版本</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# cat &#x2F;etc&#x2F;os-release<br>NAME&#x3D;”CentOS Linux”<br>VERSION&#x3D;”7 (Core)”<br>ID&#x3D;”centos”<br>ID_LIKE&#x3D;”rhel fedora”<br>VERSION_ID&#x3D;”7”<br>PRETTY_NAME&#x3D;”CentOS Linux 7 (Core)”<br>ANSI_COLOR&#x3D;”0;31”<br>CPE_NAME&#x3D;”cpe:&#x2F;o:centos:centos:7”<br>HOME_URL&#x3D;”<a target="_blank" rel="noopener" href="https://www.centos.org/">https://www.centos.org/</a>“<br>BUG_REPORT_URL&#x3D;”<a target="_blank" rel="noopener" href="https://bugs.centos.org/">https://bugs.centos.org/</a>“<br>CENTOS_MANTISBT_PROJECT&#x3D;”CentOS-7”<br>CENTOS_MANTISBT_PROJECT_VERSION&#x3D;”7”<br>REDHAT_SUPPORT_PRODUCT&#x3D;”centos”<br>REDHAT_SUPPORT_PRODUCT_VERSION&#x3D;”7”<br>安装</p>
-<p>查看文档：<a target="_blank" rel="noopener" href="https://docs.docker.com/">https://docs.docker.com/</a> （<a target="_blank" rel="noopener" href="https://docs.docker.com/engine/install/centos/%EF%BC%89">https://docs.docker.com/engine/install/centos/）</a></p>
-<h1 id="1-卸载旧的版本"><a href="#1-卸载旧的版本" class="headerlink" title="1.卸载旧的版本"></a>1.卸载旧的版本</h1><p>yum remove docker <br>                  docker-client <br>                  docker-client-latest <br>                  docker-common <br>                  docker-latest <br>                  docker-latest-logrotate <br>                  docker-logrotate <br>                  docker-engine</p>
-<h1 id="2-需要的安装包"><a href="#2-需要的安装包" class="headerlink" title="2.需要的安装包"></a>2.需要的安装包</h1><p>yum install -y yum-utils</p>
-<h1 id="3-设置镜像的仓库"><a href="#3-设置镜像的仓库" class="headerlink" title="3.设置镜像的仓库"></a>3.设置镜像的仓库</h1><p>yum-config-manager <br>    –add-repo <br>    <a target="_blank" rel="noopener" href="https://download.docker.com/linux/centos/docker-ce.repo">https://download.docker.com/linux/centos/docker-ce.repo</a> # 默认是从国外的。<br>yum-config-manager <br>    –add-repo <br>    <a target="_blank" rel="noopener" href="http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo">http://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo</a> # 推荐使用阿里云的。</p>
-<h1 id="安装容器之前，更新yum软件包索引。"><a href="#安装容器之前，更新yum软件包索引。" class="headerlink" title="安装容器之前，更新yum软件包索引。"></a>安装容器之前，更新yum软件包索引。</h1><p>yum makecache fast</p>
-<h1 id="4-安装容器相关的。docker-ce（社区版）docker-ee（企业版）"><a href="#4-安装容器相关的。docker-ce（社区版）docker-ee（企业版）" class="headerlink" title="4.安装容器相关的。docker-ce（社区版）docker-ee（企业版）"></a>4.安装容器相关的。docker-ce（社区版）docker-ee（企业版）</h1><p>yum install docker-ce docker-ce-cli containerd.io</p>
-<h1 id="5-启动docker"><a href="#5-启动docker" class="headerlink" title="5.启动docker"></a>5.启动docker</h1><p>systemctl start docker</p>
-<h1 id="6-使用docker-version查看是否安装成功"><a href="#6-使用docker-version查看是否安装成功" class="headerlink" title="6.使用docker version查看是否安装成功"></a>6.使用docker version查看是否安装成功</h1><h1 id="7-测试hello-world"><a href="#7-测试hello-world" class="headerlink" title="7.测试hello-world"></a>7.测试hello-world</h1><p>docker run hello-world</p>
-<h1 id="8-查看一下下载的这个hello-world镜像"><a href="#8-查看一下下载的这个hello-world镜像" class="headerlink" title="8.查看一下下载的这个hello-world镜像"></a>8.查看一下下载的这个hello-world镜像</h1><p>了解：卸载docker</p>
-<h1 id="1-卸载依赖"><a href="#1-卸载依赖" class="headerlink" title="1.卸载依赖"></a>1.卸载依赖</h1><p>yum remove docker-ce docker-ce-cli containerd.io</p>
-<h1 id="2-删除资源"><a href="#2-删除资源" class="headerlink" title="2.删除资源"></a>2.删除资源</h1><p>rm -rf &#x2F;var&#x2F;lib&#x2F;docker<br>rm -rf &#x2F;var&#x2F;lib&#x2F;containerd</p>
-<h1 id="x2F-var-x2F-lib-x2F-docker-docker的默认工作路径"><a href="#x2F-var-x2F-lib-x2F-docker-docker的默认工作路径" class="headerlink" title="&#x2F;var&#x2F;lib&#x2F;docker  docker的默认工作路径"></a>&#x2F;var&#x2F;lib&#x2F;docker  docker的默认工作路径</h1><ol start="3">
-<li><p>阿里云镜像加速<br>登录阿里云，找到容器服务。<br>找到镜像加速地址。<br>配置使用。<br>四个命令，依次执行即可：<br>sudo mkdir -p &#x2F;etc&#x2F;docker<br>sudo tee &#x2F;etc&#x2F;docker&#x2F;daemon.json &lt;&lt;-‘EOF’<br>{<br>“registry-mirrors”: [“<a target="_blank" rel="noopener" href="https://xxx.xxx.xxx.com"]">https://xxx.xxx.xxx.com&quot;]</a><br>}<br>EOF<br>sudo systemctl daemon-reload<br>sudo systemctl restart docker</p>
-</li>
-<li><p>回顾hello-world流程<br>在这里插入图片描述</p>
-</li>
-<li><p>底层原理<br>Docker是怎么工作的？<br>Docker 是一个Client-Server结构的系统，Docker的守护进程运行在主机上。通过Socket从客户端访问！<br>DockerServer 接收到Docker-Client的指令，就会执行这个命令！<br>在这里插入图片描述<br>Docker为什么比VM快？<br>1、Docker有着比虚拟机更少的抽象层。<br>2、docker利用的是宿主机的内核，vm需要是Guest OS。<br>在这里插入图片描述<br>所以说，新建一个容器的时候，docker不需要像虚拟机一样重新加载一个操作系统内核，避免引导。<br>虚拟机是加载GuestOS，分钟级别的，而docker是利用宿主机的操作系统，省略了这个复杂的过程，秒级！</p>
-</li>
-</ol>
-<p>三、Docker的常用命令</p>
-<ol>
-<li><p>帮助命令<br>docker version        # 显示docker的版本信息<br>docker info              # 显示docker的系统信息，包括镜像和容器的数量<br>docker 命令 –help         # 帮助命令<br>帮助文档的地址：<a target="_blank" rel="noopener" href="https://docs.docker.com/reference/">https://docs.docker.com/reference/</a></p>
-</li>
-<li><p>镜像命令<br>dokcer images<br>查看所有本地的主机上的镜像</p>
-</li>
-</ol>
-<p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker images<br>REPOSITORY    TAG       IMAGE ID       CREATED         SIZE<br>hello-world   latest    feb5d9fea6a5   10 months ago   13.3kB</p>
-<h1 id="解释"><a href="#解释" class="headerlink" title="解释"></a>解释</h1><p>REPOSITORY    镜像的仓库源<br>TAG            镜像的标签<br>IMAGE ID    镜像的id<br>CREATED        镜像的创建时间<br>SIZE        镜像的大小</p>
-<h1 id="命令参数可选项"><a href="#命令参数可选项" class="headerlink" title="命令参数可选项"></a>命令参数可选项</h1><p> -a, –all         # 显示所有镜像 (docker images -a)<br> -q, –quiet       # 仅显示镜像id (docker images -q)<br>docker search<br>搜索镜像</p>
-<p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker search mysql<br>NAME                           DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED<br>mysql                          MySQL is a widely used, open-source relation…   12940     [OK]<br>mariadb                        MariaDB Server is a high performing open sou…   4957      [OK]<br>phpmyadmin                     phpMyAdmin - A web interface for MySQL and M…   587       [OK]<br>percona                        Percona Server is a fork of the MySQL relati…   582       [OK]</p>
-<h1 id="解释-1"><a href="#解释-1" class="headerlink" title="解释"></a>解释</h1><h1 id="命令参数可选项-通过搜索来过滤"><a href="#命令参数可选项-通过搜索来过滤" class="headerlink" title="命令参数可选项 (通过搜索来过滤)"></a>命令参数可选项 (通过搜索来过滤)</h1><p>–filter&#x3D;STARS&#x3D;3000     # 搜索出来的镜像就是stars大于3000的<br>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker search mysql –filter&#x3D;STARS&#x3D;3000<br>NAME      DESCRIPTION                                     STARS     OFFICIAL   AUTOMATED<br>mysql     MySQL is a widely used, open-source relation…   12941     [OK]<br>mariadb   MariaDB Server is a high performing open sou…   4957      [OK]<br>docker pull<br>下载镜像</p>
-<h1 id="下载镜像：docker-pull-镜像名-tag"><a href="#下载镜像：docker-pull-镜像名-tag" class="headerlink" title="下载镜像：docker pull 镜像名[:tag]"></a>下载镜像：docker pull 镜像名[:tag]</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker pull mysql<br>Using default tag: latest            # 如果不写tag，默认就是latest，最新的版本<br>latest: Pulling from library&#x2F;mysql<br>72a69066d2fe: Pull complete            # 分层下载，docker image的核心，联合文件下载<br>93619dbc5b36: Pull complete<br>99da31dd6142: Pull complete<br>626033c43d70: Pull complete<br>37d5d7efb64e: Pull complete<br>ac563158d721: Pull complete<br>d2ba16033dad: Pull complete<br>688ba7d5c01a: Pull complete<br>00e060b6d11d: Pull complete<br>1c04857f594f: Pull complete<br>4d7cfa90e6ea: Pull complete<br>e0431212d27d: Pull complete<br>Digest: sha256:e9027fe4d91c0153429607251656806cc784e914937271037f7738bd5b8e7709 #签名<br>Status: Downloaded newer image for mysql:latest<br>docker.io&#x2F;library&#x2F;mysql:latest        # 真实地址</p>
-<h1 id="两个命令是等价的"><a href="#两个命令是等价的" class="headerlink" title="两个命令是等价的"></a>两个命令是等价的</h1><p>docker pull mysql<br>docker pull docker.io&#x2F;library&#x2F;mysql:latest</p>
-<h1 id="指定版本下载"><a href="#指定版本下载" class="headerlink" title="指定版本下载"></a>指定版本下载</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker pull mysql:5.7<br>5.7: Pulling from library&#x2F;mysql<br>72a69066d2fe: Already exists        # 联合文件下载，已经存在的资源可以共用<br>93619dbc5b36: Already exists<br>99da31dd6142: Already exists<br>626033c43d70: Already exists<br>37d5d7efb64e: Already exists<br>ac563158d721: Already exists<br>d2ba16033dad: Already exists<br>0ceb82207cd7: Pull complete<br>37f2405cae96: Pull complete<br>e2482e017e53: Pull complete<br>70deed891d42: Pull complete<br>Digest: sha256:f2ad209efe9c67104167fc609cca6973c8422939491c9345270175a300419f94<br>Status: Downloaded newer image for mysql:5.7<br>docker.io&#x2F;library&#x2F;mysql:5.7<br>docker rmi<br>删除镜像</p>
-<p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker rmi -f 镜像id                    # 删除指定的镜像<br>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker rmi -f 镜像id 镜像id 镜像id    # 删除多个镜像（空格分隔）<br>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker rmi -f $(docker images -aq)    # 删除全部的镜像<br>3. 容器命令<br>说明：我们有了镜像才可以创建容器，linux，下载一个centos 镜像来测试学习。</p>
-<p>docker pull centos<br>新建容器并启动<br>docker run [可选参数] image</p>
-<h1 id="参数说明"><a href="#参数说明" class="headerlink" title="参数说明"></a>参数说明</h1><p>–name&#x3D;”name”        容器名字：用来区分容器<br>-d                    后台方式运行：相当于nohup<br>-it                    使用交互式运行：进入容器查看内容<br>-p                    指定容器的端口（四种方式）小写字母p<br>    -p ip:主机端口：容器端口<br>    -p 主机端口：容器端口<br>    -p 容器端口<br>    容器端口<br>-P                     随机指定端口（大写字母P）</p>
-<h1 id="测试：启动并进入容器"><a href="#测试：启动并进入容器" class="headerlink" title="测试：启动并进入容器"></a>测试：启动并进入容器</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker run -it centos &#x2F;bin&#x2F;bash<br>[root@526c31d2c298 &#x2F;]# ls        # 查看容器内的centos（基础版本，很多命令都是不完善的）<br>bin  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var</p>
-<h1 id="从容器中退回到主机"><a href="#从容器中退回到主机" class="headerlink" title="从容器中退回到主机"></a>从容器中退回到主机</h1><p>[root@526c31d2c298 &#x2F;]# exit<br>exit<br>[root@iZbp13qr3mm4ucsjumrlgqZ &#x2F;]# ls<br>bin  boot  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var  www<br>列出所有运行的容器<br>docker ps    # 列出当前正在运行的容器</p>
-<h1 id="命令参数可选项-1"><a href="#命令参数可选项-1" class="headerlink" title="命令参数可选项"></a>命令参数可选项</h1><p>-a        # 列出当前正在运行的容器+历史运行过的容器<br>-n&#x3D;?    # 显示最近创建的容器（可以指定显示几条，比如-n&#x3D;1）<br>-q        # 只显示容器的编号<br>[root@iZbp13qr3mm4ucsjumrlgqZ &#x2F;]# docker ps<br>CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES<br>[root@iZbp13qr3mm4ucsjumrlgqZ &#x2F;]# docker ps -a<br>CONTAINER ID   IMAGE          COMMAND       CREATED         STATUS                     PORTS     NAMES<br>526c31d2c298   centos         “&#x2F;bin&#x2F;bash”   4 minutes ago   Exited (0) 2 minutes ago             optimistic_allen<br>ce0eb11fbf8a   feb5d9fea6a5   “&#x2F;hello”      4 hours ago     Exited (0) 4 hours ago               keen_ellis<br>[root@iZbp13qr3mm4ucsjumrlgqZ &#x2F;]# docker ps -a -n&#x3D;1<br>CONTAINER ID   IMAGE     COMMAND       CREATED         STATUS                     PORTS     NAMES<br>526c31d2c298   centos    “&#x2F;bin&#x2F;bash”   5 minutes ago   Exited (0) 3 minutes ago             optimistic_allen<br>退出容器<br>exit        # 容器直接停止，并退出<br>ctrl+P+Q    # 容器不停止，退出<br>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker run -it centos &#x2F;bin&#x2F;bash<br>[root@c5d61aa9d7df &#x2F;]# [root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker ps<br>CONTAINER ID   IMAGE     COMMAND       CREATED          STATUS          PORTS     NAMES<br>c5d61aa9d7df   centos    “&#x2F;bin&#x2F;bash”   56 seconds ago   Up 55 seconds             kind_clarke<br>[root@iZbp13qr3mm4ucsjumrlgqZ ~]#<br>删除容器<br>docker rm 容器id                    # 删除容器（不能删除正在运行的容器）如果要强制删除：docker rm -f 容器id<br>docker rm -f $(docker ps -aq)        # 删除全部容器<br>docker ps -a -q|xargs docker rm        # 删除所有容器<br>启动和停止容器的操作<br>docker start 容器id        # 启动容器<br>docker restart 容器id    # 重启容器<br>docker stop 容器id        # 停止当前正在运行的容器<br>docker kill 容器id        # 强制停止当前容器<br>4. 常用其他命令<br>后台启动容器</p>
-<h1 id="命令docker-run-d-镜像名"><a href="#命令docker-run-d-镜像名" class="headerlink" title="命令docker run -d 镜像名"></a>命令docker run -d 镜像名</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker run -d centos</p>
-<h1 id="问题：docker-ps发现centos停止了"><a href="#问题：docker-ps发现centos停止了" class="headerlink" title="问题：docker ps发现centos停止了"></a>问题：docker ps发现centos停止了</h1><h1 id="常见的坑：docker容器使用后台运行，就必须要有要一个前台进程，docker发现没有应用，就会自动停止。"><a href="#常见的坑：docker容器使用后台运行，就必须要有要一个前台进程，docker发现没有应用，就会自动停止。" class="headerlink" title="常见的坑：docker容器使用后台运行，就必须要有要一个前台进程，docker发现没有应用，就会自动停止。"></a>常见的坑：docker容器使用后台运行，就必须要有要一个前台进程，docker发现没有应用，就会自动停止。</h1><h1 id="比如：nginx，容器启动后，发现自己没有提供服务，就会立刻停止，就是没有程序了"><a href="#比如：nginx，容器启动后，发现自己没有提供服务，就会立刻停止，就是没有程序了" class="headerlink" title="比如：nginx，容器启动后，发现自己没有提供服务，就会立刻停止，就是没有程序了"></a>比如：nginx，容器启动后，发现自己没有提供服务，就会立刻停止，就是没有程序了</h1><p>查看日志<br>docker logs -tf –tail 容器id</p>
-<h1 id="自己编写一段shell脚本"><a href="#自己编写一段shell脚本" class="headerlink" title="自己编写一段shell脚本"></a>自己编写一段shell脚本</h1><p>docker run -d centos &#x2F;bin&#x2F;sh -c “while true;do echo kuangshen;sleep 1;done”<br>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker logs -tf  容器id<br>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker logs -tf –tail 10  容器id</p>
-<h1 id="显示日志"><a href="#显示日志" class="headerlink" title="显示日志"></a>显示日志</h1><p>-tf                        # 显示日志<br>–tail number    # 要显示的日志条数<br>查看容器中进程的信息</p>
-<h1 id="命令-docker-top-容器id"><a href="#命令-docker-top-容器id" class="headerlink" title="命令 docker top 容器id"></a>命令 docker top 容器id</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker top 88d23bcbe1f2<br>UID                 PID                 PPID                C                   STIME               TTY                 TIME                CMD<br>root                21212               21193               0                   16:23               ?                   00:00:00<br>root                21600               21212               0                   16:29               ?                   00:00:00<br>查看镜像的元数据</p>
-<h1 id="命令docker-inspect-容器id"><a href="#命令docker-inspect-容器id" class="headerlink" title="命令docker inspect 容器id"></a>命令docker inspect 容器id</h1><p>[<br>    {<br>        “Id”: “88d23bcbe1f28e1f8ae5d2b63fa8d57d2abcbdacf193db05852f4f74a95b9ffe”,<br>        “Created”: “2022-07-29T08:23:56.862239223Z”,<br>        “Path”: “&#x2F;bin&#x2F;sh”,<br>        “Args”: [<br>            “-c”,<br>            “while true;do echo kuangshen;sleep 1;done”<br>        ],<br>        “State”: {<br>            “Status”: “running”,<br>            “Running”: true,<br>            “Paused”: false,<br>            “Restarting”: false,<br>            “OOMKilled”: false,<br>            “Dead”: false,<br>            “Pid”: 21212,<br>            “ExitCode”: 0,<br>            “Error”: “”,<br>            “StartedAt”: “2022-07-29T08:23:57.109766809Z”,<br>            “FinishedAt”: “0001-01-01T00:00:00Z”<br>        },<br>        “Image”: “sha256:5d0da3dc976460b72c77d94c8a1ad043720b0416bfc16c52c45d4847e53fadb6”,<br>        “ResolvConfPath”: “&#x2F;var&#x2F;lib&#x2F;docker&#x2F;containers&#x2F;88d23bcbe1f28e1f8ae5d2b63fa8d57d2abcbdacf193db05852f4f74a95b9ffe&#x2F;resolv.conf”,<br>        “HostnamePath”: “&#x2F;var&#x2F;lib&#x2F;docker&#x2F;containers&#x2F;88d23bcbe1f28e1f8ae5d2b63fa8d57d2abcbdacf193db05852f4f74a95b9ffe&#x2F;hostname”,<br>        “HostsPath”: “&#x2F;var&#x2F;lib&#x2F;docker&#x2F;containers&#x2F;88d23bcbe1f28e1f8ae5d2b63fa8d57d2abcbdacf193db05852f4f74a95b9ffe&#x2F;hosts”,<br>        “LogPath”: “&#x2F;var&#x2F;lib&#x2F;docker&#x2F;containers&#x2F;88d23bcbe1f28e1f8ae5d2b63fa8d57d2abcbdacf193db05852f4f74a95b9ffe&#x2F;88d23bcbe1f28e1f8ae5d2b63fa8d57d2abcbdacf193db05852f4f74a95b9ffe-json.log”,<br>        “Name”: “&#x2F;silly_lichterman”,<br>        “RestartCount”: 0,<br>        “Driver”: “overlay2”,<br>        “Platform”: “linux”,<br>        “MountLabel”: “”,<br>        “ProcessLabel”: “”,<br>        “AppArmorProfile”: “”,<br>        “ExecIDs”: null,<br>        “HostConfig”: {<br>            “Binds”: null,<br>            “ContainerIDFile”: “”,<br>            “LogConfig”: {<br>                “Type”: “json-file”,<br>                “Config”: {}<br>            },<br>            “NetworkMode”: “default”,<br>            “PortBindings”: {},<br>            “RestartPolicy”: {<br>                “Name”: “no”,<br>                “MaximumRetryCount”: 0<br>            },<br>            “AutoRemove”: false,<br>            “VolumeDriver”: “”,<br>            “VolumesFrom”: null,<br>            “CapAdd”: null,<br>            “CapDrop”: null,<br>            “CgroupnsMode”: “host”,<br>            “Dns”: [],<br>            “DnsOptions”: [],<br>            “DnsSearch”: [],<br>            “ExtraHosts”: null,<br>            “GroupAdd”: null,<br>            “IpcMode”: “private”,<br>            “Cgroup”: “”,<br>            “Links”: null,<br>            “OomScoreAdj”: 0,<br>            “PidMode”: “”,<br>            “Privileged”: false,<br>            “PublishAllPorts”: false,<br>            “ReadonlyRootfs”: false,<br>            “SecurityOpt”: null,<br>            “UTSMode”: “”,<br>            “UsernsMode”: “”,<br>            “ShmSize”: 67108864,<br>            “Runtime”: “runc”,<br>            “ConsoleSize”: [<br>                0,<br>                0<br>            ],<br>            “Isolation”: “”,<br>            “CpuShares”: 0,<br>            “Memory”: 0,<br>            “NanoCpus”: 0,<br>            “CgroupParent”: “”,<br>            “BlkioWeight”: 0,<br>            “BlkioWeightDevice”: [],<br>            “BlkioDeviceReadBps”: null,<br>            “BlkioDeviceWriteBps”: null,<br>            “BlkioDeviceReadIOps”: null,<br>            “BlkioDeviceWriteIOps”: null,<br>            “CpuPeriod”: 0,<br>            “CpuQuota”: 0,<br>            “CpuRealtimePeriod”: 0,<br>            “CpuRealtimeRuntime”: 0,<br>            “CpusetCpus”: “”,<br>            “CpusetMems”: “”,<br>            “Devices”: [],<br>            “DeviceCgroupRules”: null,<br>            “DeviceRequests”: null,<br>            “KernelMemory”: 0,<br>            “KernelMemoryTCP”: 0,<br>            “MemoryReservation”: 0,<br>            “MemorySwap”: 0,<br>            “MemorySwappiness”: null,<br>            “OomKillDisable”: false,<br>            “PidsLimit”: null,<br>            “Ulimits”: null,<br>            “CpuCount”: 0,<br>            “CpuPercent”: 0,<br>            “IOMaximumIOps”: 0,<br>            “IOMaximumBandwidth”: 0,<br>            “MaskedPaths”: [<br>                “&#x2F;proc&#x2F;asound”,<br>                “&#x2F;proc&#x2F;acpi”,<br>                “&#x2F;proc&#x2F;kcore”,<br>                “&#x2F;proc&#x2F;keys”,<br>                “&#x2F;proc&#x2F;latency_stats”,<br>                “&#x2F;proc&#x2F;timer_list”,<br>                “&#x2F;proc&#x2F;timer_stats”,<br>                “&#x2F;proc&#x2F;sched_debug”,<br>                “&#x2F;proc&#x2F;scsi”,<br>                “&#x2F;sys&#x2F;firmware”<br>            ],<br>            “ReadonlyPaths”: [<br>                “&#x2F;proc&#x2F;bus”,<br>                “&#x2F;proc&#x2F;fs”,<br>                “&#x2F;proc&#x2F;irq”,<br>                “&#x2F;proc&#x2F;sys”,<br>                “&#x2F;proc&#x2F;sysrq-trigger”<br>            ]<br>        },<br>        “GraphDriver”: {<br>            “Data”: {<br>                “LowerDir”: “&#x2F;var&#x2F;lib&#x2F;docker&#x2F;overlay2&#x2F;59b088d44f6e67f4ed336de44d19a5784c1a13fa856760bd2b166c4a4d421e2b-init&#x2F;diff:&#x2F;var&#x2F;lib&#x2F;docker&#x2F;overlay2&#x2F;7fc43e24b63e4656ab7e7718d3e4ef5297fe82509452be305a01605a7cdc3b97&#x2F;diff”,<br>                “MergedDir”: “&#x2F;var&#x2F;lib&#x2F;docker&#x2F;overlay2&#x2F;59b088d44f6e67f4ed336de44d19a5784c1a13fa856760bd2b166c4a4d421e2b&#x2F;merged”,<br>                “UpperDir”: “&#x2F;var&#x2F;lib&#x2F;docker&#x2F;overlay2&#x2F;59b088d44f6e67f4ed336de44d19a5784c1a13fa856760bd2b166c4a4d421e2b&#x2F;diff”,<br>                “WorkDir”: “&#x2F;var&#x2F;lib&#x2F;docker&#x2F;overlay2&#x2F;59b088d44f6e67f4ed336de44d19a5784c1a13fa856760bd2b166c4a4d421e2b&#x2F;work”<br>            },<br>            “Name”: “overlay2”<br>        },<br>        “Mounts”: [],<br>        “Config”: {<br>            “Hostname”: “88d23bcbe1f2”,<br>            “Domainname”: “”,<br>            “User”: “”,<br>            “AttachStdin”: false,<br>            “AttachStdout”: false,<br>            “AttachStderr”: false,<br>            “Tty”: false,<br>            “OpenStdin”: false,<br>            “StdinOnce”: false,<br>            “Env”: [<br>                “PATH&#x3D;&#x2F;usr&#x2F;local&#x2F;sbin:&#x2F;usr&#x2F;local&#x2F;bin:&#x2F;usr&#x2F;sbin:&#x2F;usr&#x2F;bin:&#x2F;sbin:&#x2F;bin”<br>            ],<br>            “Cmd”: [<br>                “&#x2F;bin&#x2F;sh”,<br>                “-c”,<br>                “while true;do echo kuangshen;sleep 1;done”<br>            ],<br>            “Image”: “centos”,<br>            “Volumes”: null,<br>            “WorkingDir”: “”,<br>            “Entrypoint”: null,<br>            “OnBuild”: null,<br>            “Labels”: {<br>                “org.label-schema.build-date”: “20210915”,<br>                “org.label-schema.license”: “GPLv2”,<br>                “org.label-schema.name”: “CentOS Base Image”,<br>                “org.label-schema.schema-version”: “1.0”,<br>                “org.label-schema.vendor”: “CentOS”<br>            }<br>        },<br>        “NetworkSettings”: {<br>            “Bridge”: “”,<br>            “SandboxID”: “bfc28d2ba671adfe5c93325173b93c335d50d8b017eed4fdce2ab75410d6ac2e”,<br>            “HairpinMode”: false,<br>            “LinkLocalIPv6Address”: “”,<br>            “LinkLocalIPv6PrefixLen”: 0,<br>            “Ports”: {},<br>            “SandboxKey”: “&#x2F;var&#x2F;run&#x2F;docker&#x2F;netns&#x2F;bfc28d2ba671”,<br>            “SecondaryIPAddresses”: null,<br>            “SecondaryIPv6Addresses”: null,<br>            “EndpointID”: “ad0252d454e751e2c5ecef24e64c32b0884c53242925bd66e9e5dbf5542af179”,<br>            “Gateway”: “172.17.0.1”,<br>            “GlobalIPv6Address”: “”,<br>            “GlobalIPv6PrefixLen”: 0,<br>            “IPAddress”: “172.17.0.2”,<br>            “IPPrefixLen”: 16,<br>            “IPv6Gateway”: “”,<br>            “MacAddress”: “02:42:ac:11:00:02”,<br>            “Networks”: {<br>                “bridge”: {<br>                    “IPAMConfig”: null,<br>                    “Links”: null,<br>                    “Aliases”: null,<br>                    “NetworkID”: “7254ffccbdf53e0c72c1d19252980f04fa65153ea3c7ca72af55cfac504cbe3f”,<br>                    “EndpointID”: “ad0252d454e751e2c5ecef24e64c32b0884c53242925bd66e9e5dbf5542af179”,<br>                    “Gateway”: “172.17.0.1”,<br>                    “IPAddress”: “172.17.0.2”,<br>                    “IPPrefixLen”: 16,<br>                    “IPv6Gateway”: “”,<br>                    “GlobalIPv6Address”: “”,<br>                    “GlobalIPv6PrefixLen”: 0,<br>                    “MacAddress”: “02:42:ac:11:00:02”,<br>                    “DriverOpts”: null<br>                }<br>            }<br>        }<br>    }<br>]<br>进入当前正在运行的容器</p>
-<h1 id="我们通常容器都是使用后台方式运行的，需要进入容器，修改一些配置"><a href="#我们通常容器都是使用后台方式运行的，需要进入容器，修改一些配置" class="headerlink" title="我们通常容器都是使用后台方式运行的，需要进入容器，修改一些配置"></a>我们通常容器都是使用后台方式运行的，需要进入容器，修改一些配置</h1><h1 id="命令"><a href="#命令" class="headerlink" title="命令"></a>命令</h1><p>docker exec -it 容器id &#x2F;bin&#x2F;bash</p>
-<h1 id="测试"><a href="#测试" class="headerlink" title="测试"></a>测试</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker ps<br>CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS     NAMES<br>88d23bcbe1f2   centos    “&#x2F;bin&#x2F;sh -c ‘while t…”   13 minutes ago   Up 13 minutes             silly_lichterman<br>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker exec -it 88d23bcbe1f2 &#x2F;bin&#x2F;bash<br>[root@88d23bcbe1f2 &#x2F;]# ps -ef<br>UID        PID  PPID  C STIME TTY          TIME CMD<br>root         1     0  0 08:23 ?        00:00:00 &#x2F;bin&#x2F;sh -c while true;do echo kuangshen;sleep 1;done<br>root       841     0  0 08:37 pts&#x2F;0    00:00:00 &#x2F;bin&#x2F;bash<br>root       858     1  0 08:37 ?        00:00:00 &#x2F;usr&#x2F;bin&#x2F;coreutils –coreutils-prog-shebang&#x3D;sleep &#x2F;usr&#x2F;bin&#x2F;sleep 1<br>root       859   841  0 08:37 pts&#x2F;0    00:00:00 ps -ef</p>
-<h1 id="方式二"><a href="#方式二" class="headerlink" title="方式二"></a>方式二</h1><p>docker attach 容器id</p>
-<h1 id="测试-1"><a href="#测试-1" class="headerlink" title="测试"></a>测试</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker attach 88d23bcbe1f2<br>正在执行当前的代码…</p>
-<h1 id="docker-exec-进入容器后开启一个新的终端，可以再里面操作（常用）"><a href="#docker-exec-进入容器后开启一个新的终端，可以再里面操作（常用）" class="headerlink" title="docker exec        # 进入容器后开启一个新的终端，可以再里面操作（常用）"></a>docker exec        # 进入容器后开启一个新的终端，可以再里面操作（常用）</h1><h1 id="docker-attach-进入容器正在执行的终端，不会启动新的进程。"><a href="#docker-attach-进入容器正在执行的终端，不会启动新的进程。" class="headerlink" title="docker attach        # 进入容器正在执行的终端，不会启动新的进程。"></a>docker attach        # 进入容器正在执行的终端，不会启动新的进程。</h1><p>从容器内拷贝文件到主机上<br>docker cp 容器id:容器内路径 目的主机的路径<br>[root@iZbp13qr3mm4ucsjumrlgqZ home]# ll<br>total 0<br>[root@iZbp13qr3mm4ucsjumrlgqZ home]# docker ps<br>CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES<br>[root@iZbp13qr3mm4ucsjumrlgqZ home]# docker run -it centos &#x2F;bin&#x2F;bash<br>[root@6eda31ad7987 &#x2F;]# [root@iZbp13qr3mm4ucsjumrlgqZ home]# docker ps<br>CONTAINER ID   IMAGE     COMMAND       CREATED          STATUS          PORTS     NAMES<br>6eda31ad7987   centos    “&#x2F;bin&#x2F;bash”   17 seconds ago   Up 16 seconds             stoic_kepler</p>
-<h1 id="进入到容器内部"><a href="#进入到容器内部" class="headerlink" title="进入到容器内部"></a>进入到容器内部</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ home]# docker attach 6eda31ad7987<br>[root@6eda31ad7987 &#x2F;]# ls<br>bin  dev  etc  home  lib  lib64  lost+found  media  mnt  opt  proc  root  run  sbin  srv  sys  tmp  usr  var<br>[root@6eda31ad7987 &#x2F;]# cd &#x2F;home&#x2F;<br>[root@6eda31ad7987 home]# ls</p>
-<h1 id="在容器的-x2F-home路径下创建test-java文件"><a href="#在容器的-x2F-home路径下创建test-java文件" class="headerlink" title="在容器的&#x2F;home路径下创建test.java文件"></a>在容器的&#x2F;home路径下创建test.java文件</h1><p>[root@6eda31ad7987 home]# touch test.java<br>[root@6eda31ad7987 home]# ls<br>test.java<br>[root@6eda31ad7987 home]# exit<br>exit<br>[root@iZbp13qr3mm4ucsjumrlgqZ home]# docker ps<br>CONTAINER ID   IMAGE     COMMAND   CREATED   STATUS    PORTS     NAMES<br>[root@iZbp13qr3mm4ucsjumrlgqZ home]# docker ps -a<br>CONTAINER ID   IMAGE     COMMAND       CREATED              STATUS                      PORTS     NAMES<br>6eda31ad7987   centos    “&#x2F;bin&#x2F;bash”   About a minute ago   Exited (0) 28 seconds ago             stoic_kepler</p>
-<h1 id="将文件拷贝出来到主机上（在主机上执行该命令）"><a href="#将文件拷贝出来到主机上（在主机上执行该命令）" class="headerlink" title="将文件拷贝出来到主机上（在主机上执行该命令）"></a>将文件拷贝出来到主机上（在主机上执行该命令）</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ home]# docker cp 6eda31ad7987:&#x2F;home&#x2F;test.java &#x2F;home<br>[root@iZbp13qr3mm4ucsjumrlgqZ home]# ls<br>test.java</p>
-<h1 id="拷贝是一个手动过程，未来我们使用-v-卷的技术，可以实现，自动同步（容器内的-x2F-home路径和主机上的-x2F-home路径打通）"><a href="#拷贝是一个手动过程，未来我们使用-v-卷的技术，可以实现，自动同步（容器内的-x2F-home路径和主机上的-x2F-home路径打通）" class="headerlink" title="拷贝是一个手动过程，未来我们使用 -v 卷的技术，可以实现，自动同步（容器内的&#x2F;home路径和主机上的&#x2F;home路径打通）"></a>拷贝是一个手动过程，未来我们使用 -v 卷的技术，可以实现，自动同步（容器内的&#x2F;home路径和主机上的&#x2F;home路径打通）</h1><ol start="5">
-<li><p>小结<br>在这里插入图片描述</p>
-</li>
-<li><p>作业练习<br>docker安装nginx<br>搜索镜像：docker search nginx (建议去dockerHub上去搜索)<br>下载镜像：docker pull nginx<br>启动nginx：</p>
-</li>
-</ol>
-<h1 id="d-后台运行"><a href="#d-后台运行" class="headerlink" title="-d 后台运行"></a>-d 后台运行</h1><h1 id="–name-x3D-”nginx01”-给容器命名"><a href="#–name-x3D-”nginx01”-给容器命名" class="headerlink" title="–name&#x3D;”nginx01”    给容器命名"></a>–name&#x3D;”nginx01”    给容器命名</h1><h1 id="p-宿主机端口-容器内部端口"><a href="#p-宿主机端口-容器内部端口" class="headerlink" title="-p 宿主机端口:容器内部端口"></a>-p 宿主机端口:容器内部端口</h1><p> [root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker run -d –name&#x3D;”nginx-1” -p 3344:80 nginx<br> 6e02190a50bc8d79653ffa88f6b5c143d79c5ac3257d5d5ed6a01247980fb48a<br> [root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker ps<br> CONTAINER ID   IMAGE     COMMAND                  CREATED          STATUS          PORTS                                   NAMES<br> 6e02190a50bc   nginx     “&#x2F;docker-entrypoint.…”   18 seconds ago   Up 17 seconds   0.0.0.0:3344-&gt;80&#x2F;tcp, :::3344-&gt;80&#x2F;tcp   nginx-1</p>
-<h1 id="进入容器"><a href="#进入容器" class="headerlink" title="进入容器"></a>进入容器</h1><p> [root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker exec -it a1e130aa184d &#x2F;bin&#x2F;bash<br> root@a1e130aa184d:&#x2F;# whereis nginx<br> nginx: &#x2F;usr&#x2F;sbin&#x2F;nginx &#x2F;usr&#x2F;lib&#x2F;nginx &#x2F;etc&#x2F;nginx &#x2F;usr&#x2F;share&#x2F;nginx<br> root@a1e130aa184d:&#x2F;# cd &#x2F;etc&#x2F;nginx&#x2F;<br> root@a1e130aa184d:&#x2F;etc&#x2F;nginx# ls<br> conf.d  fastcgi_params  mime.types  modules  nginx.conf  scgi_params  uwsgi_params<br>本机测试</p>
-<p> [root@iZbp13qr3mm4ucsjumrlgqZ ~]# curl localhost:3344<br> <!DOCTYPE html><br> <html><br> <head><br> <title>Welcome to nginx!</title><br> <style><br> html { color-scheme: light dark; }<br> body { width: 35em; margin: 0 auto;<br> font-family: Tahoma, Verdana, Arial, sans-serif; }<br> </style><br> </head><br> <body><br> <h1>Welcome to nginx!</h1><br> <p>If you see this page, the nginx web server is successfully installed and<br> working. Further configuration is required.</p><br> <p>For online documentation and support please refer to<br> <a target="_blank" rel="noopener" href="http://nginx.org/">nginx.org</a>.<br/><br> Commercial support is available at<br> <a target="_blank" rel="noopener" href="http://nginx.com/">nginx.com</a>.</p><br> <p><em>Thank you for using nginx.</em></p><br> </body><br> </html><br>端口暴露的概念</p>
-<p>在这里插入图片描述<br>思考问题：我们每次改动nginx配置文件，都需要进入容器内部？十分的麻烦，我要是可以在容器外部提供一个映射路径，达到在容器外修改文件名，容器内部就可以自动修改？-v 数据卷</p>
-<p>docker安装tomcat</p>
-<h1 id="官方的使用"><a href="#官方的使用" class="headerlink" title="官方的使用"></a>官方的使用</h1><p>docker run -it –rm tomcat</p>
-<h1 id="我们之前的启动都是后台，停止了容器之后，容器还是可以查到docker-run-it-–rm，一般用来测试，用完就删除。"><a href="#我们之前的启动都是后台，停止了容器之后，容器还是可以查到docker-run-it-–rm，一般用来测试，用完就删除。" class="headerlink" title="我们之前的启动都是后台，停止了容器之后，容器还是可以查到docker run -it –rm，一般用来测试，用完就删除。"></a>我们之前的启动都是后台，停止了容器之后，容器还是可以查到docker run -it –rm，一般用来测试，用完就删除。</h1><h1 id="下载"><a href="#下载" class="headerlink" title="下载"></a>下载</h1><p>docker pull tomcat</p>
-<h1 id="启动运行"><a href="#启动运行" class="headerlink" title="启动运行"></a>启动运行</h1><p>docker run -d –name&#x3D;”tomcat01” -p 3355:8080 tomcat</p>
-<h1 id="测试访问没有问题，但是找不到资源"><a href="#测试访问没有问题，但是找不到资源" class="headerlink" title="测试访问没有问题，但是找不到资源"></a>测试访问没有问题，但是找不到资源</h1><h1 id="进入容器，有一个webapps文件夹和webapps-dist文件夹"><a href="#进入容器，有一个webapps文件夹和webapps-dist文件夹" class="headerlink" title="进入容器，有一个webapps文件夹和webapps.dist文件夹"></a>进入容器，有一个webapps文件夹和webapps.dist文件夹</h1><p>docker exec -it tomcat01 &#x2F;bin&#x2F;bash</p>
-<h1 id="webapps文件夹下没有资源，资源都在webapp-dist文件夹下"><a href="#webapps文件夹下没有资源，资源都在webapp-dist文件夹下" class="headerlink" title="webapps文件夹下没有资源，资源都在webapp.dist文件夹下"></a>webapps文件夹下没有资源，资源都在webapp.dist文件夹下</h1><p>root@35eb825661e0:&#x2F;usr&#x2F;local&#x2F;tomcat# ls<br>BUILDING.txt  CONTRIBUTING.md  LICENSE  NOTICE  README.md  RELEASE-NOTES  RUNNING.txt  bin  conf  lib  logs  native-jni-lib  temp  webapps  webapps.dist  work</p>
-<h1 id="发现问题：（阿里云镜像的原因：默认是最小的镜像，所有不必要的都剔除掉）保证最小可运行的环境"><a href="#发现问题：（阿里云镜像的原因：默认是最小的镜像，所有不必要的都剔除掉）保证最小可运行的环境" class="headerlink" title="发现问题：（阿里云镜像的原因：默认是最小的镜像，所有不必要的都剔除掉）保证最小可运行的环境"></a>发现问题：（阿里云镜像的原因：默认是最小的镜像，所有不必要的都剔除掉）保证最小可运行的环境</h1><h1 id="1、Linux命令少了。"><a href="#1、Linux命令少了。" class="headerlink" title="1、Linux命令少了。"></a>1、Linux命令少了。</h1><h1 id="2、没有webapps文件夹。"><a href="#2、没有webapps文件夹。" class="headerlink" title="2、没有webapps文件夹。"></a>2、没有webapps文件夹。</h1><h1 id="没有webapps文件夹，发现有一个webapps-dist文件夹，资源在webapps-dist文件夹下；"><a href="#没有webapps文件夹，发现有一个webapps-dist文件夹，资源在webapps-dist文件夹下；" class="headerlink" title="没有webapps文件夹，发现有一个webapps.dist文件夹，资源在webapps.dist文件夹下；"></a>没有webapps文件夹，发现有一个webapps.dist文件夹，资源在webapps.dist文件夹下；</h1><h1 id="把webapps-dist文件夹下的文件复制到webapps文件夹下，就可以访问成功。"><a href="#把webapps-dist文件夹下的文件复制到webapps文件夹下，就可以访问成功。" class="headerlink" title="把webapps.dist文件夹下的文件复制到webapps文件夹下，就可以访问成功。"></a>把webapps.dist文件夹下的文件复制到webapps文件夹下，就可以访问成功。</h1><p>root@35eb825661e0:&#x2F;usr&#x2F;local&#x2F;tomcat# cp -r webapps.dist&#x2F;* webapps<br>思考问题：我们以后要部署项目，如果每次都要进入容器是不是十分麻烦？我要是可以在容器外部提供一个映射路径，webapps，我们在外部放置项目，就自动同步到内部就好了！</p>
-<p>部署ES+kibana</p>
-<h1 id="es暴露的端口很多！"><a href="#es暴露的端口很多！" class="headerlink" title="es暴露的端口很多！"></a>es暴露的端口很多！</h1><h1 id="es十分的耗内存！"><a href="#es十分的耗内存！" class="headerlink" title="es十分的耗内存！"></a>es十分的耗内存！</h1><h1 id="es的数据一般需要放置到安全目录！挂载"><a href="#es的数据一般需要放置到安全目录！挂载" class="headerlink" title="es的数据一般需要放置到安全目录！挂载"></a>es的数据一般需要放置到安全目录！挂载</h1><h1 id="下载启动elasticsearch"><a href="#下载启动elasticsearch" class="headerlink" title="下载启动elasticsearch"></a>下载启动elasticsearch</h1><p>docker run -d –name elasticsearch -p 9200:9200 -p 9300:9300 -e “discovery.type&#x3D;single-node” elasticsearch:7.6.2</p>
-<h1 id="启动了linux就卡住了，es是十分耗内存的（1核2G）"><a href="#启动了linux就卡住了，es是十分耗内存的（1核2G）" class="headerlink" title="启动了linux就卡住了，es是十分耗内存的（1核2G）"></a>启动了linux就卡住了，es是十分耗内存的（1核2G）</h1><h1 id="查看cpu的状态"><a href="#查看cpu的状态" class="headerlink" title="查看cpu的状态"></a>查看cpu的状态</h1><p>docker stats </p>
-<h1 id="测试一下es是成功的"><a href="#测试一下es是成功的" class="headerlink" title="测试一下es是成功的"></a>测试一下es是成功的</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# curl localhost:9200<br>{<br>  “name” : “7ed338b2a87c”,<br>  “cluster_name” : “docker-cluster”,<br>  “cluster_uuid” : “enAVpI1oQoW4tLmafuWcnw”,<br>  “version” : {<br>    “number” : “7.6.2”,<br>    “build_flavor” : “default”,<br>    “build_type” : “docker”,<br>    “build_hash” : “ef48eb35cf30adf4db14086e8aabd07ef6fb113f”,<br>    “build_date” : “2020-03-26T06:34:37.794943Z”,<br>    “build_snapshot” : false,<br>    “lucene_version” : “8.4.0”,<br>    “minimum_wire_compatibility_version” : “6.8.0”,<br>    “minimum_index_compatibility_version” : “6.0.0-beta1”<br>  },<br>  “tagline” : “You Know, for Search”<br>}</p>
-<h1 id="赶紧关闭，增加内存的限制，修改配置文件-e环境配置修改"><a href="#赶紧关闭，增加内存的限制，修改配置文件-e环境配置修改" class="headerlink" title="赶紧关闭，增加内存的限制，修改配置文件-e环境配置修改"></a>赶紧关闭，增加内存的限制，修改配置文件-e环境配置修改</h1><p>docker run -d –name elasticsearch -p 9200:9200 -p 9300:9300 -e “discovery.type&#x3D;single-node” -e ES_JAVA_OPTS&#x3D;”-Xms64m -Xmx512m” elasticsearch:7.6.2</p>
-<h1 id="可以访问成功；查看cpu状态"><a href="#可以访问成功；查看cpu状态" class="headerlink" title="可以访问成功；查看cpu状态"></a>可以访问成功；查看cpu状态</h1><p>作业：使用kibana连接es？思考网络如何才能连接过去！<br>在这里插入图片描述</p>
-<ol start="7">
-<li>可视化<br>portainer（先用这个）<br>docker run -d -p 8088:9000 –restart&#x3D;always -v &#x2F;var&#x2F;run&#x2F;docker.sock:&#x2F;var&#x2F;run&#x2F;docker.sock –privileged&#x3D;true portainer&#x2F;portainer<br>Rancher（CI&#x2F;CD时再用这个）<br>什么是portainer ?<br>Docker图形化界面管理工具！提供一个后台面板供我们操作！</li>
-</ol>
-<h1 id="启动运行-1"><a href="#启动运行-1" class="headerlink" title="启动运行"></a>启动运行</h1><p>docker run -d -p 8088:9000 –restart&#x3D;always -v &#x2F;var&#x2F;run&#x2F;docker.sock:&#x2F;var&#x2F;run&#x2F;docker.sock –privileged&#x3D;true portainer&#x2F;portainer<br>访问测试：<a target="_blank" rel="noopener" href="http://ip:8088/">http://ip:8088</a><br>在这里插入图片描述<br>选择本地的：Local<br>在这里插入图片描述<br>进入之后的面板<br>在这里插入图片描述</p>
-<p>四、Docker镜像讲解</p>
-<ol>
-<li>镜像是什么<br>镜像是一种轻量级、可执行的独立软件包，用来打包软件运行环境和基于运行环境开发的软件，它包含运行某个软件所需的所有内容，包括代码、运行时、库、环境变量和配置文件。<br>所有的应用，直接打包docker镜像，就可以直接跑起来！<br>如何得到镜像：</li>
-</ol>
-<p>从远程仓库下载<br>朋友拷贝给你<br>自己制作一个镜像DockerFile<br>2. Docker镜像加速原理<br>UnionFS（联合文件系统）<br>我们下载的时候看到的一层层就是这个！<br>UnionFS（联合文件系统）：Union文件系统（UnionFS）是一种分层、轻量级并且高性能的文件系统，它支持对文件系统的修改作为一次提交来一层层的叠加，同时可以将不同目录挂载到同一个虚拟文件系统下（unite several directories into a single virtual filesystem）。Union 文件系统是Docker 镜像的基础。镜像可以通过分层来进行继承，基于基础镜像（没有父镜像），可以制作各种具体的应用镜像。</p>
-<p>特性：一次同时加载多个文件系统，但从外面看起来，只能看到一个文件系统，联合加载会把各层文件系统叠加起来，这样最终的文件系统会包含所有底层的文件和目录。</p>
-<p>Docker镜像加载原型<br>docker的镜像实际上由一层一层的文件系统组成，这种层级的文件系统UnionFS。</p>
-<p>bootfs（boot file system）主要包含bootloader和kernel，bootloader主要是引导加载kernel，Linux刚启动时会加载bootfs文件系统，在Docker镜像的最底层是bootfs。这一层与我们典型的Linux&#x2F;Unix系统是一样的，包含boot加载器和内核。当boot加载完成之后整个内核就都在内存中了，此时内存的使用权已由bootfs转交给内核，此时系统也会卸载bootfs。</p>
-<p>rootfs（root file system），在bootfs之上。包含的就是典型Linux系统中的&#x2F;dev，&#x2F;proc，&#x2F;bin，&#x2F;etc等标准目录和文件。<br>rootfs就是各种不同的操作系统发行版，比如Ubuntu，Centos等等。<br>在这里插入图片描述<br>平时我们安装进虚拟机的CentOS都是好几个G，为什么Docker这里才200M？<br>在这里插入图片描述<br>对于一个精简的OS，rootfs可以很小，只需要包含最基本的命令，工具和程序库就可以了，因为底层直接用Host的kernel，自己只需要提供rootfs就可以了。<br>由此可见对于不同的linux发行版，bootfs基本是一致的，rootfs会有差别，因此不同的发行版可以公用bootfs。<br>（虚拟机是分钟级，容器是秒级！）</p>
-<ol start="3">
-<li>分层理解<br>分层的镜像<br>我们可以去下载一个镜像，注意观察下载的日志输出，可以看到是一层一层的在下载！<br>在这里插入图片描述<br>思考：为什么Docker镜像要采用这种分层的结构呢？<br>最大的好处，我觉得莫过于是资源共享了！比如有多个镜像都从相同的Base镜像构建而来，那么宿主机只需在磁盘上保留一份base镜像，同时内存中也只需要加载一份base镜像，这样就可以为所有的容器服务了，而且镜像的每一层都可以被共享。<br>查看镜像分层的方式可以通过 docker image inspect命令！</li>
-</ol>
-<p>[<br>        &#x2F;&#x2F; ……<br>        “RootFS”: {<br>            “Type”: “layers”,<br>            “Layers”: [<br>                “sha256:2edcec3590a4ec7f40cf0743c15d78fb39d8326bc029073b41ef9727da6c851f”,<br>                “sha256:9b24afeb7c2f21e50a686ead025823cd2c6e9730c013ca77ad5f115c079b57cb”,<br>                “sha256:4b8e2801e0f956a4220c32e2c8b0a590e6f9bd2420ec65453685246b82766ea1”,<br>                “sha256:529cdb636f61e95ab91a62a51526a84fd7314d6aab0d414040796150b4522372”,<br>                “sha256:9975392591f2777d6bf4d9919ad1b2c9afa12f9a9b4d260f45025ec3cc9b18ed”,<br>                “sha256:8e5669d8329116b8444b9bbb1663dda568ede12d3dbcce950199b582f6e94952”<br>            ]<br>        },<br>        “Metadata”: {<br>            “LastTagTime”: “0001-01-01T00:00:00Z”<br>        }<br>    }<br>]<br>理解：<br>所有的Docker 镜像都起始于一个基础镜像层，当进行修改或增加新的内容时，就会在当前镜像层之上，创建新的镜像层。<br>举一个简单的例子，假如基于Ubuntu Linux 16.04创建一个新的镜像，这就是新镜像的第一层；如果在该镜像中添加Python包，就会在基础镜像层之上创建第二个镜像层；如果继续添加一个安全补丁，就会创建第三个镜像层。<br>该镜像当前已经包含3个镜像层，如下图所示（这只是一个用于演示的很简单的例子）。<br>在这里插入图片描述<br>在添加额外的镜像层的同时，镜像始终保持是当前所有镜像的组合，理解这一点非常重要。下图中举了一个简单的例子，每个镜像层包含3个文件，而镜像包含了来自两个镜像层的6个文件。<br>在这里插入图片描述<br>上图中的镜像层跟之前图中的略有区别，主要目的是便于展示文件。<br>下图中展示了一个稍微复杂的三层镜像，在外部看来整个镜像只有6个文件，这是因为最上层中的文件7是文件5的一个更新版本。<br>在这里插入图片描述<br>这种情况下，上层镜像层中的文件覆盖了底层镜像层中的文件。这样就使得文件的更新版本作为一个新镜像层添加到镜像当中。<br>Docker通过存储引擎（新版本采用快照机制）的方式来实现镜像层堆栈，并保证多镜像层对外展示为统一的文件系统。<br>Linux上可用的存储引擎有AUFS、Overlay2、Device Mapper、Btrfs以及ZFS。顾名思义，每种存储引擎都基于Linux中对应的文件系统或者块设备技术，并且每种存储引擎都有其独有的性能特点。<br>Docker在Windows 上仅支持 windowsfilter一种存储引擎，该引擎基于NTFS文件系统之上实现了分层和CoW[1]。<br>下图展示了与系统显示相同的三层镜像。所有镜像层堆叠并合并，对外提供统一的视图。<br>在这里插入图片描述</p>
-<p>特点<br>Docker镜像都是只读的，当容器启动时，一个新的可写层被加载到镜像的顶部！<br>这一层就是我们通常说的容器层，容器之下的都叫镜像层！<br>在这里插入图片描述</p>
-<ol start="4">
-<li>commit镜像</li>
-</ol>
-<h1 id="提交容器成为一个新的副本"><a href="#提交容器成为一个新的副本" class="headerlink" title="提交容器成为一个新的副本"></a>提交容器成为一个新的副本</h1><p>docker commit</p>
-<h1 id="命令和git原理类似"><a href="#命令和git原理类似" class="headerlink" title="命令和git原理类似"></a>命令和git原理类似</h1><p>docker commit -m&#x3D;”提交的描述信息” -a&#x3D;”作者” 容器id 目标镜像名:[TAG]<br>实战测试</p>
-<h1 id="1-启动一个默认的tomcat。"><a href="#1-启动一个默认的tomcat。" class="headerlink" title="1.启动一个默认的tomcat。"></a>1.启动一个默认的tomcat。</h1><h1 id="2-发现这个默认的tomcat是没有webapps应用，镜像的原因，官方的镜像默认webapps下面是没有文件的。"><a href="#2-发现这个默认的tomcat是没有webapps应用，镜像的原因，官方的镜像默认webapps下面是没有文件的。" class="headerlink" title="2.发现这个默认的tomcat是没有webapps应用，镜像的原因，官方的镜像默认webapps下面是没有文件的。"></a>2.发现这个默认的tomcat是没有webapps应用，镜像的原因，官方的镜像默认webapps下面是没有文件的。</h1><h1 id="3-我自己拷贝进去了基本的文件。"><a href="#3-我自己拷贝进去了基本的文件。" class="headerlink" title="3.我自己拷贝进去了基本的文件。"></a>3.我自己拷贝进去了基本的文件。</h1><h1 id="4-将我们操作过的容器通过commit提交为一个镜像！我们以后就使用我们修改过的镜像即可，这就是我们自己的一个修改的镜像。"><a href="#4-将我们操作过的容器通过commit提交为一个镜像！我们以后就使用我们修改过的镜像即可，这就是我们自己的一个修改的镜像。" class="headerlink" title="4.将我们操作过的容器通过commit提交为一个镜像！我们以后就使用我们修改过的镜像即可，这就是我们自己的一个修改的镜像。"></a>4.将我们操作过的容器通过commit提交为一个镜像！我们以后就使用我们修改过的镜像即可，这就是我们自己的一个修改的镜像。</h1><p>在这里插入图片描述</p>
-<p>学习方式说明：理解概念，但是一定要实践，最后实践和理论相结合一次搞定这个知识如果你想要保存当前容器的状态，就可以通过commit来提交，获得一个镜像，就好比我们以前学习VM时候，快照！到了这里才算是入门Dokcer！</p>
-<p>五、容器数据卷</p>
-<ol>
-<li><p>什么是容器数据卷<br>docker的理念回顾<br>将应用和环境打包成一个镜像！<br>数据？如果数据都在容器中，那么我们容器删除，数据就会丢失！（需求：数据可以持久化）<br>MySQL，容器删了，删库跑路！（需求：MySQL数据可以存储在本地）<br>容器之间可以有一个数据共享的技术！Docker容器中产生的数据，同步到本地！<br>这就是卷技术！目录的挂载，将我们容器内的目录，挂载到Linux主机上面！<br>在这里插入图片描述<br>总结一句话：容器的持久化和同步操作！容器间也是可以数据共享的！</p>
-</li>
-<li><p>使用数据卷<br>直接使用命令来挂载：-v<br>docker run -it -v 主机目录:容器内目录 镜像名 &#x2F;bin&#x2F;bash</p>
-</li>
-</ol>
-<h1 id="测试，查看容器信息"><a href="#测试，查看容器信息" class="headerlink" title="测试，查看容器信息"></a>测试，查看容器信息</h1><p>docker inspect 容器id<br>在这里插入图片描述<br>测试文件的同步：<br>在容器的&#x2F;home文件夹下，新建test.java文件，会同步到主机的&#x2F;home&#x2F;ceshi文件夹下。<br>删除操作也是同步的；双向绑定，保证两边文件夹下的数据始终是一直的。</p>
-<p>在这里插入图片描述<br>再来测试：<br>停止容器后，在主机的&#x2F;home&#x2F;ceshi文件夹下，修改文件或新增文件，启动容器，查看容器的&#x2F;home文件夹，发现容器内的数据依旧是同步的</p>
-<p>停止容器。<br>宿主机上修改文件。<br>启动容器。<br>容器内的数据依旧是同步的。<br>在这里插入图片描述<br>好处：我们以后修改只需要在本地修改即可，容器内会自动同步！|<br>3. 实战：安装mysql</p>
-<h1 id="获取镜像"><a href="#获取镜像" class="headerlink" title="获取镜像"></a>获取镜像</h1><p>docker pull mysql:5.7</p>
-<h1 id="运行容器，需要做数据目录挂载。（安装启动mysql，注意：需要配置密码）"><a href="#运行容器，需要做数据目录挂载。（安装启动mysql，注意：需要配置密码）" class="headerlink" title="运行容器，需要做数据目录挂载。（安装启动mysql，注意：需要配置密码）"></a>运行容器，需要做数据目录挂载。（安装启动mysql，注意：需要配置密码）</h1><h1 id="官方启动mysql"><a href="#官方启动mysql" class="headerlink" title="官方启动mysql"></a>官方启动mysql</h1><p>docker run –name some-mysql -e MYSQL_ROOT_PASSWORD&#x3D;my-secret-pw -d mysql:tag</p>
-<h1 id="我们启动mysql（-e是环境配置）"><a href="#我们启动mysql（-e是环境配置）" class="headerlink" title="我们启动mysql（-e是环境配置）"></a>我们启动mysql（-e是环境配置）</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker run -d -p 7777:3306 -v &#x2F;home&#x2F;mysql&#x2F;conf:&#x2F;etc&#x2F;mysql&#x2F;conf.d -v &#x2F;home&#x2F;mysql&#x2F;data:&#x2F;var&#x2F;lib&#x2F;mysql -e MYSQL_ROOT_PASSWORD&#x3D;123456 –name mysql01 mysql:5.7</p>
-<h1 id="启动成功之后，我们在本地使用navicat来接测试一下。"><a href="#启动成功之后，我们在本地使用navicat来接测试一下。" class="headerlink" title="启动成功之后，我们在本地使用navicat来接测试一下。"></a>启动成功之后，我们在本地使用navicat来接测试一下。</h1><h1 id="navicat连接到服务器的7777端口和容器内的3306映射，这个时候我们就可以连接上了！"><a href="#navicat连接到服务器的7777端口和容器内的3306映射，这个时候我们就可以连接上了！" class="headerlink" title="navicat连接到服务器的7777端口和容器内的3306映射，这个时候我们就可以连接上了！"></a>navicat连接到服务器的7777端口和容器内的3306映射，这个时候我们就可以连接上了！</h1><h1 id="在本地测试创建一个数据库，查看一下我们映射的路径是否ok！（OK的）"><a href="#在本地测试创建一个数据库，查看一下我们映射的路径是否ok！（OK的）" class="headerlink" title="在本地测试创建一个数据库，查看一下我们映射的路径是否ok！（OK的）"></a>在本地测试创建一个数据库，查看一下我们映射的路径是否ok！（OK的）</h1><p>如果我们将容器删除：<br>在这里插入图片描述</p>
-<p>发现，我们挂载到本地的数据卷依旧没有丢失，这就实现了容器数据持久化功能！</p>
-<ol start="4">
-<li>匿名和具名挂载</li>
-</ol>
-<h1 id="匿名挂载"><a href="#匿名挂载" class="headerlink" title="匿名挂载"></a>匿名挂载</h1><p>docker run -d -p –name nginx01 -v &#x2F;etc&#x2F;nginx nginx</p>
-<h1 id="查看所有的volume的情况"><a href="#查看所有的volume的情况" class="headerlink" title="查看所有的volume的情况"></a>查看所有的volume的情况</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker volume ls<br>DRIVER    VOLUME NAME<br>local     964b8e505f12f65fb23fd21f05cfa9ecd6c2c6b2ca89c0e44f168bb017dfabd6</p>
-<h1 id="这种就是匿名挂载：我们在-v挂载目录时，只写了容器内的路径，没有写容器外的路径。"><a href="#这种就是匿名挂载：我们在-v挂载目录时，只写了容器内的路径，没有写容器外的路径。" class="headerlink" title="这种就是匿名挂载：我们在-v挂载目录时，只写了容器内的路径，没有写容器外的路径。"></a>这种就是匿名挂载：我们在-v挂载目录时，只写了容器内的路径，没有写容器外的路径。</h1><h1 id="具名挂载"><a href="#具名挂载" class="headerlink" title="具名挂载"></a>具名挂载</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker run -d -p 3344:80 –name nginx02 -v juming-nginx:&#x2F;etc&#x2F;nginx nginx<br>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker volume ls<br>DRIVER    VOLUME NAME<br>local     964b8e505f12f65fb23fd21f05cfa9ecd6c2c6b2ca89c0e44f168bb017dfabd6<br>local     juming-nginx</p>
-<h1 id="通过-v-卷名-容器内的路径（具名挂载）"><a href="#通过-v-卷名-容器内的路径（具名挂载）" class="headerlink" title="通过 -v 卷名:容器内的路径（具名挂载）"></a>通过 -v 卷名:容器内的路径（具名挂载）</h1><h1 id="查看一下这个卷"><a href="#查看一下这个卷" class="headerlink" title="查看一下这个卷"></a>查看一下这个卷</h1><p>在这里插入图片描述<br>所有的docker容器内的卷，没有指定目录的情况下都是在&#x2F;var&#x2F;lib&#x2F;docker&#x2F;volumes&#x2F;xxxx&#x2F;_data”（xxxx是卷名）<br>我们通过具名挂载可以方便的找到我们的一个卷，大多数情况在使用的具名挂载</p>
-<h1 id="如何确定是具名挂载，还是匿名挂载，还是指定路径挂载"><a href="#如何确定是具名挂载，还是匿名挂载，还是指定路径挂载" class="headerlink" title="如何确定是具名挂载，还是匿名挂载，还是指定路径挂载"></a>如何确定是具名挂载，还是匿名挂载，还是指定路径挂载</h1><p>-v 容器内的路径                # 匿名挂载<br>-v 卷名:容器内的路径        # 具名挂载<br>-v &#x2F;宿主机路径:容器内路径    # 指定路径挂载<br>拓展：</p>
-<h1 id="通过-v-容器内的路径-ro-rw-改变读写权限"><a href="#通过-v-容器内的路径-ro-rw-改变读写权限" class="headerlink" title="通过 -v 容器内的路径:ro    rw    改变读写权限"></a>通过 -v 容器内的路径:ro    rw    改变读写权限</h1><p>ro    read only    # 只读<br>rw    read write    # 可读可写</p>
-<h1 id="一旦设置了容器权限，容器对我们挂载出来的内容就有了限定。"><a href="#一旦设置了容器权限，容器对我们挂载出来的内容就有了限定。" class="headerlink" title="一旦设置了容器权限，容器对我们挂载出来的内容就有了限定。"></a>一旦设置了容器权限，容器对我们挂载出来的内容就有了限定。</h1><p>docker run -d -p 3344:80 –name nginx02 -v juming-nginx:&#x2F;etc&#x2F;nginx:ro nginx<br>docker run -d -p 3344:80 –name nginx02 -v juming-nginx:&#x2F;etc&#x2F;nginx:rw nginx</p>
-<h1 id="只要看到ro就说明这个路径只能通过宿主机来操作，容器内部是无法操作！"><a href="#只要看到ro就说明这个路径只能通过宿主机来操作，容器内部是无法操作！" class="headerlink" title="只要看到ro就说明这个路径只能通过宿主机来操作，容器内部是无法操作！"></a>只要看到ro就说明这个路径只能通过宿主机来操作，容器内部是无法操作！</h1><ol start="5">
-<li>初识Dockerfile<br>Dockerfile就是用来构建 docker 镜像的构建命令！命令脚本！先体验一下！<br>通过这个脚本可以生成镜像，镜像是一层一层的，脚本一个一个的命令，每个命令都是一层！</li>
-</ol>
-<h1 id="创建一个dockerfile文件，名字可以随机，建议dockerfile"><a href="#创建一个dockerfile文件，名字可以随机，建议dockerfile" class="headerlink" title="创建一个dockerfile文件，名字可以随机，建议dockerfile"></a>创建一个dockerfile文件，名字可以随机，建议dockerfile</h1><h1 id="文件中的内容：指令都是大写"><a href="#文件中的内容：指令都是大写" class="headerlink" title="文件中的内容：指令都是大写"></a>文件中的内容：指令都是大写</h1><p>FROM centos<br>VOLUME [“volume01”,”volume02”]<br>CMD echo “—–end—–”<br>CMD &#x2F;bin&#x2F;bash</p>
-<h1 id="这里的每个命令，就是镜像的一层。"><a href="#这里的每个命令，就是镜像的一层。" class="headerlink" title="这里的每个命令，就是镜像的一层。"></a>这里的每个命令，就是镜像的一层。</h1><p>在这里插入图片描述<br>启动自己写的容器：<br>在这里插入图片描述<br>这个卷和外部一定有一个同步的目录！<br>在这里插入图片描述<br>查看一下卷挂载的路径：docker inspect 容器id<br>在这里插入图片描述<br>测试一下文件是否同步出去：在容器的volume01文件夹下创建文件，查看宿主机对应目录是否同步成功。<br>这种方式我们未来使用的十分多，因为我们通常会构建自己的镜像！<br>如果构建镜像时候没有挂载卷，就需要自己手动镜像挂载目录！</p>
-<ol start="6">
-<li>数据卷容器<br>多个mysql同步数据<br>在这里插入图片描述</li>
-</ol>
-<h1 id="启动3个容器，通过我们刚才自己的写镜像启动。"><a href="#启动3个容器，通过我们刚才自己的写镜像启动。" class="headerlink" title="启动3个容器，通过我们刚才自己的写镜像启动。"></a>启动3个容器，通过我们刚才自己的写镜像启动。</h1><p>在这里插入图片描述<br>在这里插入图片描述<br>在这里插入图片描述</p>
-<h1 id="测试：可以删除docker01，查看一下docker02和docker03是否还可以访问这个文件"><a href="#测试：可以删除docker01，查看一下docker02和docker03是否还可以访问这个文件" class="headerlink" title="测试：可以删除docker01，查看一下docker02和docker03是否还可以访问这个文件"></a>测试：可以删除docker01，查看一下docker02和docker03是否还可以访问这个文件</h1><h1 id="测试依旧可以访问"><a href="#测试依旧可以访问" class="headerlink" title="测试依旧可以访问"></a>测试依旧可以访问</h1><p>在这里插入图片描述<br>在这里插入图片描述<br>多个mysql实现数据共享：</p>
-<p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker run -d -p 7777:3306 -v &#x2F;home&#x2F;mysql&#x2F;conf:&#x2F;etc&#x2F;mysql&#x2F;conf.d -v &#x2F;home&#x2F;mysql&#x2F;data:&#x2F;var&#x2F;lib&#x2F;mysql -e MYSQL_ROOT_PASSWORD&#x3D;123456 –name mysql01 mysql:5.7<br>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker run -d -p 7777:3306 -e MYSQL_ROOT_PASSWORD&#x3D;123456 –name mysql02 –volumes-from mysql01 mysql:5.7</p>
-<h1 id="这个时候，可以实现两个容器数据同步！"><a href="#这个时候，可以实现两个容器数据同步！" class="headerlink" title="这个时候，可以实现两个容器数据同步！"></a>这个时候，可以实现两个容器数据同步！</h1><p>结论：<br>容器之间配置信息的传递，数据卷容器的生命同期一直持续到没有容器使用为止。<br>但是一旦你持久化到了本地，这个时候，本地的数据是不会删除的！</p>
-<p>六、DockerFile</p>
-<ol>
-<li><p>DockerFile介绍<br>dockerfile是用来构建docker镜像的文件！命令参数脚本！<br>构建步骤：<br>1、编写一个dockerfile文件<br>2、docker build 构建成为一个镜像<br>3、docker run运行镜像<br>4、docker push发布镜像（DockerHub、阿里云镜像仓库！）<br>查看一下官方是怎么做的？<br>在这里插入图片描述<br>在这里插入图片描述</p>
-</li>
-<li><p>DockerFile的构建过程<br>基础知识<br>1、每个保留关键字（指令）都是必须是大写字母<br>2、执行从上到下顺序执行<br>3、# 表示注释<br>4、每一个指令都会创建提交一个新的镜像层，并提交！<br>在这里插入图片描述<br>dockerfile是面向开发的，我们以后要发布项目，做镜像，就需要编写dockerfile文件，这个文件十分简单！<br>Docker镜像逐渐成为企业交付的标准，必须要掌握！<br>步骤：开发，部署，运维。。。缺一不可！|<br>DockerFile：构建文件，定义了一切的步骤，源代码。<br>Dockerlmages：通过DockerFile构建生成的镜像，最终发布和运行的产品。<br>Docker容器：容器就是镜像运行起来提供服务的。</p>
-</li>
-<li><p>DockerFile的命令<br>以前的话我们就是使用别人的，现在我们知道了这些指令后，我们来练习自己写一个镜像！</p>
-</li>
-</ol>
-<p>FROM        # 基础镜像，一切从这里开始构建<br>MAINTAINER    # 镜像是谁写的：姓名+邮箱<br>RUN            # 镜像构建的时候需要运行的命令<br>ADD            # 步骤：tomcat镜像，这个tomcat压缩包！添加内容<br>WORKDIR        # 镜像的工作目录<br>VOLUME        # 挂载的目录<br>EXPOSE        # 暴露端口配置<br>CMD            # 指定这个容器启动的时候要运行的命令，只有最后一个会生效，可被替代<br>ENTRYPOINT    # 指定这个容器启动的时候要运行的命令，可以追加命令<br>ONBUILD        # 当构建一个被继承DockerFile这个时候就会运行ONBUILD的指令。触发指令。<br>COPY        # 类似ADD，将我们文件拷贝到镜像中<br>ENV            # 构建的时候设置环境变量！</p>
-<ol start="4">
-<li>实战测试<br>Docker Hub中99%镜像都是从这个基础镜像过来的FROM scratch，然后配置需要的软件和配置来进行的构建。</li>
-</ol>
-<h1 id="1-编写dockerfile的文件"><a href="#1-编写dockerfile的文件" class="headerlink" title="1. 编写dockerfile的文件"></a>1. 编写dockerfile的文件</h1><p>FROM centos:7<br>MAINTAINER sywl<a href="mailto:&#120;&#120;&#x78;&#x40;&#x71;&#113;&#x2e;&#99;&#111;&#x6d;">&#120;&#120;&#x78;&#x40;&#x71;&#113;&#x2e;&#99;&#111;&#x6d;</a><br>ENV MYPATH &#x2F;usr&#x2F;local<br>WORKDIR $MYPATH<br>RUN yum -y install vim<br>RUN yum -y install net-tools<br>EXPOSE 80<br>CMD echo $MYPATH<br>CMD echo “—–end—–”<br>CMD &#x2F;bin&#x2F;bash</p>
-<h1 id="2-通过这个文件构建镜像"><a href="#2-通过这个文件构建镜像" class="headerlink" title="2. 通过这个文件构建镜像"></a>2. 通过这个文件构建镜像</h1><h1 id="命令：docker-build-f-dockerfile文件路径-t-镜像名-tag"><a href="#命令：docker-build-f-dockerfile文件路径-t-镜像名-tag" class="headerlink" title="命令：docker build -f dockerfile文件路径 -t 镜像名:[tag]"></a>命令：docker build -f dockerfile文件路径 -t 镜像名:[tag]</h1><p>docker build -f mydockerfile-centos -t mycentos:0.1 .<br>Successfully built 285c2064af01<br>Successfully tagged mycentos:0.1</p>
-<h1 id="3-测试运行"><a href="#3-测试运行" class="headerlink" title="3. 测试运行"></a>3. 测试运行</h1><p>对比：<br>之前的原生的centos7：</p>
-<p>我们增加之后的镜像：</p>
-<p>我们可以列出本地进行的变更历史：docker history 镜像id</p>
-<p>CMD和ENTRYPOINT区别</p>
-<p>CMD            # 指定这个容器启动的时候要运行的命令，只有最后一个会生效，可被替代<br>ENTRYPOINT     # 指定这个容器启动的时候要运行的命令，可以追加命令<br>测试CMD</p>
-<h1 id="1-编写dockerfile文件"><a href="#1-编写dockerfile文件" class="headerlink" title="1. 编写dockerfile文件"></a>1. 编写dockerfile文件</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ dockerfile]# vim mydockerfile-cmd-test<br>[root@iZbp13qr3mm4ucsjumrlgqZ dockerfile]# cat mydockerfile-cmd-test<br>FROM centos:7<br>CMD [“ls”,”-a”]</p>
-<h1 id="2-构建镜像"><a href="#2-构建镜像" class="headerlink" title="2. 构建镜像"></a>2. 构建镜像</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ dockerfile]# docker build -f mydockerfile-cmd-test -t cmdtest .</p>
-<h1 id="3-run运行，发现我们的”ls-a”命令生效、执行"><a href="#3-run运行，发现我们的”ls-a”命令生效、执行" class="headerlink" title="3. run运行，发现我们的”ls -a”命令生效、执行"></a>3. run运行，发现我们的”ls -a”命令生效、执行</h1><h1 id="4-我们先追加一个命令”l”-构成”ls-al”命令，发现报错"><a href="#4-我们先追加一个命令”l”-构成”ls-al”命令，发现报错" class="headerlink" title="4. 我们先追加一个命令”l”,构成”ls -al”命令，发现报错"></a>4. 我们先追加一个命令”l”,构成”ls -al”命令，发现报错</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ dockerfile]# docker run ec0d2dd226b3 -l<br>docker: Error response from daemon: failed to create shim task: OCI runtime create failed: runc create failed: unable to start container process: exec: “-l”: executable file not found in $PATH: unknown.<br>ERRO[0000] error waiting for container: context canceled</p>
-<h1 id="原因：CMD命令的情况下，”-l”替换了CMD-“1s”，”-a”-命令，因为”-l”不是命令，所以报错！"><a href="#原因：CMD命令的情况下，”-l”替换了CMD-“1s”，”-a”-命令，因为”-l”不是命令，所以报错！" class="headerlink" title="原因：CMD命令的情况下，”-l”替换了CMD[“1s”，”-a”]命令，因为”-l”不是命令，所以报错！"></a>原因：CMD命令的情况下，”-l”替换了CMD[“1s”，”-a”]命令，因为”-l”不是命令，所以报错！</h1><p>测试ENTRYPOINT</p>
-<h1 id="1-编写dockerfile文件-1"><a href="#1-编写dockerfile文件-1" class="headerlink" title="1. 编写dockerfile文件"></a>1. 编写dockerfile文件</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ dockerfile]# vim mydockerfile-entrypoint-test<br>[root@iZbp13qr3mm4ucsjumrlgqZ dockerfile]# cat mydockerfile-entrypoint-test<br>FROM centos:7<br>ENTRYPOINT [“ls”,”-a”]</p>
-<h1 id="2-构建镜像-1"><a href="#2-构建镜像-1" class="headerlink" title="2. 构建镜像"></a>2. 构建镜像</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ dockerfile]# docker build -f mydockerfile-entrypoint-test -t entrypointtest .</p>
-<h1 id="3-run运行，发现我们的”ls-a”命令生效、执行-1"><a href="#3-run运行，发现我们的”ls-a”命令生效、执行-1" class="headerlink" title="3. run运行，发现我们的”ls -a”命令生效、执行"></a>3. run运行，发现我们的”ls -a”命令生效、执行</h1><h1 id="4-我们先追加一个命令”l”-构成”ls-al”命令，发现命令生效、执行"><a href="#4-我们先追加一个命令”l”-构成”ls-al”命令，发现命令生效、执行" class="headerlink" title="4. 我们先追加一个命令”l”,构成”ls -al”命令，发现命令生效、执行"></a>4. 我们先追加一个命令”l”,构成”ls -al”命令，发现命令生效、执行</h1><h1 id="原因：ENTRYPOINT命令的情况下，”-l”追加在ENTRYPOINT-“1s”，”-a”-命令后面，得到”ls-al”的命令，所以命令正常执行！"><a href="#原因：ENTRYPOINT命令的情况下，”-l”追加在ENTRYPOINT-“1s”，”-a”-命令后面，得到”ls-al”的命令，所以命令正常执行！" class="headerlink" title="原因：ENTRYPOINT命令的情况下，”-l”追加在ENTRYPOINT [“1s”，”-a”]命令后面，得到”ls -al”的命令，所以命令正常执行！"></a>原因：ENTRYPOINT命令的情况下，”-l”追加在ENTRYPOINT [“1s”，”-a”]命令后面，得到”ls -al”的命令，所以命令正常执行！</h1><h1 id="（我们的追加命令，是直接拼接在我们的ENTRYPOINT命令的后面）"><a href="#（我们的追加命令，是直接拼接在我们的ENTRYPOINT命令的后面）" class="headerlink" title="（我们的追加命令，是直接拼接在我们的ENTRYPOINT命令的后面）"></a>（我们的追加命令，是直接拼接在我们的ENTRYPOINT命令的后面）</h1><ol start="5">
-<li>制作tomcat镜像<br>准备镜像文件：tomcat压缩包，jdk的压缩包！</li>
-</ol>
-<p>编写dockerfile文件，官方命名Dockerfile，build会自动寻找这个文件，就不需要-f指定文件名了！</p>
-<p> FROM centos:7<br> MAINTAINER sywl<a href="mailto:&#120;&#x78;&#x78;&#120;&#64;&#113;&#113;&#x2e;&#99;&#111;&#109;">&#120;&#x78;&#x78;&#120;&#64;&#113;&#113;&#x2e;&#99;&#111;&#109;</a><br> COPY readme.txt &#x2F;usr&#x2F;local&#x2F;readme.txt<br> ADD jdk-8u271-linux-x64.tar.gz &#x2F;usr&#x2F;local&#x2F;<br> ADD apache-tomcat-9.0.5.tar.gz &#x2F;usr&#x2F;local&#x2F;<br> RUN yum -y install vim<br> ENV MYPATH &#x2F;usr&#x2F;local<br> WORKDIR $MYPATH<br> ENV JAVA_HOME &#x2F;usr&#x2F;local&#x2F;jdk1.8.0_271<br> ENV CLASS_PATH $JAVA_HOME&#x2F;lib&#x2F;dt.jar:$JAVA_HOME&#x2F;lib&#x2F;tools.jar<br> ENV CATALINA_HOME &#x2F;usr&#x2F;local&#x2F;apache-tomcat-9.0.5<br> ENV CATALINA_BASH &#x2F;usr&#x2F;local&#x2F;apache-tomcat-9.0.5<br> ENV PATH $PATH:$JAVA_HOME&#x2F;bin:$CATALINA_HOME&#x2F;lib:$CATALINA_HOME&#x2F;bin<br> EXPOSE 8080<br> CMD &#x2F;usr&#x2F;local&#x2F;apache-tomcat-9.0.5&#x2F;bin&#x2F;startup.sh &amp;&amp; tail -F &#x2F;usr&#x2F;local&#x2F;apache-tomcat-9.0.5&#x2F;bin&#x2F;logs&#x2F;catalina.out<br>构建镜像</p>
-<p>docker build –name diytomcat .<br>启动镜像<br>[root@iZbp13qr3mm4ucsjumrlgqZ tomcat]# docker run -d -p 3355:8080 –name sywltomcat -v &#x2F;home&#x2F;sywl&#x2F;build&#x2F;tomcat&#x2F;test:&#x2F;usr&#x2F;local&#x2F;apache-tomcat-9.0.5&#x2F;webapps&#x2F;test -v &#x2F;home&#x2F;sywl&#x2F;build&#x2F;tomcat&#x2F;tomcatlog:&#x2F;usr&#x2F;local&#x2F;apache-tomcat-9.0.5&#x2F;logs diytomcat<br>访问测试</p>
-<p>发布项目（由于做了卷挂载，我们直接在本地test文件夹下编写项目就可以发布了！）</p>
-<h1 id="x2F-home-x2F-sywl-x2F-build-x2F-tomcat-x2F-test-x2F-WEB-INF-x2F-web-xml文件"><a href="#x2F-home-x2F-sywl-x2F-build-x2F-tomcat-x2F-test-x2F-WEB-INF-x2F-web-xml文件" class="headerlink" title="&#x2F;home&#x2F;sywl&#x2F;build&#x2F;tomcat&#x2F;test&#x2F;WEB-INF&#x2F;web.xml文件"></a>&#x2F;home&#x2F;sywl&#x2F;build&#x2F;tomcat&#x2F;test&#x2F;WEB-INF&#x2F;web.xml文件</h1><?xml version="1.0" encoding="UTF-8"?>
-<p><web-app xmlns="http://java.sun.com/xml/ns/javaee"
-     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-     xsi:schemaLocation="http://java.sun.com/xml/ns/javaee  http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd"
-     version="2.5"><br></web-app></p>
-<h1 id="x2F-home-x2F-sywl-x2F-build-x2F-tomcat-x2F-test-x2F-index-jsp文件"><a href="#x2F-home-x2F-sywl-x2F-build-x2F-tomcat-x2F-test-x2F-index-jsp文件" class="headerlink" title="&#x2F;home&#x2F;sywl&#x2F;build&#x2F;tomcat&#x2F;test&#x2F;index.jsp文件"></a>&#x2F;home&#x2F;sywl&#x2F;build&#x2F;tomcat&#x2F;test&#x2F;index.jsp文件</h1><p>&lt;%@ page language&#x3D;”java” contentType&#x3D;”text&#x2F;html; charset&#x3D;UTF-8”<br> pageEncoding&#x3D;”UTF-8”%&gt;<br><!DOCTYPE html></p>
-<html>
-<head>
-<meta charset="utf-8">
-<title>hello,sywl</title>
-</head>
-<body>
-Hello World!<br/>
-<%
-System.out.println("----my web test----");
-%>
-</body>
-</html>
-发现：项目部署成功，可以直接访问ok！（ip地址:3355/test）
-我们以后开发的步骤：需要掌握Dokcerfile的编写！我们之后的一切都是使用docker镜像来发布运行！
-6. 发布自己的镜像
-1. 发布到dockerhub上
-https://hub.docker.com/ 注册自己的账号
-确定这个账号可以登录
-在我们服务器上提交自己的镜像
-
-<p> [root@iZbp13qr3mm4ucsjumrlgqZ tomcat]# docker login –help<br> Usage:  docker login [OPTIONS] [SERVER]<br> Log in to a Docker registry.<br> If no server is specified, the default is defined by the daemon.<br> Options:<br>   -p, –password string   Password<br>       –password-stdin    Take the password from stdin<br>   -u, –username string   Username<br>登录完毕后就可以提交镜像了，就是一步： docker push</p>
-<h1 id="登录命令"><a href="#登录命令" class="headerlink" title="登录命令"></a>登录命令</h1><p> [root@iZbp13qr3mm4ucsjumrlgqZ tomcat]# docker login -u xxxx<br> Password:<br> WARNING! Your password will be stored unencrypted in &#x2F;root&#x2F;.docker&#x2F;config.json.<br> Configure a credential helper to remove this warning. See<br> <a target="_blank" rel="noopener" href="https://docs.docker.com/engine/reference/commandline/login/#credentials-store">https://docs.docker.com/engine/reference/commandline/login/#credentials-store</a><br> Login Succeeded</p>
-<h1 id="push镜像出现的问题？"><a href="#push镜像出现的问题？" class="headerlink" title="push镜像出现的问题？"></a>push镜像出现的问题？</h1><p> [root@iZbp13qr3mm4ucsjumrlgqZ tomcat]# docker push sunyiwenlong&#x2F;diytomcat<br> The push refers to repository [docker.io&#x2F;sunyiwenlong&#x2F;diytomcat]<br> An image does not exist locally with the tag: sunyiwenlong&#x2F;diytomcat</p>
-<h1 id="解决，增加一个tag"><a href="#解决，增加一个tag" class="headerlink" title="解决，增加一个tag"></a>解决，增加一个tag</h1><p> [root@iZbp13qr3mm4ucsjumrlgqZ tomcat]# docker tag 6a5eb12e1252 账号id&#x2F;tomcat:1.0</p>
-<h1 id="docker-push即可；自己发布的镜像尽量带上版本号"><a href="#docker-push即可；自己发布的镜像尽量带上版本号" class="headerlink" title="docker push即可；自己发布的镜像尽量带上版本号"></a>docker push即可；自己发布的镜像尽量带上版本号</h1><p> [root@iZbp13qr3mm4ucsjumrlgqZ tomcat]# docker push 账号id&#x2F;tomcat:1.0<br>2. 发布到阿里云镜像服务上<br>登录阿里云账号<br>找到镜像容器服务<br>创建命名空间（一个账号只能创建3个命名空间）<br>创建镜像仓库<br>浏览相关操作命令<br>7. 小结</p>
-<p>七、Docker网络</p>
-<ol>
-<li>理解docker0<br>测试</li>
-</ol>
-<p>有三个网络</p>
-<h1 id="问题：docker是如何处理容器网络访问的？"><a href="#问题：docker是如何处理容器网络访问的？" class="headerlink" title="问题：docker是如何处理容器网络访问的？"></a>问题：docker是如何处理容器网络访问的？</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker run -d -P –name tomcat01 tomcat</p>
-<h1 id="查看容器的内部网络地址ip-addr，发现容器启动的时候会得到一个eth0-if119的ip地址（docker分配的）"><a href="#查看容器的内部网络地址ip-addr，发现容器启动的时候会得到一个eth0-if119的ip地址（docker分配的）" class="headerlink" title="查看容器的内部网络地址ip addr，发现容器启动的时候会得到一个eth0@if119的ip地址（docker分配的）"></a>查看容器的内部网络地址ip addr，发现容器启动的时候会得到一个eth0@if119的ip地址（docker分配的）</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker exec -it tomcat01 ip addr<br>1: lo: &lt;LOOPBACK,UP,LOWER_UP&gt; mtu 65536 qdisc noqueue state UNKNOWN group default qlen 1000<br>    link&#x2F;loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00<br>    inet 127.0.0.1&#x2F;8 scope host lo<br>       valid_lft forever preferred_lft forever<br>118: eth0@if119: &lt;BROADCAST,MULTICAST,UP,LOWER_UP&gt; mtu 1500 qdisc noqueue state UP group default<br>    link&#x2F;ether 02:42:ac:11:00:02 brd ff:ff:ff:ff:ff:ff link-netnsid 0<br>    inet 172.17.0.2&#x2F;16 brd 172.17.255.255 scope global eth0<br>       valid_lft forever preferred_lft forever</p>
-<h1 id="思考：liunx能不能ping通容器内部？（linux可以ping通容器内部）"><a href="#思考：liunx能不能ping通容器内部？（linux可以ping通容器内部）" class="headerlink" title="思考：liunx能不能ping通容器内部？（linux可以ping通容器内部）"></a>思考：liunx能不能ping通容器内部？（linux可以ping通容器内部）</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# ping 172.17.0.2<br>PING 172.17.0.2 (172.17.0.2) 56(84) bytes of data.<br>64 bytes from 172.17.0.2: icmp_seq&#x3D;1 ttl&#x3D;64 time&#x3D;0.059 ms<br>64 bytes from 172.17.0.2: icmp_seq&#x3D;2 ttl&#x3D;64 time&#x3D;0.046 ms<br>64 bytes from 172.17.0.2: icmp_seq&#x3D;3 ttl&#x3D;64 time&#x3D;0.057 ms<br>64 bytes from 172.17.0.2: icmp_seq&#x3D;4 ttl&#x3D;64 time&#x3D;0.045 ms<br>原理<br>我们每启动一个docker容器，docker就会给docker容器分配一个ip，我们只要安装了ddcker，就会有一个网卡docker0<br>（桥接模式，使用的技术是veth-pair技术）<br>再次测试：</p>
-<p>在启动一个容器测试，发现又多了一对网卡。</p>
-<h1 id="我们发现这个容器带来网卡，都是一对对的。"><a href="#我们发现这个容器带来网卡，都是一对对的。" class="headerlink" title="我们发现这个容器带来网卡，都是一对对的。"></a>我们发现这个容器带来网卡，都是一对对的。</h1><h1 id="veth-pair-就是一对的虚拟设备接口，他们都是成对出现的，一端连着协议，一端彼此相连。"><a href="#veth-pair-就是一对的虚拟设备接口，他们都是成对出现的，一端连着协议，一端彼此相连。" class="headerlink" title="veth-pair 就是一对的虚拟设备接口，他们都是成对出现的，一端连着协议，一端彼此相连。"></a>veth-pair 就是一对的虚拟设备接口，他们都是成对出现的，一端连着协议，一端彼此相连。</h1><h1 id="正因为有这个特性，evth-pair充当一个桥梁，连接各种虚拟网络设备的。"><a href="#正因为有这个特性，evth-pair充当一个桥梁，连接各种虚拟网络设备的。" class="headerlink" title="正因为有这个特性，evth-pair充当一个桥梁，连接各种虚拟网络设备的。"></a>正因为有这个特性，evth-pair充当一个桥梁，连接各种虚拟网络设备的。</h1><h1 id="openstack，Docker容器之间的连接，OVS的连接，都是使用veth-pair技术。"><a href="#openstack，Docker容器之间的连接，OVS的连接，都是使用veth-pair技术。" class="headerlink" title="openstack，Docker容器之间的连接，OVS的连接，都是使用veth-pair技术。"></a>openstack，Docker容器之间的连接，OVS的连接，都是使用veth-pair技术。</h1><p>我们来测试下tomcat01和tomcat02是否可以ping通！（可以ping通）</p>
-<p> [root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker exec -it tomcat02 ping 172.17.0.2<br> PING 172.17.0.2 (172.17.0.2) 56(84) bytes of data.<br> 64 bytes from 172.17.0.2: icmp_seq&#x3D;1 ttl&#x3D;64 time&#x3D;0.094 ms<br> 64 bytes from 172.17.0.2: icmp_seq&#x3D;2 ttl&#x3D;64 time&#x3D;0.055 ms</p>
-<h1 id="结论：容器和容器之间是可以互相ping通的！"><a href="#结论：容器和容器之间是可以互相ping通的！" class="headerlink" title="结论：容器和容器之间是可以互相ping通的！"></a>结论：容器和容器之间是可以互相ping通的！</h1><p>绘制一个网络模型图</p>
-<p>结论：tomcat01和tomcat02是公用的一个路由器，dockero。<br>所有的容器不指定网络的情况下，都是docker0路由的，docker会给我们的容器分配一个默认的可用IP</p>
-<p>Docker中的所有的网络接口都是虚拟的。虚拟的转发效率高！（内网传递文件！）<br>只要容器删除，对应网桥一对就没了！</p>
-<ol start="2">
-<li>—link<br>思考一个场景（高可用）<br>我们编写了一个微服务，database url&#x3D;ip:，项目不重启，数据库ip换掉了，我们希望可以处理这个问题，可以名字来进行访问容器？</li>
-</ol>
-<h1 id="通过服务名ping不通；如何解决？"><a href="#通过服务名ping不通；如何解决？" class="headerlink" title="通过服务名ping不通；如何解决？"></a>通过服务名ping不通；如何解决？</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker exec -it tomcat02 ping tomcat01<br>ping: tomcat01: Name or service not known</p>
-<h1 id="通过–link可以解决网络连接问题。"><a href="#通过–link可以解决网络连接问题。" class="headerlink" title="通过–link可以解决网络连接问题。"></a>通过–link可以解决网络连接问题。</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker run -d -P –name tomcat03 –link tomcat02 tomcat:7.0<br>2393eecb870e5755068ea8b7d8bdcdd0f1ff110534c3359384413677c651bec4<br>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker exec -it tomcat03 ping tomcat02<br>PING tomcat02 (172.17.0.3) 56(84) bytes of data.<br>64 bytes from tomcat02 (172.17.0.3): icmp_seq&#x3D;1 ttl&#x3D;64 time&#x3D;0.085 ms<br>64 bytes from tomcat02 (172.17.0.3): icmp_seq&#x3D;2 ttl&#x3D;64 time&#x3D;0.055 ms</p>
-<h1 id="反向可以ping通吗？（不可以）"><a href="#反向可以ping通吗？（不可以）" class="headerlink" title="反向可以ping通吗？（不可以）"></a>反向可以ping通吗？（不可以）</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker exec -it tomcat02 ping tomcat03<br>ping: tomcat03: Name or service not known<br>探究：docker network inspect networkID (docker network ls可以查看networkID)</p>
-<p>其实这个tomcat03就是在本地配置了tomcat02的配置？</p>
-<h1 id="查看"><a href="#查看" class="headerlink" title="查看"></a>查看</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker exec -it tomcat03 cat &#x2F;etc&#x2F;hosts<br>127.0.0.1       localhost<br>::1     localhost ip6-localhost ip6-loopback<br>fe00::0 ip6-localnet<br>ff00::0 ip6-mcastprefix<br>ff02::1 ip6-allnodes<br>ff02::2 ip6-allrouters<br>172.17.0.3      tomcat02 20398a94efa7<br>172.17.0.4      2393eecb870e<br>本质探究：—link 就是我们在hosts配置中增加了一个”172.17.0.3 tomcat02 20398a94efa7”<br>我们现在玩Docker已经不建议使用—link了！<br>自定义网络！不适用docker0！<br>docker0问题：他不支持容器名连接访问！</p>
-<ol start="3">
-<li>自定义网络<br>查看所有的docker网络</li>
-</ol>
-<p>网络模式<br>bridge：桥接 docker（默认，自己创建也使用bridge桥接模式）<br>none：不配置网络<br>host：和主机共享网络<br>container：容器网络连通！（用的少！局限很大）</p>
-<p>测试</p>
-<h1 id="我们直接启动的命令–net-bridge（这个就是我们的docker0）；默认带上这个参数的，以下两种启动方式效果一致。"><a href="#我们直接启动的命令–net-bridge（这个就是我们的docker0）；默认带上这个参数的，以下两种启动方式效果一致。" class="headerlink" title="我们直接启动的命令–net bridge（这个就是我们的docker0）；默认带上这个参数的，以下两种启动方式效果一致。"></a>我们直接启动的命令–net bridge（这个就是我们的docker0）；默认带上这个参数的，以下两种启动方式效果一致。</h1><p>docker run -d -P –name tomcat01 tomcat<br>docker run -d -P –name tomcato1 –het bridge tomcat</p>
-<h1 id="docker0特点：默认，域名不能访问，–1ink可以打通连接！"><a href="#docker0特点：默认，域名不能访问，–1ink可以打通连接！" class="headerlink" title="docker0特点：默认，域名不能访问，–1ink可以打通连接！"></a>docker0特点：默认，域名不能访问，–1ink可以打通连接！</h1><h1 id="我们可以自定义一个网络！"><a href="#我们可以自定义一个网络！" class="headerlink" title="我们可以自定义一个网络！"></a>我们可以自定义一个网络！</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker network create –driver bridge –subnet 192.168.0.0&#x2F;16 –gateway 192.168.0.1 mynet<br>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker network ls<br>NETWORK ID     NAME      DRIVER    SCOPE<br>7254ffccbdf5   bridge    bridge    local<br>45610891738f   host      host      local<br>266acd66473c   mynet     bridge    local<br>7795cbc2686c   none      null      local<br>我们自己的网络就创建好了</p>
-<p>启动两个容器测试：</p>
-<p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker run -d -P –name tomcat-net-01 –net mynet tomcat:7.0<br>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker run -d -P –name tomcat-net-02 –net mynet tomcat:7.0</p>
-<h1 id="不使用–link，ping名字也可以ping通。tomcat-net-01-ping-tomcat-net-02可以ping通"><a href="#不使用–link，ping名字也可以ping通。tomcat-net-01-ping-tomcat-net-02可以ping通" class="headerlink" title="不使用–link，ping名字也可以ping通。tomcat-net-01 ping tomcat-net-02可以ping通"></a>不使用–link，ping名字也可以ping通。tomcat-net-01 ping tomcat-net-02可以ping通</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker exec -it tomcat-net-01 ping tomcat-net-02<br>PING tomcat-net-02 (192.168.0.3) 56(84) bytes of data.<br>64 bytes from tomcat-net-02.mynet (192.168.0.3): icmp_seq&#x3D;1 ttl&#x3D;64 time&#x3D;0.067 ms<br>64 bytes from tomcat-net-02.mynet (192.168.0.3): icmp_seq&#x3D;2 ttl&#x3D;64 time&#x3D;0.056 ms</p>
-<h1 id="不使用–link，ping名字也可以ping通。tomcat-net-02-ping-tomcat-net-01可以ping通"><a href="#不使用–link，ping名字也可以ping通。tomcat-net-02-ping-tomcat-net-01可以ping通" class="headerlink" title="不使用–link，ping名字也可以ping通。tomcat-net-02 ping tomcat-net-01可以ping通"></a>不使用–link，ping名字也可以ping通。tomcat-net-02 ping tomcat-net-01可以ping通</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker exec -it tomcat-net-02 ping tomcat-net-01<br>PING tomcat-net-01 (192.168.0.2) 56(84) bytes of data.<br>64 bytes from tomcat-net-01.mynet (192.168.0.2): icmp_seq&#x3D;1 ttl&#x3D;64 time&#x3D;0.050 ms<br>64 bytes from tomcat-net-01.mynet (192.168.0.2): icmp_seq&#x3D;2 ttl&#x3D;64 time&#x3D;0.056 ms<br>我们自定义的网络docker都已经帮我们维护好了对应的关系，推荐我们平时这样使用网络！<br>redis -不同的集群使用不同的网络，保证集群是安全和健康的<br>mysql -不同的集群使用不同的网络，保证集群是安全和健康的</p>
-<ol start="4">
-<li>网络连通</li>
-</ol>
-<h1 id="tomcat01在docker0网络下，tomcat-net-01在mynet网络下；"><a href="#tomcat01在docker0网络下，tomcat-net-01在mynet网络下；" class="headerlink" title="tomcat01在docker0网络下，tomcat-net-01在mynet网络下；"></a>tomcat01在docker0网络下，tomcat-net-01在mynet网络下；</h1><h1 id="tomcat01-ping-tomcat-net-01是ping不通的"><a href="#tomcat01-ping-tomcat-net-01是ping不通的" class="headerlink" title="tomcat01 ping tomcat-net-01是ping不通的"></a>tomcat01 ping tomcat-net-01是ping不通的</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker exec -it tomcat01 ping tomcat-net-01<br>ping: tomcat-net-01: Name or service not known<br>容器和mynet网络需要打通</p>
-<p>打通命令</p>
-<h1 id="测试：打通tomcat01连接mynet"><a href="#测试：打通tomcat01连接mynet" class="headerlink" title="测试：打通tomcat01连接mynet"></a>测试：打通tomcat01连接mynet</h1><p>docker network connect mynet tomcat01</p>
-<h1 id="连通之后就是将tomcat01放到了mynet网络下"><a href="#连通之后就是将tomcat01放到了mynet网络下" class="headerlink" title="连通之后就是将tomcat01放到了mynet网络下"></a>连通之后就是将tomcat01放到了mynet网络下</h1><h1 id="一个容器两个ip地址！I"><a href="#一个容器两个ip地址！I" class="headerlink" title="一个容器两个ip地址！I"></a>一个容器两个ip地址！I</h1><h1 id="阿里云服务：公网ip和私网ip"><a href="#阿里云服务：公网ip和私网ip" class="headerlink" title="阿里云服务：公网ip和私网ip"></a>阿里云服务：公网ip和私网ip</h1><h1 id="连接ok"><a href="#连接ok" class="headerlink" title="连接ok"></a>连接ok</h1><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker exec -it tomcat01 ping tomcat-net-01<br>PING tomcat-net-01 (192.168.0.2) 56(84) bytes of data.<br>64 bytes from tomcat-net-01.mynet (192.168.0.2): icmp_seq&#x3D;1 ttl&#x3D;64 time&#x3D;0.065 ms<br>64 bytes from tomcat-net-01.mynet (192.168.0.2): icmp_seq&#x3D;2 ttl&#x3D;64 time&#x3D;0.052 ms<br>结论：假设要跨网络操作别人，就需要使用docker network connect连通！。。。。</p>
-<ol start="5">
-<li>实战：部署redis集群</li>
-</ol>
-
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/07/15/practise/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-关于对-计算机网络(自上向下)一书的理解和笔记" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/07/10/%E5%85%B3%E4%BA%8E%E5%AF%B9-%E8%AE%A1%E7%AE%97%E6%9C%BA%E7%BD%91%E7%BB%9C(%E8%87%AA%E4%B8%8A%E5%90%91%E4%B8%8B)%E4%B8%80%E4%B9%A6%E7%9A%84%E7%90%86%E8%A7%A3%E5%92%8C%E7%AC%94%E8%AE%B0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-数据结构和算法" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -930,80 +230,6 @@ https://hub.docker.com/ 注册自己的账号
 
 
   
-    <article id="post-蓝桥杯算法练习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2023/02/16/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/">蓝桥杯算法练习</a>
-    </h1>
-  
-
-        
-        <a href="/2023/02/16/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" class="archive-article-date">
-  	<time datetime="2023-02-16T07:45:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-16</time>
-</a>
-        
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h1 id="Made-by-Code-OneMING"><a href="#Made-by-Code-OneMING" class="headerlink" title="Made by Code-OneMING"></a>Made by Code-OneMING</h1>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">我的第六篇博客</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2023/02/16/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
     <article id="post-常信linux" class="article article-type-post  article-index" itemscope itemprop="blogPost">
   <div class="article-inner">
     
@@ -1049,6 +275,80 @@ https://hub.docker.com/ 注册自己的账号
       
         <p class="article-more-link">
           <a class="article-more-a" href="/2023/02/16/%E5%B8%B8%E4%BF%A1linux/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-蓝桥杯算法练习" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/02/16/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/">蓝桥杯算法练习</a>
+    </h1>
+  
+
+        
+        <a href="/2023/02/16/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/" class="archive-article-date">
+  	<time datetime="2023-02-16T07:45:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-02-16</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Made-by-Code-OneMING"><a href="#Made-by-Code-OneMING" class="headerlink" title="Made by Code-OneMING"></a>Made by Code-OneMING</h1>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">我的第六篇博客</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/02/16/%E8%93%9D%E6%A1%A5%E6%9D%AF%E7%AE%97%E6%B3%95%E7%BB%83%E4%B9%A0/">展开全文 >></a>
         </p>
       
 
@@ -1226,10 +526,352 @@ https://hub.docker.com/ 注册自己的账号
 
 
   
+    <article id="post-关于实现个人博客的搭建" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <p>c</p>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/02/14/%E5%85%B3%E4%BA%8E%E5%AE%9E%E7%8E%B0%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%E7%9A%84%E6%90%AD%E5%BB%BA/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
   
-    <nav id="page-nav">
-      <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &amp;raquo;</a>
-    </nav>
+    <article id="post-Docker命令收集" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/01/15/Docker%E5%91%BD%E4%BB%A4%E6%94%B6%E9%9B%86/">docker命令的收集</a>
+    </h1>
+  
+
+        
+        <a href="/2023/01/15/Docker%E5%91%BD%E4%BB%A4%E6%94%B6%E9%9B%86/" class="archive-article-date">
+  	<time datetime="2023-01-15T07:36:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Made-by-Code-OneMING"><a href="#Made-by-Code-OneMING" class="headerlink" title="Made by Code-OneMING"></a>Made by Code-OneMING</h1><h2 id="基本命令"><a href="#基本命令" class="headerlink" title="基本命令"></a>基本命令</h2><h3 id="1-帮助命令"><a href="#1-帮助命令" class="headerlink" title="1.帮助命令"></a>1.帮助命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker version      #显示版本信息</span><br><span class="line">docker info         #显示docker系统信息</span><br><span class="line">docker 命令 --help  #万能命令</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="2-镜像命令"><a href="#2-镜像命令" class="headerlink" title="2.镜像命令"></a>2.镜像命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">docker images       #查看所有本地的镜像</span><br><span class="line">docker images -a    #列出所有的镜像,查看镜像id</span><br><span class="line">docker search [镜像名称]    #搜索指定镜像</span><br><span class="line">docker search [镜像名称] --filter=STARS=5000  #过滤搜索</span><br><span class="line">docker pull [镜像名称]</span><br><span class="line">docker -rmi -f [镜像id]         #删除指定容器镜像</span><br><span class="line">docker -rmi -f $(docker images -aq)     #查出所有镜像id递归删除全部容器</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-容器命令"><a href="#3-容器命令" class="headerlink" title="3.容器命令"></a>3.容器命令</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br></pre></td><td class="code"><pre><span class="line">docker run [可选参数] image</span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">参数说明</span></span><br><span class="line">--name=&#x27;Name&#x27;                       容器名字   tomcat01 tomcat02,用来区分容器</span><br><span class="line">-d                                  后台方式运行</span><br><span class="line">-it                                 交互方式运行，进入容器查看内容</span><br><span class="line">[docker run centos -it /bin/bash]   以交互方式运行centos</span><br><span class="line">-p                                  指定容器端口   -p   8080:8080</span><br><span class="line">                                    -p ip:主机端口：容器端口</span><br><span class="line">                                    -p  主机端口:容器端口</span><br><span class="line">                                    -p  容器端口</span><br><span class="line">-P                                      随机到指定端口</span><br><span class="line">docker rm 容器id                    #删除指定容器</span><br><span class="line">docker rm  -f $(dockr ps -aq)       #删除所有容器 </span><br><span class="line"><span class="meta prompt_">#</span><span class="language-bash">退出容器</span></span><br><span class="line">ctrl+p+q                             容器不停止退出</span><br><span class="line"></span><br><span class="line">docker start 容器id                 #启动容器/重启容器</span><br><span class="line">docker stop  容器id                 #停止容器</span><br><span class="line">docker  kill 容器id                 #强制停止当前容器   </span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="列出所有运行的容器"><a href="#列出所有运行的容器" class="headerlink" title="列出所有运行的容器"></a>列出所有运行的容器</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker ps           #列出当前正在运行的容器</span><br><span class="line">docker ps -a        #列出当前正在运行的容器+列出历史容器</span><br><span class="line">docker ps -q        #只显示最近创建的容器</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="查看日志"><a href="#查看日志" class="headerlink" title="查看日志"></a>查看日志</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">docker logs -f -t --tail</span><br><span class="line">--tf            #显示日志</span><br><span class="line">--tail 数字 镜像id   #要显示日志条数</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h3 id="查看docker容器中进程信息"><a href="#查看docker容器中进程信息" class="headerlink" title="查看docker容器中进程信息"></a>查看docker容器中进程信息</h3><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker top 容器id   </span><br><span class="line">docker inspect  id         #查看镜像源数据 </span><br></pre></td></tr></table></figure>
+
+<h4 id="docker容器化数据同步"><a href="#docker容器化数据同步" class="headerlink" title="docker容器化数据同步"></a>docker容器化数据同步</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">docker run -it -v   主机目录:容器目录</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">docker run -it -v /home/ceshi:/home centos /bin/bash</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+<h4 id="删除容器"><a href="#删除容器" class="headerlink" title="删除容器"></a>删除容器</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">docker rm 容器id                </span><br><span class="line">docker rm -f $(docker ps -q)        #删除全部容器</span><br><span class="line">docker ps -q|xargs docker rm        #删除所有容器</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"></span><br><span class="line">#### 查看日志    docker logs -tf --tail 容器id </span><br><span class="line">#### 查看镜像的元数据     docker inspect 容器id</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<h4 id="进入当前正在运行的容器"><a href="#进入当前正在运行的容器" class="headerlink" title="进入当前正在运行的容器"></a>进入当前正在运行的容器</h4><p>我们通常容器都是使用后台方式运行的，需要进入容器，修改一些配置<br>docker exec -it 容器id &#x2F;bin&#x2F;bash</p>
+<p> docker exec        # 进入容器后开启一个新的终端，可以再里面操作（常用）<br> docker attach        # 进入容器正在执行的终端，不会启动新的进程。</p>
+<h4 id="从容器内拷贝文件到主机上"><a href="#从容器内拷贝文件到主机上" class="headerlink" title="从容器内拷贝文件到主机上"></a>从容器内拷贝文件到主机上</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">docker cp 容器id:容器内路径 目的主机的路径  </span><br><span class="line">拷贝是一个手动过程，未来我们使用 -v 卷的技术，可以实现，自动同步（容器内的/home路径和主机上的/home路径打通）</span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+<ol start="4">
+<li>匿名和具名挂载</li>
+</ol>
+<h4 id="匿名挂载"><a href="#匿名挂载" class="headerlink" title="匿名挂载"></a>匿名挂载</h4><p>docker run -d -p –name nginx01 -v &#x2F;etc&#x2F;nginx nginx</p>
+<h4 id="查看所有的volume的情况"><a href="#查看所有的volume的情况" class="headerlink" title="查看所有的volume的情况"></a>查看所有的volume的情况</h4><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker volume ls<br>DRIVER    VOLUME NAME<br>local<br>     964b8e505f12f65fb23fd21f05cfa9ecd6c2c6b2ca89c0e44f168bb017dfabd6</p>
+<h4 id="这种就是匿名挂载：我们在-v挂载目录时，只写了容器内的路径，没有写容器外的路径。"><a href="#这种就是匿名挂载：我们在-v挂载目录时，只写了容器内的路径，没有写容器外的路径。" class="headerlink" title="这种就是匿名挂载：我们在-v挂载目录时，只写了容器内的路径，没有写容器外的路径。"></a>这种就是匿名挂载：我们在-v挂载目录时，只写了容器内的路径，没有写容器外的路径。</h4><h4 id="具名挂载"><a href="#具名挂载" class="headerlink" title="具名挂载"></a>具名挂载</h4><p>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker run -d -p 3344:80 –name nginx02 -v juming-nginx:&#x2F;etc&#x2F;nginx nginx<br>[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker volume ls<br>DRIVER    VOLUME NAME<br>local     964b8e505f12f65fb23fd21f05cfa9ecd6c2c6b2ca89c0e44f168bb017dfabd6<br>local     juming-nginx</p>
+<h4 id="通过-v-卷名-容器内的路径（具名挂载）"><a href="#通过-v-卷名-容器内的路径（具名挂载）" class="headerlink" title="通过 -v 卷名:容器内的路径（具名挂载）"></a>通过 -v 卷名:容器内的路径（具名挂载）</h4><p>所有的docker容器内的卷，没有指定目录的情况下都是在&#x2F;var&#x2F;lib&#x2F;docker&#x2F;volumes&#x2F;xxxx&#x2F;_data”（xxxx是卷名）<br>我们通过具名挂载可以方便的找到我们的一个卷，大多数情况在使用的具名挂载</p>
+<h4 id="如何确定是具名挂载，还是匿名挂载，还是指定路径挂载"><a href="#如何确定是具名挂载，还是匿名挂载，还是指定路径挂载" class="headerlink" title="如何确定是具名挂载，还是匿名挂载，还是指定路径挂载"></a>如何确定是具名挂载，还是匿名挂载，还是指定路径挂载</h4><p>-v 容器内的路径                # 匿名挂载<br>-v 卷名:容器内的路径        # 具名挂载<br>-v &#x2F;宿主机路径:容器内路径    # 指定路径挂载<br>拓展：</p>
+<h4 id="通过-v-容器内的路径-ro-rw-改变读写权限"><a href="#通过-v-容器内的路径-ro-rw-改变读写权限" class="headerlink" title="通过 -v 容器内的路径:ro    rw    改变读写权限"></a>通过 -v 容器内的路径:ro    rw    改变读写权限</h4><p>ro    read only    # 只读<br>rw    read write    # 可读可写</p>
+<h4 id="一旦设置了容器权限，容器对我们挂载出来的内容就有了限定。"><a href="#一旦设置了容器权限，容器对我们挂载出来的内容就有了限定。" class="headerlink" title="一旦设置了容器权限，容器对我们挂载出来的内容就有了限定。"></a>一旦设置了容器权限，容器对我们挂载出来的内容就有了限定。</h4><p>docker run -d -p 3344:80 –name nginx02 -v juming-nginx:&#x2F;etc&#x2F;nginx:ro nginx<br>docker run -d -p 3344:80 –name nginx02 -v juming-nginx:&#x2F;etc&#x2F;nginx:rw nginx</p>
+<h4 id="只要看到ro就说明这个路径只能通过宿主机来操作，容器内部是无法操作！"><a href="#只要看到ro就说明这个路径只能通过宿主机来操作，容器内部是无法操作！" class="headerlink" title="只要看到ro就说明这个路径只能通过宿主机来操作，容器内部是无法操作！"></a>只要看到ro就说明这个路径只能通过宿主机来操作，容器内部是无法操作！</h4><p>多个mysql实现数据共享：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker run -d -p 7777:3306 -v /home/mysql/conf:/etc/mysql/conf.d -v /home/mysql/data:/var/lib/mysql -e MYSQL_ROOT_PASSWORD=123456 --name mysql01 mysql:5.7</span><br><span class="line">[root@iZbp13qr3mm4ucsjumrlgqZ ~]# docker run -d -p 7777:3306 -e MYSQL_ROOT_PASSWORD=123456 --name mysql02 --volumes-from mysql01 mysql:5.7</span><br><span class="line"># 这个时候，可以实现两个容器数据同步！</span><br><span class="line">结论：</span><br><span class="line">容器之间配置信息的传递，数据卷容器的生命同期一直持续到没有容器使用为止。</span><br><span class="line">但是一旦你持久化到了本地，这个时候，本地的数据是不会删除的！</span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br></pre></td></tr></table></figure>
+
+
+
+
+
+
+<h4 id="DockerFile介绍"><a href="#DockerFile介绍" class="headerlink" title="DockerFile介绍"></a>DockerFile介绍</h4><p>dockerfile是用来构建docker镜像的文件！命令参数脚本！<br>构建步骤：<br>1、编写一个dockerfile文件<br>2、docker build 构建成为一个镜像<br>3、docker run 运行镜像<br>4、docker push发布镜像（DockerHub、阿里云镜像仓库！）</p>
+<h4 id="DockerFile的命令"><a href="#DockerFile的命令" class="headerlink" title="DockerFile的命令"></a>DockerFile的命令</h4><p>以前的话我们就是使用别人的，现在我们知道了这些指令后，我们来练习自己写一个镜像！  </p>
+<p>FROM        # 基础镜像，一切从这里开始构建<br>MAINTAINER    # 镜像是谁写的：姓名+邮箱<br>RUN            # 镜像构建的时候需要运行的命 令<br>ADD            # 步骤：tomcat镜像，这个tomcat压缩包！添加内容<br>WORKDIR        # 镜像的工作目录<br>VOLUME        # 挂载的目录<br>EXPOSE        # 暴露端口配置<br>CMD            # 指定这个容器启动的时候要运行的命令，只有最后一个会生效，可被替代<br>ENTRYPOINT    # 指定这个容器启动的时候要运行的命令，可以追加命令<br>ONBUILD        # 当构建一个被继承DockerFile这个时候就会运行ONBUILD的指令。触发指令<br>COPY        # 类似ADD，将我们文件拷贝到镜像中<br>ENV            # 构建的时候设置环境变量！  </p>
+<h2 id="Docker网络详解"><a href="#Docker网络详解" class="headerlink" title="Docker网络详解"></a>Docker网络详解</h2>
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">我的文章</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/01/15/Docker%E5%91%BD%E4%BB%A4%E6%94%B6%E9%9B%86/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-关于对openstack平台搭建的学习记录" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/01/15/%E5%85%B3%E4%BA%8E%E5%AF%B9openstack%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">关于实现openstack的搭建</a>
+    </h1>
+  
+
+        
+        <a href="/2023/01/15/%E5%85%B3%E4%BA%8E%E5%AF%B9openstack%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/" class="archive-article-date">
+  	<time datetime="2023-01-15T07:36:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-15</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Made-by-Code-OneMING"><a href="#Made-by-Code-OneMING" class="headerlink" title="Made by Code-OneMING"></a>Made by Code-OneMING</h1><p>1.1基础运维<br>#基础环境<br>net.ifnames&#x3D;0 biosdevname&#x3D;0</p>
+<p>hostnamectl set-hostname controller&#x2F;compute</p>
+<p>vi &#x2F;etc&#x2F;sysconfig&#x2F;networkspirts&#x2F;ifcfg-eth1 改yes</p>
+<p>vi &#x2F;etc&#x2F;hosts 改映射</p>
+<p>1.2 yum源配置<br>mv &#x2F;etc&#x2F;yum.repo&#x2F;*&#x2F; &#x2F;opt&#x2F;<br>vi &#x2F;etc&#x2F;yum.repo&#x2F;http.repo</p>
+<p>配置内容:<br>[centos]<br>name&#x3D;centos<br>baseurl&#x3D;<a target="_blank" rel="noopener" href="http://10.16.0.0:30808/1-iaas/centos/">http://10.16.0.0:30808/1-iaas/centos/</a><br>gpgcheck&#x3D;0<br>enabled&#x3D;1<br>[iaas]<br>name&#x3D;iaas<br>baseurl&#x3D;<a target="_blank" rel="noopener" href="http://10.16.0.o:30808/1-iaas/iaas/iaas-repo">http://10.16.0.o:30808/1-iaas/iaas/iaas-repo</a><br>gpgcheck&#x3D;0<br>enabled&#x3D;1<br>:wq</p>
+<p>yum repolist</p>
+<p>1.3时间同步配置<br>yum install iaas-xiandian -y  (compute&#x2F;controller)</p>
+<p>vi &#x2F;etc&#x2F;selinux&#x2F;config  改pre</p>
+<p>(controller&#x2F;compute) vi &#x2F;etc&#x2F;xiandian&#x2F;config  (配置文件)</p>
+<p>两个快捷操作:<br>:&#x2F;%s&#x2F;^#&#x2F;&#x2F;<br>:&#x2F;%s&#x2F;SS&#x3D;&#x2F;&amp;000000&#x2F;g<br>:Wq</p>
+<p>（两个节点）iaas-pre-host.sh</p>
+<p>1.4计算节点分区<br>lsblk<br>fdisk &#x2F;dev&#x2F;sdb</p>
+<p>n p 1 +20G<br>n p 2 +20G<br>p w</p>
+<p>2.1基础安装(xiandian已经完成)</p>
+<p>2.2数据库安装</p>
+<p>controller iaas-install-mysql.sh</p>
+<p>compute yum -y install MySQL-python</p>
+<p>vi &#x2F;etc&#x2F;my.cnf<br>改5000<br>max_allowed_packet&#x3D;30M<br>:wq<br>systemctl restart mariadb</p>
+<p>2.3keystone安装<br>iaas-install-keystone.sh</p>
+<p>openstack user create –domain demo –password 000000 chinaskill<br>source &#x2F;etc&#x2F;keystone&#x2F;admin-…<br>2.4glance安装<br>iaas-install-glance.sh controller<br>上传镜像文件<br>glance image-create –name cirros –disk-format qcow2 –container-format bare –min-disk 10 &lt; sdsdsds</p>
+<p>2.5nova两节点安装<br>iaas-install-nova-controller&#x2F;compute.sh<br>vi &#x2F;etc&#x2F;nova&#x2F;nova.conf<br>cpu_allocation_ratio&#x3D;4.0<br>ram_allocation_ratio&#x3D;1.5<br>reserved_host_memory_mb&#x3D;2048<br>reserved_host_disk_mb&#x3D;10240</p>
+<p>2.6neutron<br>改 vi &#x2F;usr&#x2F;local&#x2F;bin&#x2F;iaas-install-neutron<br>iaas-install-neutron.sh</p>
+<p>2.7 doshboard安装 controller<br>访问：<a target="_blank" rel="noopener" href="http://10.16.0.0/dashboard">http://10.16.0.0/dashboard</a></p>
+<p>2.8swift<br>两个节点<br>iaas-install-swift-controller.sh<br>iaas-install-swift-compute.sh<br>source<br>swift post examcontainer<br>openstack container list</p>
+<p>2.9cinder<br>双节点安装<br>iaas-install-cinder-controller.sh<br>iaas-install-cinder-compute.sh<br>cinder create –name blockvolume 2</p>
+<p>2.10 heat<br>iaas-install-heat.sh</p>
+<p>3.1 heat管理<br>vi &#x2F;root&#x2F;heat-image.yaml<br>heat_template_version: 2014-10-16<br>description: create image template<br>resources:<br>  heat-image:<br>    type: OS::Glance::Image<br>    properties:<br>       container_format: bare<br>       disk_format: qcow2<br>       min_disk: 20<br>       min_ram: 2048<br>       location :swift:sssssss<br>       :wq</p>
+<p>openstack stack create -t heat-image.yaml heat-image<br>cat &#x2F;root&#x2F;heat-image.yaml</p>
+<p>3.2 修改glance后端存储<br>两个节点-yum -y install nfs-utils rpcbind<br>mkdir -p &#x2F;mnt&#x2F;test<br>vi &#x2F;etc&#x2F;exports<br>添加:<br>&#x2F;mnt&#x2F;test 10.16.0.0&#x2F;16(rw,sync,no_root_squash)</p>
+<p>chmod -R 777 &#x2F;mnt&#x2F;test<br>systemctl restart rpcbind nfs<br>exportfs -r<br>showmount -e 10.16.93.154<br>mount -t nfs 10.16.93.154:&#x2F;mnt&#x2F;test &#x2F;var&#x2F;lib&#x2F;glance&#x2F;images<br>chown -R glance:glance &#x2F;var&#x2F;lib&#x2F;glance&#x2F;images<br>ls &#x2F;var&#x2F;lib&#x2F;glace&#x2F;images</p>
+<p>3.3openstack参数调优<br>vi &#x2F;etc&#x2F;security&#x2F;limits.conf<br>最后两行添加<br>openstack soft nofile 10240<br>openstack hard nofile 10240</p>
+<p>vi &#x2F;etc&#x2F;sysctl.conf<br>添加:fs-max&#x3D; 10240</p>
+<p>vi &#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;rabb….<br>添加:<br>TimeoutStartSec&#x3D; 3600<br>LimitNOFILE&#x3D; 10240<br>systemctl daemon-reload<br>systemctl restart rabbitmq-server.service<br>cat &#x2F;etc&#x2F;sercurity&#x2F;limits.conf<br>cat &#x2F;etc&#x2F;sysctl.cof<br>cat &#x2F;usr&#x2F;lib&#x2F;systemd&#x2F;system&#x2F;rabb….</p>
+<p>5.1 redis主从<br>两平台 yum -y install redis</p>
+<p>controller<br>vi &#x2F;etc&#x2F;redis.conf<br>注释bind 127.0.0.1<br>protected-mode no<br>dasemonize yes<br>requirepass foodbared 改为”123456”<br>masterauth “123456”<br>appendonly yes<br>systemctl restart redis</p>
+<p>compute<br>vi &#x2F;etc&#x2F;redis.conf<br>注释bind 127.0.0.1<br>protected-mode no<br>dasemonize yes<br>requirepass foodbared 改为”123456”<br>slaveof 10.16.93.154 6379<br>masterauth “123456”<br>appendonly yes<br>systemctl restart redis</p>
+
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color5">我的文章</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/01/15/%E5%85%B3%E4%BA%8E%E5%AF%B9openstack%E5%B9%B3%E5%8F%B0%E6%90%AD%E5%BB%BA%E7%9A%84%E5%AD%A6%E4%B9%A0%E8%AE%B0%E5%BD%95/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-关于对python数据结构与算法的学习理解" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="article-title" href="/2023/01/06/%E5%85%B3%E4%BA%8E%E5%AF%B9python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%90%86%E8%A7%A3/">关于对python数据结构与算法的学习理解</a>
+    </h1>
+  
+
+        
+        <a href="/2023/01/06/%E5%85%B3%E4%BA%8E%E5%AF%B9python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%90%86%E8%A7%A3/" class="archive-article-date">
+  	<time datetime="2023-01-06T13:36:32.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2023-01-06</time>
+</a>
+        
+      </header>
+    
+    <div class="article-entry" itemprop="articleBody">
+      
+        <h1 id="Made-by-Code-OneMING"><a href="#Made-by-Code-OneMING" class="headerlink" title="Made by Code-OneMING"></a>Made by Code-OneMING</h1>
+        
+      
+
+      
+    </div>
+    <div class="article-info article-info-index">
+      
+      
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">我的第三篇博客</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+      
+
+      
+        <p class="article-more-link">
+          <a class="article-more-a" href="/2023/01/06/%E5%85%B3%E4%BA%8E%E5%AF%B9python%E6%95%B0%E6%8D%AE%E7%BB%93%E6%9E%84%E4%B8%8E%E7%AE%97%E6%B3%95%E7%9A%84%E5%AD%A6%E4%B9%A0%E7%90%86%E8%A7%A3/">展开全文 >></a>
+        </p>
+      
+
+      
+      <div class="clearfix"></div>
+    </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
   
 
 
@@ -1335,15 +977,15 @@ return o(i(t),arguments.length<2?void 0:u(arguments[1]))}})},function(t,n,r){var
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color3">我的第六篇博客</a>
-              </li>
-             
-              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">我的第四篇博客</a>
               </li>
              
               <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">我的第五篇博客</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">我的第六篇博客</a>
               </li>
             
             <div class="clearfix"></div>
